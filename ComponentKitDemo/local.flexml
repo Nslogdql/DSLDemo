@@ -72,7 +72,7 @@
                         key="Text"
                         textSize="10"
                         text="杭小宝给您发了2条消息"
-                        width="100"
+                        width="160"
                         height="20"></Text>
                 </Flex>
             </Flex>
@@ -81,28 +81,21 @@
         </Flex>
     
         
-        
-        
-        
-        <Flex
-            key="Flex"
-            alignItems="center"
-            flexDirection="row"
-            justifyContent="center"
-            width="360">
-        </Flex>
-        
 
-        
         <Flex
                 key="Flex"
-                alignItems="flexStart"
+                width="155"
+                alignItems="center"
                 flexDirection="column"
-                justifyContent="center"
+                background="#FF018786"
+                justifyContent="flexStart">
+        <Flex
+                key="Flex"
+                flexDirection="column"
                 marginTop="10"
                 background="#ffffff"
-                padding="10"
-                width="300">
+                width="200"
+                height="100">
             <Text
                     key="Text"
                     textSize="10"
@@ -118,7 +111,7 @@
                     width="100"
                     height="60"></Text>
         </Flex>
-        
+        </Flex>
         
         <Flex
                 key="Flex"
@@ -126,7 +119,18 @@
                 flexDirection="row"
                 justifyContent="spaceBetween"
                 marginTop="20">
+        <Flex
+                key="Flex"
+                alignItems="flexStart"
+                flexDirection="row"
+                justifyContent="spaceBetween"
+                marginTop="20">
                 <Flex
+                        key="Flex"
+                        alignItems="flexStart"
+                        flexDirection="column"
+                        justifyContent="flexStart">
+                    <Flex
                         key="Flex"
                         alignItems="flexStart"
                         flexDirection="column"
@@ -142,6 +146,7 @@
                             background="#4BA0FF"
                             text="大家都在买"
                             ></Text>
+                    </Flex>
                     <Flex
                             key="Flex"
                             width="155"
@@ -176,6 +181,11 @@
                         alignItems="flexStart"
                         flexDirection="column"
                         justifyContent="flexStart">
+                    <Flex
+                        key="Flex"
+                        alignItems="flexStart"
+                        flexDirection="column"
+                        justifyContent="flexStart">
                     <Text
                             key="Text"
                             width="80"
@@ -186,6 +196,7 @@
                             textColor="#ffffff"
                             background="#FF4081"
                             text="明星理财榜"></Text>
+                    </Flex>
                     <Flex
                             key="Flex"
                             width="155"
@@ -223,7 +234,7 @@
                     </Flex>
                 </Flex>
         </Flex>
-        
+        </Flex>
 
         
         

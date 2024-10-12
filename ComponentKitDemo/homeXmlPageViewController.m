@@ -133,7 +133,7 @@
         Flex *Flexmodel = Flexmodelitem[i];
         UIView *contentView = [[UIView alloc]init];
         if (Flexmodel.background) {
-            contentView.backgroundColor = [UIColor colorWithHexString_xt:lexmodel.background];
+            contentView.backgroundColor = [UIColor colorWithHexString_xt:Flexmodel.background];
         }else{
             contentView.backgroundColor = [UIColor whiteColor];
         }
