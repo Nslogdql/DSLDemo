@@ -14,6 +14,7 @@
 #import "UIColor+Hex.h"
 #import "flexItemLab.h"
 #import "flexItemIMG.h"
+#import "UIColor+Hex.h"
 @interface homeXmlPageViewController ()
 
 @end
@@ -131,7 +132,12 @@
     for (NSInteger i = 0; i < Flexmodelitem.count; i++ ) {
         Flex *Flexmodel = Flexmodelitem[i];
         UIView *contentView = [[UIView alloc]init];
-        contentView.backgroundColor = [UIColor whiteColor];
+        if (Flexmodel.background) {
+            contentView.backgroundColor = [UIColor colorWithHexString_xt:lexmodel.background];
+        }else{
+            contentView.backgroundColor = [UIColor whiteColor];
+        }
+        
         [contentView configureLayoutWithBlock:^(YGLayout * layout) {
             layout.isEnabled = YES;
             if([Flexmodel.flexDirection isEqualToString: @"column"]){
