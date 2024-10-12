@@ -66,6 +66,8 @@
         
     }];
     [scroll addSubview: contentView];
+    
+    
     if(self.rootFlex.FlexorderItem.count > 0){
         for (NSInteger i = 0; i < self.rootFlex.FlexorderItem.count; i++) {
             id itemModel  = self.rootFlex.FlexorderItem[i];
