@@ -137,11 +137,6 @@
                 flexDirection="row"
                 justifyContent="spaceBetween"
                 marginTop="20">
-                <Flex
-                        key="Flex"
-                        alignItems="flexStart"
-                        flexDirection="column"
-                        justifyContent="flexStart">
                     <Flex
                         key="Flex"
                         alignItems="flexStart"
@@ -187,13 +182,7 @@
                                 textSize="11"
                                 text="近一年变化"></Text>
                     </Flex>
-                </Flex>
                 <Flex
-                        key="Flex"
-                        alignItems="flexStart"
-                        flexDirection="column"
-                        justifyContent="flexStart">
-                    <Flex
                         key="Flex"
                         alignItems="flexStart"
                         flexDirection="column"
@@ -244,7 +233,6 @@
                                 textSize="11"
                                 text="业绩比较基准平均3.0%"></Text>
                     </Flex>
-                </Flex>
         </Flex>
         </Flex>
 
