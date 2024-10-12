@@ -1,0 +1,1305 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01E99129F0107495BB5D9F48BF881CB0 /* Yoga-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CCDC6DB17B7567A6CEB2522F3AA78304 /* Yoga-dummy.m */; };
+		022640DDEB6F6554C7FA878F430444F7 /* YGEnums.h in Headers */ = {isa = PBXBuildFile; fileRef = F15878F7DC5D3492F2AAC82DF53801B1 /* YGEnums.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		025DD5DEBDC74EF7E6F63EFB08751ABA /* log.h in Headers */ = {isa = PBXBuildFile; fileRef = 61ABE4279094F6B4BD13A0B1C622E8F9 /* log.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		0D911CE2F0E4FE1141D2C71097DC952D /* Pods-ComponentKitDemoTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CD4521A49FD3CD60737E0939E7CDA861 /* Pods-ComponentKitDemoTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1005CD89671B3D235F69F91F39A77F22 /* YGLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = A588518B110A22DD0A9CA1379950697A /* YGLayout.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		14DDB912AD7D9ACF198EA0465F5C5456 /* YGValue.h in Headers */ = {isa = PBXBuildFile; fileRef = A3B95FE30D07DE0C46EF808EC9ED01CA /* YGValue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		234D42F1F103237A6A5C7B84E673B298 /* BitUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 008041EB82C508C7DD4453D5A0B97CA2 /* BitUtils.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2FC12B2D58828E6D38649B5F17133DF5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */; };
+		31D2FF6D8789F061404EB5084D76195B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
+		379AA17F2EAA77E815AA0FA74CD06531 /* Pods-ComponentKitDemo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D40E94EAAF022A57B1220946E9AA847 /* Pods-ComponentKitDemo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3E3ABC9AE953C68EC382B6D7F0AA5133 /* CompactValue.h in Headers */ = {isa = PBXBuildFile; fileRef = D68DA854AAD048EA6A6E0BA52054A514 /* CompactValue.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		3E9FB75325578E1664745CF145EFEEDF /* YGLayout+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CB9F4182D36645AD28D445677893FA2 /* YGLayout+Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		42A1DCEB57C1A6B95466FAC2C1B06C62 /* YGStyle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B44BE44A173668CADFBAC7A77664CD8 /* YGStyle.cpp */; settings = {COMPILER_FLAGS = "-fno-omit-frame-pointer -fexceptions -Wall -Werror -Wextra -std=c++14 -fPIC -fno-objc-arc"; }; };
+		4607A51615035A2C0EDA0188E81954AE /* Yoga-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 580D5CE863E61255AF3B52E43554BDFC /* Yoga-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		46980AEAE417367914CBB58136743956 /* YGConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F8710FD5185311900DCC990A1550E8A /* YGConfig.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		469D7EA54F4885967E2C8C2B468A2D8A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
+		554A9F0A2BF926BD8E67BDC79990F433 /* YGNodePrint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 896B0470F760DE5727405C4730CB86F1 /* YGNodePrint.cpp */; settings = {COMPILER_FLAGS = "-fno-omit-frame-pointer -fexceptions -Wall -Werror -Wextra -std=c++14 -fPIC -fno-objc-arc"; }; };
+		57A0CB0E943358B765BF5C4F954A8924 /* YGLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB73C1CD4B6FF8C30F5E3FADA0641E3 /* YGLayout.m */; };
+		58DD8A10817128919572DAA895108840 /* YGValue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1711A1BE7C69C7AA83A4E0E26A1BECF5 /* YGValue.cpp */; settings = {COMPILER_FLAGS = "-fno-omit-frame-pointer -fexceptions -Wall -Werror -Wextra -std=c++14 -fPIC -fno-objc-arc"; }; };
+		622B794DFC8DC546AF18158F38E8E559 /* YogaKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2232001E1DB1986C632B1C8CA055191F /* YogaKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		626837D38027F98804EBA470F5FF95BF /* YGNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 79EC6C9391F0014555192B230982D026 /* YGNode.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		6CD6C3D080AC10735A8EF2DF02E0A53F /* YGNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4102844FDE88E01306B6129C7EA13AFF /* YGNode.cpp */; settings = {COMPILER_FLAGS = "-fno-omit-frame-pointer -fexceptions -Wall -Werror -Wextra -std=c++14 -fPIC -fno-objc-arc"; }; };
+		6EA7D3157DCB184071B4170A8CFC0889 /* Pods-ComponentKitDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC6CDD863ACD09BEA3E26A3FD0BFB78 /* Pods-ComponentKitDemo-dummy.m */; };
+		6FD290808F9DDFBD2D66B10702DA6D5B /* YGEnums.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CB9FD3ACB3B689B4CED31A7093F237C /* YGEnums.cpp */; settings = {COMPILER_FLAGS = "-fno-omit-frame-pointer -fexceptions -Wall -Werror -Wextra -std=c++14 -fPIC -fno-objc-arc"; }; };
+		7A887DF5753710185989A7F357D2C092 /* Pods-ComponentKitDemo-ComponentKitDemoUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AFE8716DFD48262EEDA46A09F461DC4 /* Pods-ComponentKitDemo-ComponentKitDemoUITests-dummy.m */; };
+		7C879E6F823AF34E55FC6C88C2D72795 /* Pods-ComponentKitDemoTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC84839412F06B7E9F821AA35351222 /* Pods-ComponentKitDemoTests-dummy.m */; };
+		7E07A3A7A88A537E5061498FC174FFED /* Pods-ComponentKitDemo-ComponentKitDemoUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4926FA406352A2E114C6514B57749618 /* Pods-ComponentKitDemo-ComponentKitDemoUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		85FDAEF24DBC8104C1A5555264F875B5 /* Yoga.h in Headers */ = {isa = PBXBuildFile; fileRef = 75E0A717FEA9582813452931765F29E3 /* Yoga.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		88D9F3B7DA1794B41AB57FAE0D9A2568 /* Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = BFD3ED7EEF26D214FF6A2294A067A95E /* Utils.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		8AE80919E66531F3E05EB6C9FEECE227 /* log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6304311017621E7C8AAB0248446FAE07 /* log.cpp */; settings = {COMPILER_FLAGS = "-fno-omit-frame-pointer -fexceptions -Wall -Werror -Wextra -std=c++14 -fPIC -fno-objc-arc"; }; };
+		8B83705C056C668C27D75E86F50C1D9F /* YGStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = D38A22150C46EBE3C0239375D5D04256 /* YGStyle.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		8D37F5A0D75556FDDF83985B163E6AC5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
+		92DA6F0E5B1085FC3747CF1C15EA5F50 /* YGMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B6A339337E415C28C7962A4E40C8A549 /* YGMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		941EB21642BD426869C1EF8C9CD3CFB2 /* UIView+Yoga.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FFB571B5085E6BF47F7AAE95D5251B /* UIView+Yoga.m */; };
+		9B39999E6780E6287EE655EF60C22503 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
+		9CAD437389D42573C991DFF97FA0095F /* YGLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 283B9753ACA60B3DF81B21D93E285FFB /* YGLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AF02C05C9272B537C9155175B9070F83 /* event.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A8B4129B2E085BD228699F2F77B1275 /* event.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B1596E30C53404F35B262AD871852C84 /* event.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76A029EE6AC0D9EEEDF94ECF2D85E626 /* event.cpp */; settings = {COMPILER_FLAGS = "-fno-omit-frame-pointer -fexceptions -Wall -Werror -Wextra -std=c++14 -fPIC -fno-objc-arc"; }; };
+		B328480BD544930A2214367E7AD115CC /* YGFloatOptional.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A8FEE1DFB6230FD3E5BA670C4134D4C /* YGFloatOptional.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B7677356465E6660DACC758D0F75E9D2 /* UIView+Yoga.h in Headers */ = {isa = PBXBuildFile; fileRef = B2833413FF73C50F880FEE1080A9B44D /* UIView+Yoga.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BBA0BAD2758EFCE468C1F509A39DE46B /* YogaKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F47411A8758E692BAC554385ED369E11 /* YogaKit-dummy.m */; };
+		BEB96B2C6AB43561000EEE8B7343B02B /* YGNodePrint.h in Headers */ = {isa = PBXBuildFile; fileRef = 14F5E1917ADB129F604544F7880854F7 /* YGNodePrint.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C54808DD82E90CE1CF31A3FDDE168F21 /* YGLayoutExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD0FB1AA526040057708CBB7EA0F35D /* YGLayoutExtensions.swift */; };
+		CD5D8584E8ACBDA71D22A8AA99D21178 /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3EA04081EF4BC28ABEEC9CA7F395677 /* Utils.cpp */; settings = {COMPILER_FLAGS = "-fno-omit-frame-pointer -fexceptions -Wall -Werror -Wextra -std=c++14 -fPIC -fno-objc-arc"; }; };
+		D2EED0055ED355C8C664E51B326B7E0A /* YGConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A948E58EF1AACFCDE59A5A9020BE8552 /* YGConfig.cpp */; settings = {COMPILER_FLAGS = "-fno-omit-frame-pointer -fexceptions -Wall -Werror -Wextra -std=c++14 -fPIC -fno-objc-arc"; }; };
+		D3AE729EC959A5F6ACAD69F6E2FE43C7 /* Yoga.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 39ED48B584C00F92FCD2BF9077E43C4E /* Yoga.cpp */; settings = {COMPILER_FLAGS = "-fno-omit-frame-pointer -fexceptions -Wall -Werror -Wextra -std=c++14 -fPIC -fno-objc-arc"; }; };
+		D3C7C0A80E72385FFFDD9B8E32390AB2 /* Yoga-internal.h in Headers */ = {isa = PBXBuildFile; fileRef = AC6C6A99C445D810787B5E73D06738A0 /* Yoga-internal.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E39A611AA4404F86BAD1BE4D134BF00F /* YGLayout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4FD6BB63C49EF103D732A944915267D9 /* YGLayout.cpp */; settings = {COMPILER_FLAGS = "-fno-omit-frame-pointer -fexceptions -Wall -Werror -Wextra -std=c++14 -fPIC -fno-objc-arc"; }; };
+		FDA55003EC12A922479FCFF3EEE4662D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0F7E06AE6E7351BA4E26E3D379114D4E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EC78DC23017E46B939F3C4C90E37F1C5;
+			remoteInfo = "Pods-ComponentKitDemo";
+		};
+		377ACDBF0E8A60C54211749B2B5CD2BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 32CA4CBD6B28983076BD93DA221AD027;
+			remoteInfo = YogaKit;
+		};
+		41964239170137EFBEA2727192461599 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2B25F90D819B9ADF2AF2D8733A890333;
+			remoteInfo = Yoga;
+		};
+		AA0B4037EDDF01671DE36265135B2131 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2B25F90D819B9ADF2AF2D8733A890333;
+			remoteInfo = Yoga;
+		};
+		B0F29641E00BD2E701BFB0209FB420E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2B25F90D819B9ADF2AF2D8733A890333;
+			remoteInfo = Yoga;
+		};
+		FD6AF77C1BD29E84EE0068E279819964 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 32CA4CBD6B28983076BD93DA221AD027;
+			remoteInfo = YogaKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		007DC38B1944CC15E153A1F44B4859C6 /* Pods-ComponentKitDemoTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ComponentKitDemoTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		008041EB82C508C7DD4453D5A0B97CA2 /* BitUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BitUtils.h; path = yoga/BitUtils.h; sourceTree = "<group>"; };
+		0125870CBA459BA9342F73416E7BEB4A /* Pods-ComponentKitDemo-ComponentKitDemoUITests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-ComponentKitDemo-ComponentKitDemoUITests"; path = Pods_ComponentKitDemo_ComponentKitDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B44BE44A173668CADFBAC7A77664CD8 /* YGStyle.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = YGStyle.cpp; path = yoga/YGStyle.cpp; sourceTree = "<group>"; };
+		0CB9F4182D36645AD28D445677893FA2 /* YGLayout+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "YGLayout+Private.h"; path = "YogaKit/Source/YGLayout+Private.h"; sourceTree = "<group>"; };
+		0D40E94EAAF022A57B1220946E9AA847 /* Pods-ComponentKitDemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ComponentKitDemo-umbrella.h"; sourceTree = "<group>"; };
+		0FE5BF65D3DA386F588B4F90040E063A /* Yoga.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Yoga.debug.xcconfig; sourceTree = "<group>"; };
+		118ED3A41E525C75BFE9C2E99328B3C5 /* Pods-ComponentKitDemo-ComponentKitDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ComponentKitDemo-ComponentKitDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		14F5E1917ADB129F604544F7880854F7 /* YGNodePrint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YGNodePrint.h; path = yoga/YGNodePrint.h; sourceTree = "<group>"; };
+		1711A1BE7C69C7AA83A4E0E26A1BECF5 /* YGValue.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = YGValue.cpp; path = yoga/YGValue.cpp; sourceTree = "<group>"; };
+		173A1391E88CCC571C901C5629D9A4ED /* YogaKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = YogaKit.modulemap; sourceTree = "<group>"; };
+		1A8FEE1DFB6230FD3E5BA670C4134D4C /* YGFloatOptional.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YGFloatOptional.h; path = yoga/YGFloatOptional.h; sourceTree = "<group>"; };
+		2232001E1DB1986C632B1C8CA055191F /* YogaKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YogaKit-umbrella.h"; sourceTree = "<group>"; };
+		27F3B9DDD73C81FB4BDD22FF9D641991 /* Yoga.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Yoga.modulemap; sourceTree = "<group>"; };
+		283B9753ACA60B3DF81B21D93E285FFB /* YGLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YGLayout.h; path = YogaKit/Source/YGLayout.h; sourceTree = "<group>"; };
+		29380300A041A168C7F85F1625BB941D /* Pods-ComponentKitDemo-ComponentKitDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ComponentKitDemo-ComponentKitDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		298F07F2707E8422B78CC7215514BFC7 /* YogaKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YogaKit-prefix.pch"; sourceTree = "<group>"; };
+		39ED48B584C00F92FCD2BF9077E43C4E /* Yoga.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = Yoga.cpp; path = yoga/Yoga.cpp; sourceTree = "<group>"; };
+		3E0F3A7D18F04E170849F369BBC89F45 /* YogaKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "YogaKit-Info.plist"; sourceTree = "<group>"; };
+		4102844FDE88E01306B6129C7EA13AFF /* YGNode.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = YGNode.cpp; path = yoga/YGNode.cpp; sourceTree = "<group>"; };
+		42FFB571B5085E6BF47F7AAE95D5251B /* UIView+Yoga.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+Yoga.m"; path = "YogaKit/Source/UIView+Yoga.m"; sourceTree = "<group>"; };
+		44C12768A3A1C0CA43382D1544D0358F /* Pods-ComponentKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ComponentKitDemo.release.xcconfig"; sourceTree = "<group>"; };
+		460B10882293163958F4F4A2B88950A0 /* Pods-ComponentKitDemoTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ComponentKitDemoTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		4926FA406352A2E114C6514B57749618 /* Pods-ComponentKitDemo-ComponentKitDemoUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ComponentKitDemo-ComponentKitDemoUITests-umbrella.h"; sourceTree = "<group>"; };
+		4AFAE5DD9B3E25EEDE6C1BC81B359594 /* Pods-ComponentKitDemoTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ComponentKitDemoTests.modulemap"; sourceTree = "<group>"; };
+		4FD6BB63C49EF103D732A944915267D9 /* YGLayout.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = YGLayout.cpp; path = yoga/YGLayout.cpp; sourceTree = "<group>"; };
+		51766194FBA46F018B9C8E824E24E48C /* Pods-ComponentKitDemo-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ComponentKitDemo-Info.plist"; sourceTree = "<group>"; };
+		51EE98E6198C72450CB10160262227E5 /* Pods-ComponentKitDemoTests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-ComponentKitDemoTests"; path = Pods_ComponentKitDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5359349B05D5A4759DD7F9F302A921DE /* YogaKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YogaKit.debug.xcconfig; sourceTree = "<group>"; };
+		580D5CE863E61255AF3B52E43554BDFC /* Yoga-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Yoga-umbrella.h"; sourceTree = "<group>"; };
+		5B3357A1CE67C0BF4AE31936A1BE6888 /* YogaKit */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = YogaKit; path = YogaKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		61ABE4279094F6B4BD13A0B1C622E8F9 /* log.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = log.h; path = yoga/log.h; sourceTree = "<group>"; };
+		6304311017621E7C8AAB0248446FAE07 /* log.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = log.cpp; path = yoga/log.cpp; sourceTree = "<group>"; };
+		65230F52D1465579FC32D7D14699BC39 /* Pods-ComponentKitDemo-ComponentKitDemoUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ComponentKitDemo-ComponentKitDemoUITests.modulemap"; sourceTree = "<group>"; };
+		65D0A19C165FA1126B1360680FE6DB12 /* Yoga */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Yoga; path = yoga.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		70532BEA0A2BF35AFF56687EAC0AE981 /* Pods-ComponentKitDemo */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-ComponentKitDemo"; path = Pods_ComponentKitDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		75E0A717FEA9582813452931765F29E3 /* Yoga.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Yoga.h; path = yoga/Yoga.h; sourceTree = "<group>"; };
+		76A029EE6AC0D9EEEDF94ECF2D85E626 /* event.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = event.cpp; path = yoga/event/event.cpp; sourceTree = "<group>"; };
+		79EC6C9391F0014555192B230982D026 /* YGNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YGNode.h; path = yoga/YGNode.h; sourceTree = "<group>"; };
+		828E96CDAA08575B7D551FC884972E92 /* Pods-ComponentKitDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ComponentKitDemo-frameworks.sh"; sourceTree = "<group>"; };
+		858B0065C541DC4135DEC22F5163E259 /* Pods-ComponentKitDemo-ComponentKitDemoUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ComponentKitDemo-ComponentKitDemoUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		896B0470F760DE5727405C4730CB86F1 /* YGNodePrint.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = YGNodePrint.cpp; path = yoga/YGNodePrint.cpp; sourceTree = "<group>"; };
+		8AFE8716DFD48262EEDA46A09F461DC4 /* Pods-ComponentKitDemo-ComponentKitDemoUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ComponentKitDemo-ComponentKitDemoUITests-dummy.m"; sourceTree = "<group>"; };
+		8BF4B853EC43F365C75CF0B6A77F5809 /* Yoga-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Yoga-Info.plist"; sourceTree = "<group>"; };
+		8D56C4C1E765CBC08130473BADA89111 /* Pods-ComponentKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ComponentKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		8EC6CDD863ACD09BEA3E26A3FD0BFB78 /* Pods-ComponentKitDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ComponentKitDemo-dummy.m"; sourceTree = "<group>"; };
+		8F8710FD5185311900DCC990A1550E8A /* YGConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YGConfig.h; path = yoga/YGConfig.h; sourceTree = "<group>"; };
+		919D11DBF0C6FDBC19AFC1E1D8E4CC2B /* Pods-ComponentKitDemo-ComponentKitDemoUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ComponentKitDemo-ComponentKitDemoUITests-frameworks.sh"; sourceTree = "<group>"; };
+		98D131799B84965D90B3D6CCB78ADF00 /* Yoga-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Yoga-prefix.pch"; sourceTree = "<group>"; };
+		9A8B4129B2E085BD228699F2F77B1275 /* event.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = event.h; path = yoga/event/event.h; sourceTree = "<group>"; };
+		9AD0FB1AA526040057708CBB7EA0F35D /* YGLayoutExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YGLayoutExtensions.swift; path = YogaKit/Source/YGLayoutExtensions.swift; sourceTree = "<group>"; };
+		9CB73C1CD4B6FF8C30F5E3FADA0641E3 /* YGLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YGLayout.m; path = YogaKit/Source/YGLayout.m; sourceTree = "<group>"; };
+		9CB9FD3ACB3B689B4CED31A7093F237C /* YGEnums.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = YGEnums.cpp; path = yoga/YGEnums.cpp; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9FC84839412F06B7E9F821AA35351222 /* Pods-ComponentKitDemoTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ComponentKitDemoTests-dummy.m"; sourceTree = "<group>"; };
+		A3B95FE30D07DE0C46EF808EC9ED01CA /* YGValue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YGValue.h; path = yoga/YGValue.h; sourceTree = "<group>"; };
+		A588518B110A22DD0A9CA1379950697A /* YGLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YGLayout.h; path = yoga/YGLayout.h; sourceTree = "<group>"; };
+		A948E58EF1AACFCDE59A5A9020BE8552 /* YGConfig.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = YGConfig.cpp; path = yoga/YGConfig.cpp; sourceTree = "<group>"; };
+		A9FDADE9275B4428B458259241D1A4B4 /* Pods-ComponentKitDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ComponentKitDemo-acknowledgements.plist"; sourceTree = "<group>"; };
+		AC6C6A99C445D810787B5E73D06738A0 /* Yoga-internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Yoga-internal.h"; path = "yoga/Yoga-internal.h"; sourceTree = "<group>"; };
+		B2833413FF73C50F880FEE1080A9B44D /* UIView+Yoga.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+Yoga.h"; path = "YogaKit/Source/UIView+Yoga.h"; sourceTree = "<group>"; };
+		B6A339337E415C28C7962A4E40C8A549 /* YGMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YGMacros.h; path = yoga/YGMacros.h; sourceTree = "<group>"; };
+		B6FA7DBA695BE9CB92C384D1A82438C3 /* Pods-ComponentKitDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ComponentKitDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
+		BEE2E29296B2F1049E53E34DBEAA5138 /* YogaKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YogaKit.release.xcconfig; sourceTree = "<group>"; };
+		BFD3ED7EEF26D214FF6A2294A067A95E /* Utils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = yoga/Utils.h; sourceTree = "<group>"; };
+		C8D27BE92D59A53FD49722163302AD30 /* Pods-ComponentKitDemoTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ComponentKitDemoTests-Info.plist"; sourceTree = "<group>"; };
+		CC54AEDB90C19F265E7A01A8CADEDD23 /* Yoga.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Yoga.release.xcconfig; sourceTree = "<group>"; };
+		CCDC6DB17B7567A6CEB2522F3AA78304 /* Yoga-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Yoga-dummy.m"; sourceTree = "<group>"; };
+		CD4521A49FD3CD60737E0939E7CDA861 /* Pods-ComponentKitDemoTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ComponentKitDemoTests-umbrella.h"; sourceTree = "<group>"; };
+		D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		D38A22150C46EBE3C0239375D5D04256 /* YGStyle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YGStyle.h; path = yoga/YGStyle.h; sourceTree = "<group>"; };
+		D68DA854AAD048EA6A6E0BA52054A514 /* CompactValue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CompactValue.h; path = yoga/CompactValue.h; sourceTree = "<group>"; };
+		DA2EB8D462F7C192439890DB10047B53 /* Pods-ComponentKitDemo-ComponentKitDemoUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ComponentKitDemo-ComponentKitDemoUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		E3EA04081EF4BC28ABEEC9CA7F395677 /* Utils.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = Utils.cpp; path = yoga/Utils.cpp; sourceTree = "<group>"; };
+		EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		ED2C211B2856F3C841F03B30F3B08D1E /* Pods-ComponentKitDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ComponentKitDemo.modulemap"; sourceTree = "<group>"; };
+		F15878F7DC5D3492F2AAC82DF53801B1 /* YGEnums.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YGEnums.h; path = yoga/YGEnums.h; sourceTree = "<group>"; };
+		F47411A8758E692BAC554385ED369E11 /* YogaKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "YogaKit-dummy.m"; sourceTree = "<group>"; };
+		F4A635E009918A2E2B9C4CD50ECC2AE3 /* Pods-ComponentKitDemo-ComponentKitDemoUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ComponentKitDemo-ComponentKitDemoUITests-Info.plist"; sourceTree = "<group>"; };
+		FDE166EA39D8F42D071D6917F6F3B767 /* Pods-ComponentKitDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ComponentKitDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FF33AE4402EF1B6C664A60133945DB48 /* Pods-ComponentKitDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ComponentKitDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0907B9BB3A195F6D3DF580BF332D586C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B39999E6780E6287EE655EF60C22503 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		195ECAE19AA874FB7D71E8EBDB5D56B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D37F5A0D75556FDDF83985B163E6AC5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45B35F63488C5588E2764594B17F4ED3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31D2FF6D8789F061404EB5084D76195B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B143DA4CC76E7671D16B379474B17A3B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				469D7EA54F4885967E2C8C2B468A2D8A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4C7760A23947317F2A7D1086528A434 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDA55003EC12A922479FCFF3EEE4662D /* Foundation.framework in Frameworks */,
+				2FC12B2D58828E6D38649B5F17133DF5 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		05E4A615BF49D9BDDE2AE877A659B33E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				173A1391E88CCC571C901C5629D9A4ED /* YogaKit.modulemap */,
+				F47411A8758E692BAC554385ED369E11 /* YogaKit-dummy.m */,
+				3E0F3A7D18F04E170849F369BBC89F45 /* YogaKit-Info.plist */,
+				298F07F2707E8422B78CC7215514BFC7 /* YogaKit-prefix.pch */,
+				2232001E1DB1986C632B1C8CA055191F /* YogaKit-umbrella.h */,
+				5359349B05D5A4759DD7F9F302A921DE /* YogaKit.debug.xcconfig */,
+				BEE2E29296B2F1049E53E34DBEAA5138 /* YogaKit.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/YogaKit";
+			sourceTree = "<group>";
+		};
+		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				59DA5C1F72E1D5BABC43EACBA672C3BA /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		27D8FC380B693EE50909C4995BBFE22B /* YogaKit */ = {
+			isa = PBXGroup;
+			children = (
+				B2833413FF73C50F880FEE1080A9B44D /* UIView+Yoga.h */,
+				42FFB571B5085E6BF47F7AAE95D5251B /* UIView+Yoga.m */,
+				283B9753ACA60B3DF81B21D93E285FFB /* YGLayout.h */,
+				9CB73C1CD4B6FF8C30F5E3FADA0641E3 /* YGLayout.m */,
+				0CB9F4182D36645AD28D445677893FA2 /* YGLayout+Private.h */,
+				9AD0FB1AA526040057708CBB7EA0F35D /* YGLayoutExtensions.swift */,
+				05E4A615BF49D9BDDE2AE877A659B33E /* Support Files */,
+			);
+			name = YogaKit;
+			path = YogaKit;
+			sourceTree = "<group>";
+		};
+		550D74C7C4B45ABF3EB57D45EA25885C /* Yoga */ = {
+			isa = PBXGroup;
+			children = (
+				008041EB82C508C7DD4453D5A0B97CA2 /* BitUtils.h */,
+				D68DA854AAD048EA6A6E0BA52054A514 /* CompactValue.h */,
+				76A029EE6AC0D9EEEDF94ECF2D85E626 /* event.cpp */,
+				9A8B4129B2E085BD228699F2F77B1275 /* event.h */,
+				6304311017621E7C8AAB0248446FAE07 /* log.cpp */,
+				61ABE4279094F6B4BD13A0B1C622E8F9 /* log.h */,
+				E3EA04081EF4BC28ABEEC9CA7F395677 /* Utils.cpp */,
+				BFD3ED7EEF26D214FF6A2294A067A95E /* Utils.h */,
+				A948E58EF1AACFCDE59A5A9020BE8552 /* YGConfig.cpp */,
+				8F8710FD5185311900DCC990A1550E8A /* YGConfig.h */,
+				9CB9FD3ACB3B689B4CED31A7093F237C /* YGEnums.cpp */,
+				F15878F7DC5D3492F2AAC82DF53801B1 /* YGEnums.h */,
+				1A8FEE1DFB6230FD3E5BA670C4134D4C /* YGFloatOptional.h */,
+				4FD6BB63C49EF103D732A944915267D9 /* YGLayout.cpp */,
+				A588518B110A22DD0A9CA1379950697A /* YGLayout.h */,
+				B6A339337E415C28C7962A4E40C8A549 /* YGMacros.h */,
+				4102844FDE88E01306B6129C7EA13AFF /* YGNode.cpp */,
+				79EC6C9391F0014555192B230982D026 /* YGNode.h */,
+				896B0470F760DE5727405C4730CB86F1 /* YGNodePrint.cpp */,
+				14F5E1917ADB129F604544F7880854F7 /* YGNodePrint.h */,
+				0B44BE44A173668CADFBAC7A77664CD8 /* YGStyle.cpp */,
+				D38A22150C46EBE3C0239375D5D04256 /* YGStyle.h */,
+				1711A1BE7C69C7AA83A4E0E26A1BECF5 /* YGValue.cpp */,
+				A3B95FE30D07DE0C46EF808EC9ED01CA /* YGValue.h */,
+				39ED48B584C00F92FCD2BF9077E43C4E /* Yoga.cpp */,
+				75E0A717FEA9582813452931765F29E3 /* Yoga.h */,
+				AC6C6A99C445D810787B5E73D06738A0 /* Yoga-internal.h */,
+				CFFBA88DA57464F3DE010852AC819167 /* Support Files */,
+			);
+			name = Yoga;
+			path = Yoga;
+			sourceTree = "<group>";
+		};
+		59DA5C1F72E1D5BABC43EACBA672C3BA /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */,
+				D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		725EB8FC89DF7AFE2D636625B17814FD /* Pods-ComponentKitDemo-ComponentKitDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				65230F52D1465579FC32D7D14699BC39 /* Pods-ComponentKitDemo-ComponentKitDemoUITests.modulemap */,
+				DA2EB8D462F7C192439890DB10047B53 /* Pods-ComponentKitDemo-ComponentKitDemoUITests-acknowledgements.markdown */,
+				858B0065C541DC4135DEC22F5163E259 /* Pods-ComponentKitDemo-ComponentKitDemoUITests-acknowledgements.plist */,
+				8AFE8716DFD48262EEDA46A09F461DC4 /* Pods-ComponentKitDemo-ComponentKitDemoUITests-dummy.m */,
+				919D11DBF0C6FDBC19AFC1E1D8E4CC2B /* Pods-ComponentKitDemo-ComponentKitDemoUITests-frameworks.sh */,
+				F4A635E009918A2E2B9C4CD50ECC2AE3 /* Pods-ComponentKitDemo-ComponentKitDemoUITests-Info.plist */,
+				4926FA406352A2E114C6514B57749618 /* Pods-ComponentKitDemo-ComponentKitDemoUITests-umbrella.h */,
+				29380300A041A168C7F85F1625BB941D /* Pods-ComponentKitDemo-ComponentKitDemoUITests.debug.xcconfig */,
+				118ED3A41E525C75BFE9C2E99328B3C5 /* Pods-ComponentKitDemo-ComponentKitDemoUITests.release.xcconfig */,
+			);
+			name = "Pods-ComponentKitDemo-ComponentKitDemoUITests";
+			path = "Target Support Files/Pods-ComponentKitDemo-ComponentKitDemoUITests";
+			sourceTree = "<group>";
+		};
+		756E2481CDCF5298894F74780C62BB6F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				70532BEA0A2BF35AFF56687EAC0AE981 /* Pods-ComponentKitDemo */,
+				0125870CBA459BA9342F73416E7BEB4A /* Pods-ComponentKitDemo-ComponentKitDemoUITests */,
+				51EE98E6198C72450CB10160262227E5 /* Pods-ComponentKitDemoTests */,
+				65D0A19C165FA1126B1360680FE6DB12 /* Yoga */,
+				5B3357A1CE67C0BF4AE31936A1BE6888 /* YogaKit */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		89568A52FE0A8A4EC89165B6453BF718 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A6524F76AD10E944E42D7B7A80442D58 /* Pods-ComponentKitDemo */,
+				725EB8FC89DF7AFE2D636625B17814FD /* Pods-ComponentKitDemo-ComponentKitDemoUITests */,
+				965156A11031E04DFDD4930E53104A62 /* Pods-ComponentKitDemoTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		965156A11031E04DFDD4930E53104A62 /* Pods-ComponentKitDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				4AFAE5DD9B3E25EEDE6C1BC81B359594 /* Pods-ComponentKitDemoTests.modulemap */,
+				460B10882293163958F4F4A2B88950A0 /* Pods-ComponentKitDemoTests-acknowledgements.markdown */,
+				007DC38B1944CC15E153A1F44B4859C6 /* Pods-ComponentKitDemoTests-acknowledgements.plist */,
+				9FC84839412F06B7E9F821AA35351222 /* Pods-ComponentKitDemoTests-dummy.m */,
+				C8D27BE92D59A53FD49722163302AD30 /* Pods-ComponentKitDemoTests-Info.plist */,
+				CD4521A49FD3CD60737E0939E7CDA861 /* Pods-ComponentKitDemoTests-umbrella.h */,
+				FDE166EA39D8F42D071D6917F6F3B767 /* Pods-ComponentKitDemoTests.debug.xcconfig */,
+				FF33AE4402EF1B6C664A60133945DB48 /* Pods-ComponentKitDemoTests.release.xcconfig */,
+			);
+			name = "Pods-ComponentKitDemoTests";
+			path = "Target Support Files/Pods-ComponentKitDemoTests";
+			sourceTree = "<group>";
+		};
+		A6524F76AD10E944E42D7B7A80442D58 /* Pods-ComponentKitDemo */ = {
+			isa = PBXGroup;
+			children = (
+				ED2C211B2856F3C841F03B30F3B08D1E /* Pods-ComponentKitDemo.modulemap */,
+				B6FA7DBA695BE9CB92C384D1A82438C3 /* Pods-ComponentKitDemo-acknowledgements.markdown */,
+				A9FDADE9275B4428B458259241D1A4B4 /* Pods-ComponentKitDemo-acknowledgements.plist */,
+				8EC6CDD863ACD09BEA3E26A3FD0BFB78 /* Pods-ComponentKitDemo-dummy.m */,
+				828E96CDAA08575B7D551FC884972E92 /* Pods-ComponentKitDemo-frameworks.sh */,
+				51766194FBA46F018B9C8E824E24E48C /* Pods-ComponentKitDemo-Info.plist */,
+				0D40E94EAAF022A57B1220946E9AA847 /* Pods-ComponentKitDemo-umbrella.h */,
+				8D56C4C1E765CBC08130473BADA89111 /* Pods-ComponentKitDemo.debug.xcconfig */,
+				44C12768A3A1C0CA43382D1544D0358F /* Pods-ComponentKitDemo.release.xcconfig */,
+			);
+			name = "Pods-ComponentKitDemo";
+			path = "Target Support Files/Pods-ComponentKitDemo";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
+				F0422C2F2E4643CCDE21644CF4C0CB30 /* Pods */,
+				756E2481CDCF5298894F74780C62BB6F /* Products */,
+				89568A52FE0A8A4EC89165B6453BF718 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		CFFBA88DA57464F3DE010852AC819167 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				27F3B9DDD73C81FB4BDD22FF9D641991 /* Yoga.modulemap */,
+				CCDC6DB17B7567A6CEB2522F3AA78304 /* Yoga-dummy.m */,
+				8BF4B853EC43F365C75CF0B6A77F5809 /* Yoga-Info.plist */,
+				98D131799B84965D90B3D6CCB78ADF00 /* Yoga-prefix.pch */,
+				580D5CE863E61255AF3B52E43554BDFC /* Yoga-umbrella.h */,
+				0FE5BF65D3DA386F588B4F90040E063A /* Yoga.debug.xcconfig */,
+				CC54AEDB90C19F265E7A01A8CADEDD23 /* Yoga.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Yoga";
+			sourceTree = "<group>";
+		};
+		F0422C2F2E4643CCDE21644CF4C0CB30 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				550D74C7C4B45ABF3EB57D45EA25885C /* Yoga */,
+				27D8FC380B693EE50909C4995BBFE22B /* YogaKit */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		73109508B220E68842D26127798467C2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				234D42F1F103237A6A5C7B84E673B298 /* BitUtils.h in Headers */,
+				3E3ABC9AE953C68EC382B6D7F0AA5133 /* CompactValue.h in Headers */,
+				AF02C05C9272B537C9155175B9070F83 /* event.h in Headers */,
+				025DD5DEBDC74EF7E6F63EFB08751ABA /* log.h in Headers */,
+				88D9F3B7DA1794B41AB57FAE0D9A2568 /* Utils.h in Headers */,
+				46980AEAE417367914CBB58136743956 /* YGConfig.h in Headers */,
+				022640DDEB6F6554C7FA878F430444F7 /* YGEnums.h in Headers */,
+				B328480BD544930A2214367E7AD115CC /* YGFloatOptional.h in Headers */,
+				1005CD89671B3D235F69F91F39A77F22 /* YGLayout.h in Headers */,
+				92DA6F0E5B1085FC3747CF1C15EA5F50 /* YGMacros.h in Headers */,
+				626837D38027F98804EBA470F5FF95BF /* YGNode.h in Headers */,
+				BEB96B2C6AB43561000EEE8B7343B02B /* YGNodePrint.h in Headers */,
+				8B83705C056C668C27D75E86F50C1D9F /* YGStyle.h in Headers */,
+				14DDB912AD7D9ACF198EA0465F5C5456 /* YGValue.h in Headers */,
+				85FDAEF24DBC8104C1A5555264F875B5 /* Yoga.h in Headers */,
+				D3C7C0A80E72385FFFDD9B8E32390AB2 /* Yoga-internal.h in Headers */,
+				4607A51615035A2C0EDA0188E81954AE /* Yoga-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84EB25DC927381C8AF029A7D83BFBC4C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D911CE2F0E4FE1141D2C71097DC952D /* Pods-ComponentKitDemoTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		881DBA681E598202490800CB7C930BB3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				379AA17F2EAA77E815AA0FA74CD06531 /* Pods-ComponentKitDemo-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB1BDCC6BBE4A973C5D4D000B8E66A41 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7677356465E6660DACC758D0F75E9D2 /* UIView+Yoga.h in Headers */,
+				9CAD437389D42573C991DFF97FA0095F /* YGLayout.h in Headers */,
+				3E9FB75325578E1664745CF145EFEEDF /* YGLayout+Private.h in Headers */,
+				622B794DFC8DC546AF18158F38E8E559 /* YogaKit-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5605B04F01C2CA5F4483258334A7CA4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E07A3A7A88A537E5061498FC174FFED /* Pods-ComponentKitDemo-ComponentKitDemoUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		2B25F90D819B9ADF2AF2D8733A890333 /* Yoga */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B3BFEA6D0C12B710DD7B614E766F3D42 /* Build configuration list for PBXNativeTarget "Yoga" */;
+			buildPhases = (
+				73109508B220E68842D26127798467C2 /* Headers */,
+				5D38B01B380E2920B5F7206A03A52617 /* Sources */,
+				B143DA4CC76E7671D16B379474B17A3B /* Frameworks */,
+				59320F1A2300C725F93904D8B8D92D5D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Yoga;
+			productName = yoga;
+			productReference = 65D0A19C165FA1126B1360680FE6DB12 /* Yoga */;
+			productType = "com.apple.product-type.framework";
+		};
+		32CA4CBD6B28983076BD93DA221AD027 /* YogaKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 64F6F9F92AC3693D605C44CA778F301D /* Build configuration list for PBXNativeTarget "YogaKit" */;
+			buildPhases = (
+				DB1BDCC6BBE4A973C5D4D000B8E66A41 /* Headers */,
+				118810A5F1E3E36218D1802D6A8DE53B /* Sources */,
+				B4C7760A23947317F2A7D1086528A434 /* Frameworks */,
+				D00FDCA825EB2471CD3555408F5E8C8F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5F19152F4E51DA3CC367D1A89E9CDBC9 /* PBXTargetDependency */,
+			);
+			name = YogaKit;
+			productName = YogaKit;
+			productReference = 5B3357A1CE67C0BF4AE31936A1BE6888 /* YogaKit */;
+			productType = "com.apple.product-type.framework";
+		};
+		A58EA054528D61E82CD598244FCC9295 /* Pods-ComponentKitDemo-ComponentKitDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0CAF8799B0CAE9BBA162C568EEA4A66 /* Build configuration list for PBXNativeTarget "Pods-ComponentKitDemo-ComponentKitDemoUITests" */;
+			buildPhases = (
+				E5605B04F01C2CA5F4483258334A7CA4 /* Headers */,
+				3AF6C7EFC897090D5007A22A7AE66D2A /* Sources */,
+				45B35F63488C5588E2764594B17F4ED3 /* Frameworks */,
+				376432517615898C3C64D36932BDF494 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AC37D07A7066A12A99BE5A3FCAEBA0C8 /* PBXTargetDependency */,
+				9D94D7A18F3F5C94E3F37D5750B07D52 /* PBXTargetDependency */,
+			);
+			name = "Pods-ComponentKitDemo-ComponentKitDemoUITests";
+			productName = Pods_ComponentKitDemo_ComponentKitDemoUITests;
+			productReference = 0125870CBA459BA9342F73416E7BEB4A /* Pods-ComponentKitDemo-ComponentKitDemoUITests */;
+			productType = "com.apple.product-type.framework";
+		};
+		E9D03027307CC90C9AAC8546547B58D0 /* Pods-ComponentKitDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C27F21D298606E913BB9435570F29ED /* Build configuration list for PBXNativeTarget "Pods-ComponentKitDemoTests" */;
+			buildPhases = (
+				84EB25DC927381C8AF029A7D83BFBC4C /* Headers */,
+				C22B1EAD17CA7A0BACF53B9ABDB8B002 /* Sources */,
+				195ECAE19AA874FB7D71E8EBDB5D56B3 /* Frameworks */,
+				3D55F7F9BA6CE64FE9934B678BA29BB9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D92ADACA577D4A3958F2B38888DEF542 /* PBXTargetDependency */,
+			);
+			name = "Pods-ComponentKitDemoTests";
+			productName = Pods_ComponentKitDemoTests;
+			productReference = 51EE98E6198C72450CB10160262227E5 /* Pods-ComponentKitDemoTests */;
+			productType = "com.apple.product-type.framework";
+		};
+		EC78DC23017E46B939F3C4C90E37F1C5 /* Pods-ComponentKitDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8EDAE3263B0F68976AB7618C1BCB2495 /* Build configuration list for PBXNativeTarget "Pods-ComponentKitDemo" */;
+			buildPhases = (
+				881DBA681E598202490800CB7C930BB3 /* Headers */,
+				E5F26AB583F34BC168C15A4C60CE3AE3 /* Sources */,
+				0907B9BB3A195F6D3DF580BF332D586C /* Frameworks */,
+				322524D8422E5879AE2D3BBEA57DC254 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				745007CA15534BC213D8E577E961CB26 /* PBXTargetDependency */,
+				8A5459A409630D4F1E5883C83FC5DF83 /* PBXTargetDependency */,
+			);
+			name = "Pods-ComponentKitDemo";
+			productName = Pods_ComponentKitDemo;
+			productReference = 70532BEA0A2BF35AFF56687EAC0AE981 /* Pods-ComponentKitDemo */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 756E2481CDCF5298894F74780C62BB6F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EC78DC23017E46B939F3C4C90E37F1C5 /* Pods-ComponentKitDemo */,
+				A58EA054528D61E82CD598244FCC9295 /* Pods-ComponentKitDemo-ComponentKitDemoUITests */,
+				E9D03027307CC90C9AAC8546547B58D0 /* Pods-ComponentKitDemoTests */,
+				2B25F90D819B9ADF2AF2D8733A890333 /* Yoga */,
+				32CA4CBD6B28983076BD93DA221AD027 /* YogaKit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		322524D8422E5879AE2D3BBEA57DC254 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		376432517615898C3C64D36932BDF494 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D55F7F9BA6CE64FE9934B678BA29BB9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59320F1A2300C725F93904D8B8D92D5D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D00FDCA825EB2471CD3555408F5E8C8F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		118810A5F1E3E36218D1802D6A8DE53B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				941EB21642BD426869C1EF8C9CD3CFB2 /* UIView+Yoga.m in Sources */,
+				57A0CB0E943358B765BF5C4F954A8924 /* YGLayout.m in Sources */,
+				C54808DD82E90CE1CF31A3FDDE168F21 /* YGLayoutExtensions.swift in Sources */,
+				BBA0BAD2758EFCE468C1F509A39DE46B /* YogaKit-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AF6C7EFC897090D5007A22A7AE66D2A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A887DF5753710185989A7F357D2C092 /* Pods-ComponentKitDemo-ComponentKitDemoUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5D38B01B380E2920B5F7206A03A52617 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1596E30C53404F35B262AD871852C84 /* event.cpp in Sources */,
+				8AE80919E66531F3E05EB6C9FEECE227 /* log.cpp in Sources */,
+				CD5D8584E8ACBDA71D22A8AA99D21178 /* Utils.cpp in Sources */,
+				D2EED0055ED355C8C664E51B326B7E0A /* YGConfig.cpp in Sources */,
+				6FD290808F9DDFBD2D66B10702DA6D5B /* YGEnums.cpp in Sources */,
+				E39A611AA4404F86BAD1BE4D134BF00F /* YGLayout.cpp in Sources */,
+				6CD6C3D080AC10735A8EF2DF02E0A53F /* YGNode.cpp in Sources */,
+				554A9F0A2BF926BD8E67BDC79990F433 /* YGNodePrint.cpp in Sources */,
+				42A1DCEB57C1A6B95466FAC2C1B06C62 /* YGStyle.cpp in Sources */,
+				58DD8A10817128919572DAA895108840 /* YGValue.cpp in Sources */,
+				D3AE729EC959A5F6ACAD69F6E2FE43C7 /* Yoga.cpp in Sources */,
+				01E99129F0107495BB5D9F48BF881CB0 /* Yoga-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C22B1EAD17CA7A0BACF53B9ABDB8B002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C879E6F823AF34E55FC6C88C2D72795 /* Pods-ComponentKitDemoTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5F26AB583F34BC168C15A4C60CE3AE3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EA7D3157DCB184071B4170A8CFC0889 /* Pods-ComponentKitDemo-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5F19152F4E51DA3CC367D1A89E9CDBC9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Yoga;
+			target = 2B25F90D819B9ADF2AF2D8733A890333 /* Yoga */;
+			targetProxy = AA0B4037EDDF01671DE36265135B2131 /* PBXContainerItemProxy */;
+		};
+		745007CA15534BC213D8E577E961CB26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Yoga;
+			target = 2B25F90D819B9ADF2AF2D8733A890333 /* Yoga */;
+			targetProxy = B0F29641E00BD2E701BFB0209FB420E7 /* PBXContainerItemProxy */;
+		};
+		8A5459A409630D4F1E5883C83FC5DF83 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = YogaKit;
+			target = 32CA4CBD6B28983076BD93DA221AD027 /* YogaKit */;
+			targetProxy = 377ACDBF0E8A60C54211749B2B5CD2BD /* PBXContainerItemProxy */;
+		};
+		9D94D7A18F3F5C94E3F37D5750B07D52 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = YogaKit;
+			target = 32CA4CBD6B28983076BD93DA221AD027 /* YogaKit */;
+			targetProxy = FD6AF77C1BD29E84EE0068E279819964 /* PBXContainerItemProxy */;
+		};
+		AC37D07A7066A12A99BE5A3FCAEBA0C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Yoga;
+			target = 2B25F90D819B9ADF2AF2D8733A890333 /* Yoga */;
+			targetProxy = 41964239170137EFBEA2727192461599 /* PBXContainerItemProxy */;
+		};
+		D92ADACA577D4A3958F2B38888DEF542 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-ComponentKitDemo";
+			target = EC78DC23017E46B939F3C4C90E37F1C5 /* Pods-ComponentKitDemo */;
+			targetProxy = 0F7E06AE6E7351BA4E26E3D379114D4E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0F1D0014E3FC48857004DD3FEE24CDA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEE2E29296B2F1049E53E34DBEAA5138 /* YogaKit.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/YogaKit/YogaKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/YogaKit/YogaKit-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/YogaKit/YogaKit.modulemap";
+				PRODUCT_MODULE_NAME = YogaKit;
+				PRODUCT_NAME = YogaKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		251A98E1F2127C58B67A3720E2165B88 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D56C4C1E765CBC08130473BADA89111 /* Pods-ComponentKitDemo.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ComponentKitDemo/Pods-ComponentKitDemo-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ComponentKitDemo/Pods-ComponentKitDemo.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2B9E26EAE2CD392AD762421F663075A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		362793777D29D392C6008EB2B1B6A9EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44C12768A3A1C0CA43382D1544D0358F /* Pods-ComponentKitDemo.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ComponentKitDemo/Pods-ComponentKitDemo-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ComponentKitDemo/Pods-ComponentKitDemo.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4E8DD89F17FFF8C59F0A452F073766A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDE166EA39D8F42D071D6917F6F3B767 /* Pods-ComponentKitDemoTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ComponentKitDemoTests/Pods-ComponentKitDemoTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ComponentKitDemoTests/Pods-ComponentKitDemoTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		63FAF33E1C55B71A5F5A8B3CC8749F99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		7756D57FD0833540B41598C46B8CB88D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 118ED3A41E525C75BFE9C2E99328B3C5 /* Pods-ComponentKitDemo-ComponentKitDemoUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ComponentKitDemo-ComponentKitDemoUITests/Pods-ComponentKitDemo-ComponentKitDemoUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ComponentKitDemo-ComponentKitDemoUITests/Pods-ComponentKitDemo-ComponentKitDemoUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9B71FAF2DEFB6D4FC20B477F10D82FF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29380300A041A168C7F85F1625BB941D /* Pods-ComponentKitDemo-ComponentKitDemoUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ComponentKitDemo-ComponentKitDemoUITests/Pods-ComponentKitDemo-ComponentKitDemoUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ComponentKitDemo-ComponentKitDemoUITests/Pods-ComponentKitDemo-ComponentKitDemoUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B2AE8394132B8B3061F61391E5ADB866 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0FE5BF65D3DA386F588B4F90040E063A /* Yoga.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Yoga/Yoga-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Yoga/Yoga-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Yoga/Yoga.modulemap";
+				PRODUCT_MODULE_NAME = yoga;
+				PRODUCT_NAME = yoga;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B40FAAC4D09CE7EEE4618A10F1F1D795 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC54AEDB90C19F265E7A01A8CADEDD23 /* Yoga.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Yoga/Yoga-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Yoga/Yoga-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Yoga/Yoga.modulemap";
+				PRODUCT_MODULE_NAME = yoga;
+				PRODUCT_NAME = yoga;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B431C9B8A88A0473DA068E16900AD46B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF33AE4402EF1B6C664A60133945DB48 /* Pods-ComponentKitDemoTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ComponentKitDemoTests/Pods-ComponentKitDemoTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ComponentKitDemoTests/Pods-ComponentKitDemoTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D3973039F3612F500F9659545AFD509F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5359349B05D5A4759DD7F9F302A921DE /* YogaKit.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/YogaKit/YogaKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/YogaKit/YogaKit-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/YogaKit/YogaKit.modulemap";
+				PRODUCT_MODULE_NAME = YogaKit;
+				PRODUCT_NAME = YogaKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2C27F21D298606E913BB9435570F29ED /* Build configuration list for PBXNativeTarget "Pods-ComponentKitDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E8DD89F17FFF8C59F0A452F073766A6 /* Debug */,
+				B431C9B8A88A0473DA068E16900AD46B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B9E26EAE2CD392AD762421F663075A1 /* Debug */,
+				63FAF33E1C55B71A5F5A8B3CC8749F99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		64F6F9F92AC3693D605C44CA778F301D /* Build configuration list for PBXNativeTarget "YogaKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3973039F3612F500F9659545AFD509F /* Debug */,
+				0F1D0014E3FC48857004DD3FEE24CDA0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8EDAE3263B0F68976AB7618C1BCB2495 /* Build configuration list for PBXNativeTarget "Pods-ComponentKitDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				251A98E1F2127C58B67A3720E2165B88 /* Debug */,
+				362793777D29D392C6008EB2B1B6A9EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B3BFEA6D0C12B710DD7B614E766F3D42 /* Build configuration list for PBXNativeTarget "Yoga" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2AE8394132B8B3061F61391E5ADB866 /* Debug */,
+				B40FAAC4D09CE7EEE4618A10F1F1D795 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D0CAF8799B0CAE9BBA162C568EEA4A66 /* Build configuration list for PBXNativeTarget "Pods-ComponentKitDemo-ComponentKitDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B71FAF2DEFB6D4FC20B477F10D82FF6 /* Debug */,
+				7756D57FD0833540B41598C46B8CB88D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
