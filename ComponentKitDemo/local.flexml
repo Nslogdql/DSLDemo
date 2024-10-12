@@ -14,14 +14,16 @@
         
         <Flex
             key="Flex"
+            marginLeft="30"
             flexDirection="column"
             alignItems="center"
-            background="#1FA1FF"
+            background="#DFC2AD"
             width="360"
             height="260">
             <Flex
                 key="Flex"
                 flexDirection="column"
+                background="#DFC2AD"
                 justifyContent="flexStart">
                 <Text
                         key="Text"
@@ -48,20 +50,29 @@
         
         <Flex
             key="Flex"
-            flexDirection="row">
+            flexDirection="row"
+            marginTop="30"
+            >
             <Flex
                 key="Flex"
-                flexDirection="row">
+                flexDirection="row"
+                background="#AEEEEE"
+                marginLeft="30"
+                marginRight="30"
+                
+                height="80">
                 <Image
                     key="Image"
-                    height="20"
-                    width="20"
+                    height="60"
+                    width="60"
                     src="hangxiaobao_logo"
                     marginLeft="30"></Image>
                 <Flex
                     key="Flex"
                     flexDirection="column"
-                    marginLeft="10">
+                    marginLeft="10"
+                    marginTop="30"
+                    background="#00000000">
                     <Text
                         key="Text"
                         textSize="10"
@@ -71,6 +82,7 @@
                     <Text
                         key="Text"
                         textSize="10"
+                        marginTop="10"
                         text="杭小宝给您发了2条消息"
                         width="160"
                         height="20"></Text>
@@ -81,7 +93,7 @@
         </Flex>
     
         
-
+        
         <Flex
                 key="Flex"
                 width="155"

@@ -41,7 +41,6 @@
             Flex *newFlex = [[Flex alloc] init];
             newFlex.key = attributeDict[@"key"];
             newFlex.width = attributeDict[@"width"];
-            newFlex.height = attributeDict[@"height"];
             newFlex.alignItems = attributeDict[@"alignItems"];
             newFlex.background = attributeDict[@"background"];
             newFlex.flexDirection = attributeDict[@"flexDirection"];

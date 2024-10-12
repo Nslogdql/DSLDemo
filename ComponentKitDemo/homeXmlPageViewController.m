@@ -66,8 +66,7 @@
         
     }];
     [scroll addSubview: contentView];
-    
-    
+
     if(self.rootFlex.FlexorderItem.count > 0){
         for (NSInteger i = 0; i < self.rootFlex.FlexorderItem.count; i++) {
             id itemModel  = self.rootFlex.FlexorderItem[i];
@@ -80,6 +79,7 @@
                     if (Imagemodel.marginLeft) {
                         layout.marginLeft = YGPointValue([Imagemodel.marginLeft floatValue]);
                     }
+                    
                     if (Imagemodel.width) {
                         layout.width = YGPointValue([Imagemodel.width floatValue]);
                     }
@@ -101,6 +101,12 @@
                     layout.isEnabled = YES;
                     if (textmodel.marginLeft) {
                         layout.marginLeft = YGPointValue([textmodel.marginLeft floatValue]);
+                    }
+                    if (textmodel.marginRight) {
+                        layout.marginRight = YGPointValue([textmodel.marginRight floatValue]);
+                    }
+                    if (textmodel.marginTop) {
+                        layout.marginTop = YGPointValue([textmodel.marginTop floatValue]);
                     }
                     if(textmodel.width){
                         layout.width = YGPointValue([textmodel.width floatValue]);
@@ -149,6 +155,9 @@
             }
             if(Flexmodel.marginLeft){
                 layout.marginLeft = YGPointValue([Flexmodel.marginLeft floatValue]);
+            }
+            if (Flexmodel.marginRight) {
+                layout.marginRight = YGPointValue([Flexmodel.marginRight floatValue]);
             }
             if(Flexmodel.width){
                 layout.width = YGPointValue([Flexmodel.width floatValue]);

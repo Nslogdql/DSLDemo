@@ -13,7 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *textSize;
 @property (nonatomic, strong) NSString *textStyle;
 @property (nonatomic, strong) NSString *text;
+@property (nonatomic, strong) NSString *marginTop;
 @property (nonatomic, strong) NSString *marginLeft;
+@property (nonatomic, strong) NSString *marginRight;
 @property (nonatomic, strong) NSString *width;
 @property (nonatomic, strong) NSString *height;
 
@@ -40,10 +42,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *paddingBottom;
 @property (nonatomic, strong) NSString *marginTop;
 @property (nonatomic, strong) NSString *marginLeft;
+@property (nonatomic, strong) NSString *marginRight;
+
 
 @property (nonatomic, strong) NSString *padding;
 @property (nonatomic, strong) NSMutableArray *FlexorderItem;
 // 其他属性...
+//父节点
+@property (nonatomic, strong) Flex *ParentFlex;
 @end
 
 NS_ASSUME_NONNULL_END
