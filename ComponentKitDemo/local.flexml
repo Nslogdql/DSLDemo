@@ -66,12 +66,13 @@
                     src="hangxiaobao_logo"
                     marginTop="5"
                     marginLeft="15"></Image>
-                <Flex
-                    key="Flex"
-                    flexDirection="column"
-                    marginLeft="10"
-                    marginTop="10"
-                    background="#00000000">
+                <Flex>
+                    <Flex
+                        key="Flex"
+                        flexDirection="column"
+                        background="#00000000"
+                        marginLeft="10"
+                        marginTop="20">
                     <Text
                         key="Text"
                         textSize="10"
@@ -85,6 +86,7 @@
                         text="杭小宝给您发了2条消息"
                         width="160"
                         height="20"></Text>
+                    </Flex>
                 </Flex>
             </Flex>
            
