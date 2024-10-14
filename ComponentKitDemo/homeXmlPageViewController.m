@@ -142,22 +142,16 @@
             }
         }
     }
-   
-//    if(self.rootFlex.Flex.count > 0){
-//        //解析xml的model
-//        [self flexBoxItem:self.rootFlex.Flex with:self.contentView];
-//    }
-    
-    //[self.view.yoga applyLayoutPreservingOrigin:YES];
+
     [self.scroll.yoga applyLayoutPreservingOrigin:YES];
     // 设置 UIScrollView 的 contentSize
     self.scroll.contentSize = CGSizeMake(contentView.bounds.size.width, contentView.bounds.size.height+88); // 手动设置 contentSize
    
 }
 
-- (void)flexBoxItem:(NSMutableArray<Flex *> *)Flexmodelitem with:(UIView *)FlexView{
-    for (NSInteger i = 0; i < Flexmodelitem.count; i++ ) {
-        Flex *Flexmodel = Flexmodelitem[i];
+- (void)flexBoxItem:(NSMutableArray<Flex *> *)sonFlex with:(UIView *)FlexView{
+    for (NSInteger i = 0; i < sonFlex.count; i++ ) {
+        Flex *Flexmodel = sonFlex[i];
         UIView *contentView = [[UIView alloc]init];
         if (Flexmodel.background) {
             contentView.backgroundColor = [UIColor colorWithHexString_xt:Flexmodel.background];
@@ -199,7 +193,6 @@
             if(Flexmodel.height){
                 layout.height = YGPointValue([Flexmodel.height floatValue]);
             }
-//            layout.alignItems = [self alignItems:Flexmodel.alignItems];
         }];
         [FlexView addSubview: contentView];
     
@@ -226,7 +219,7 @@
                             }
                         }
                         if (Imagemodel.width) {
-                            if ([Flexmodel.width containsString:@"%"]) {
+                            if ([Imagemodel.width containsString:@"%"]) {
                                 layout.width = YGPercentValue([Imagemodel.width floatValue]);
                             }else{
                                 layout.width = YGPointValue([Imagemodel.width floatValue]);
@@ -274,18 +267,11 @@
                 }
                 if([itemModel isKindOfClass:[Flex class]]){
                     Flex *newmodel = (Flex *)itemModel;
-                    [self flexBoxItem:newmodel.Flex with:FlexView];
+                    [self flexBoxItem:newmodel.Flex with:contentView];
                 }
             }
         }else{
-        }
-        if(Flexmodel.Flex.count > 0){
-            [self flexBoxItem:Flexmodel.Flex with:contentView];
-        }else{
-            //[self.view.yoga applyLayoutPreservingOrigin:YES];
-            [self.scroll.yoga applyLayoutPreservingOrigin:YES];
-            // 设置 UIScrollView 的 contentSize
-            self.scroll.contentSize = CGSizeMake(contentView.bounds.size.width, contentView.bounds.size.height+88); // 手动设置 contentSize
+            
         }
     }
     

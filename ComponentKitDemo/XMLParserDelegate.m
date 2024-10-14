@@ -34,6 +34,7 @@
             newFlex.marginLeft = attributeDict[@"marginLeft"];
             newFlex.marginRight = attributeDict[@"marginRight"];
             newFlex.padding = attributeDict[@"padding"];
+            newFlex.flexGrow = attributeDict[@"flexGrow"];
             self.currentFlex = newFlex;
             self.FatherrootFlex = newFlex;
 //            [self.currentFlex.FlexorderItem addObject:newFlex];
@@ -51,13 +52,14 @@
             newFlex.marginLeft = attributeDict[@"marginLeft"];
             newFlex.marginRight = attributeDict[@"marginRight"];
             newFlex.padding = attributeDict[@"padding"];
+            newFlex.flexGrow = attributeDict[@"flexGrow"];
+            
             self.currentFlex = newFlex;
             self.currentFatherFlex = self.currentElementsStack[self.currentElementsStack.count-1];
             [self.currentFatherFlex.Flex addObject:newFlex];
 //            self.currentFlex = self.currentElementsStack.lastObject;
             //Flex *fatherFlex = self.currentElementsStack[[self.currentElementsStack count] -1];
             [self.currentFatherFlex.FlexorderItem addObject:newFlex];
-            
             [self.currentElementsStack addObject:newFlex];
         }
         
@@ -77,7 +79,6 @@
         self.currentImage.marginRight = attributeDict[@"marginRight"];
         [self.currentFlex.images addObject:self.currentImage];
         
-        
         [self.currentFlex.FlexorderItem addObject:self.currentImage];
     } else if ([elementName isEqualToString:@"Text"]) {
         if(!self.currentFlex){
@@ -94,7 +95,6 @@
         self.currentText.width = attributeDict[@"width"];
         self.currentText.textAlignment = attributeDict[@"textAlignment"];
         [self.currentFlex.texts addObject:self.currentText];
-        
         
         [self.currentFlex.FlexorderItem addObject:self.currentText];
         

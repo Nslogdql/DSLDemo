@@ -14,28 +14,28 @@
         
             <Flex
                 key="Flex"
-                flexDirection="column"
-                height="260">
+                flexDirection="row"
+                >
             <Flex
                 key="Flex"
-                flexDirection="column"
+                flexDirection="row"
                 background="#DFC2AD"
-                marginTop="-10"
+                marginTop="0"
                 marginLeft="20"
                 marginRight="20"
-                height="260">
+                height="180">
                 <Text
                         key="Text"
                         marginLeft="10"
-                        textSize="16"
+                        textSize="18"
                         textStyle="bold"
                         text="贷款"
-                        width="100"
                         height="30"></Text>
                 <Text
                         key="Text"
-                        marginLeft="10"
+                        marginLeft="5"
                         textSize="10"
+                        marginTop="2"
                         text="让生活更美好"
                         width="100"
                         height="30"></Text>
@@ -64,12 +64,13 @@
                     height="60"
                     width="60"
                     src="hangxiaobao_logo"
-                    marginLeft="30"></Image>
+                    marginTop="5"
+                    marginLeft="15"></Image>
                 <Flex
                     key="Flex"
                     flexDirection="column"
                     marginLeft="10"
-                    marginTop="30"
+                    marginTop="10"
                     background="#00000000">
                     <Text
                         key="Text"
@@ -89,52 +90,20 @@
            
             
         </Flex>
-    
-        
-        
-        <Flex
-                key="Flex"
-                width="155"
-                alignItems="center"
-                flexDirection="column"
-                background="#FF018786"
-                justifyContent="flexStart">
-        <Flex
-                key="Flex"
-                flexDirection="column"
-                marginTop="10"
-                background="#ffffff"
-                width="200"
-                height="100">
-            <Text
-                    key="Text"
-                    textSize="10"
-                    textStyle="bold"
-                    text="直销银行"
-                    width="100"
-                    height="60"></Text>
-            <Text
-                    key="Text"
-                    textSize="10"
-                    marginTop="10"
-                    text="05月19日"
-                    width="100"
-                    height="60"></Text>
-        </Flex>
-        </Flex>
-        
-        <Flex
-                key="Flex"
-                alignItems="flexStart"
-                flexDirection="row"
-                justifyContent="spaceBetween"
-                marginTop="20">
-        <Flex
-                key="Flex"
-                alignItems="flexStart"
-                flexDirection="row"
-                justifyContent="spaceBetween"
-                marginTop="20">
+    <Flex
+        key="Flex"
+        alignItems="flexStart"
+        flexDirection="row"
+        marginTop="20">
+    <Flex
+            key="Flex"
+            alignItems="flexStart"
+            flexDirection="row"
+            marginTop="20">
+            <Flex
+                    key="Flex"
+                    flexDirection="column"
+                    width="50%">
                     <Flex
                         key="Flex"
                         alignItems="flexStart"
@@ -154,7 +123,6 @@
                     </Flex>
                     <Flex
                             key="Flex"
-                            width="155"
                             alignItems="center"
                             flexDirection="column"
                             background="#FF018786"
@@ -180,25 +148,31 @@
                                 textSize="11"
                                 text="近一年变化"></Text>
                     </Flex>
-                <Flex
-                        key="Flex"
-                        alignItems="flexStart"
-                        flexDirection="column"
-                        justifyContent="flexStart">
-                    <Text
-                            key="Text"
-                            width="80"
-                            height="20"
-                            horizontalGravity="center"
-                            verticalGravity="center"
-                            textSize="14"
-                            textColor="#ffffff"
-                            background="#FF4081"
-                            text="明星理财榜"></Text>
+            </Flex>
+            
+            <Flex
+                    key="Flex"
+                    flexDirection="column"
+                    width="50%">
+                    <Flex
+                            key="Flex"
+                            alignItems="flexStart"
+                            flexDirection="column"
+                            justifyContent="flexStart"
+                            width="50%">
+                        <Text
+                                key="Text"
+                                width="80"
+                                height="20"
+                                horizontalGravity="center"
+                                verticalGravity="center"
+                                textSize="14"
+                                textColor="#ffffff"
+                                background="#FF4081"
+                                text="明星理财榜"></Text>
                     </Flex>
                     <Flex
                             key="Flex"
-                            width="155"
                             alignItems="center"
                             flexDirection="column"
                             background="#FF018786"
@@ -231,10 +205,13 @@
                                 textSize="11"
                                 text="业绩比较基准平均3.0%"></Text>
                     </Flex>
-        </Flex>
-        </Flex>
-
+                    
+            </Flex>
+            
+    </Flex>
+    </Flex>
         
+
         
         <Image
                 key="Image"
@@ -244,6 +221,9 @@
                 marginRight="20"
                 scaleType="centerInside"
                 src="local-daoshi"></Image>
+        
+        
+        
         
         <Flex
                 key="Flex"
@@ -288,44 +268,62 @@
                             alignItems="center"
                             width="300"
                             justifyContent="spaceBetween">
+                    <Flex
+                        key="Flex"
+                        alignItems="flexStart"
+                        flexDirection="column"
+                        justifyContent="flexStart">
                     <Image
                                 key="Image"
+                                marginLeft="20"
+                                marginTop="10"
                                 height="30"
                                 width="30"
-                                src="${res:drawable('icon_finish_facebox')}"></Image>
+                                src="wERGk2MQI-GAPtjMAAAP3ZmTxIM649"></Image>
+                    </Flex>
                     <Flex
                                 key="Flex"
                                 alignItems="flexStart"
                                 flexDirection="column"
-                                marginRight="-15"
-                                justifyContent="center">
+                                justifyContent="flexStart"
+                                marginLeft="10"
+                                flexGrow="1">
                         <Text
-                                    width="80"
-                                    height="20"
-                                    key="Text"
-                                    textSize="15"
-                                    textStyle="bold"
-                                    text="${hotDatas[index]}"></Text>
-                        <Text
-                                    width="80"
                                     height="20"
                                     key="Text"
                                     textSize="11"
                                     marginTop="5"
                                     text="每日签到获取新朋友"></Text>
+                        <Text
+                                    height="20"
+                                    key="Text"
+                                    textSize="15"
+                                    textStyle="bold"
+                                    text="每日签到获取1mg积分"></Text>
                     </Flex>
+                    <Flex
+                        key="Flex"
+                        alignItems="flexStart"
+                        flexDirection="column"
+                        justifyContent="flexStart">
                     <Text
                                 key="Text"
                                 width="40"
+                                marginTop="20"
+                                marginRight = "20"
                                 height="20"
                                 textSize="11"
-                                borderColor="#4BA0FF"
-                                textColor="#4BA0FF"
-                                borderRadius="10"
-                                borderWidth="1"
-                                horizontalGravity="center"
-                                verticalGravity="center"
                                 text="参加"></Text>
+                    </Flex>
+                </Flex>
+                <Flex
+                    key="Flex"
+                    width="100%"
+                    marginTop="20"
+                    marginLeft="20%"
+                    flexDirection="column"
+                    height="1"
+                    background="#000000">
                 </Flex>
             </Flex>
         </Flex>
