@@ -12,7 +12,16 @@
     UILabel *lable = [[UILabel alloc] init];
     lable.backgroundColor = [UIColor clearColor];
     lable.textColor = [UIColor blackColor];
-    lable.textAlignment = NSTextAlignmentCenter;
+    if ([TextModel.textAlignment isEqualToString:@"left"]) {
+        lable.textAlignment = NSTextAlignmentLeft;
+    }else if ([TextModel.textAlignment isEqualToString:@"center"]){
+        lable.textAlignment = NSTextAlignmentCenter;
+    }else if ([TextModel.textAlignment isEqualToString:@"right"]){
+        lable.textAlignment = NSTextAlignmentRight;
+    }else{
+        lable.textAlignment = NSTextAlignmentLeft;
+    }
+    
     lable.font = [UIFont systemFontOfSize:[TextModel.textSize floatValue]];
     if(TextModel.text.length > 0){
         lable.text = TextModel.text;

@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *marginRight;
 @property (nonatomic, strong) NSString *width;
 @property (nonatomic, strong) NSString *height;
+@property (nonatomic, strong) NSString *textAlignment;
 
 @end
 @interface Imagecomponent : NSObject
@@ -26,7 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *height;
 @property (nonatomic, strong) NSString *width;
 @property (nonatomic, strong) NSString *clickUrl;
+@property (nonatomic, strong) NSString *marginTop;
 @property (nonatomic, strong) NSString *marginLeft;
+@property (nonatomic, strong) NSString *marginRight;
 @property (nonatomic, strong) NSString *alignItems;
 @end
 @interface Flex : NSObject

@@ -77,11 +77,26 @@
                     layout.isEnabled = YES;
                     layout.marginTop = YGPointValue(20);
                     if (Imagemodel.marginLeft) {
-                        layout.marginLeft = YGPointValue([Imagemodel.marginLeft floatValue]);
+                        if ([Imagemodel.marginLeft containsString:@"%"]) {
+                            layout.marginLeft = YGPercentValue([Imagemodel.marginLeft floatValue]);
+                        }else{
+                            layout.marginLeft = YGPointValue([Imagemodel.marginLeft floatValue]);
+                        }
+                    }
+                    if (Imagemodel.marginRight) {
+                        if ([Imagemodel.marginRight containsString:@"%"]) {
+                            layout.marginRight = YGPercentValue([Imagemodel.marginRight floatValue]);
+                        }else{
+                            layout.marginRight = YGPointValue([Imagemodel.marginRight floatValue]);
+                        }
                     }
                     
                     if (Imagemodel.width) {
-                        layout.width = YGPointValue([Imagemodel.width floatValue]);
+                        if ([Imagemodel.width containsString:@"%"]) {
+                            layout.width = YGPercentValue([Imagemodel.width floatValue]);
+                        }else{
+                            layout.width = YGPointValue([Imagemodel.width floatValue]);
+                        }
                     }
                     if (Imagemodel.height) {
                         layout.height = YGPointValue([Imagemodel.height floatValue]);
@@ -108,8 +123,12 @@
                     if (textmodel.marginTop) {
                         layout.marginTop = YGPointValue([textmodel.marginTop floatValue]);
                     }
-                    if(textmodel.width){
-                        layout.width = YGPointValue([textmodel.width floatValue]);
+                    if (textmodel.width) {
+                        if ([textmodel.width containsString:@"%"]) {
+                            layout.width = YGPercentValue([textmodel.width floatValue]);
+                        }else{
+                            layout.width = YGPointValue([textmodel.width floatValue]);
+                        }
                     }
                     if(textmodel.height){
                         layout.height = YGPointValue([textmodel.height floatValue]);
@@ -153,14 +172,29 @@
             }else{
                 layout.flexDirection =  YGFlexDirectionRow;
             }
-            if(Flexmodel.marginLeft){
-                layout.marginLeft = YGPointValue([Flexmodel.marginLeft floatValue]);
+            if (Flexmodel.marginLeft) {
+                if ([Flexmodel.marginLeft containsString:@"%"]) {
+                    layout.marginLeft = YGPercentValue([Flexmodel.marginLeft floatValue]);
+                }else{
+                    layout.marginLeft = YGPointValue([Flexmodel.marginLeft floatValue]);
+                }
             }
             if (Flexmodel.marginRight) {
-                layout.marginRight = YGPointValue([Flexmodel.marginRight floatValue]);
+                if ([Flexmodel.marginRight containsString:@"%"]) {
+                    layout.marginRight = YGPercentValue([Flexmodel.marginRight floatValue]);
+                }else{
+                    layout.marginRight = YGPointValue([Flexmodel.marginRight floatValue]);
+                }
             }
-            if(Flexmodel.width){
-                layout.width = YGPointValue([Flexmodel.width floatValue]);
+            if (Flexmodel.marginTop) {
+                layout.marginTop = YGPointValue([Flexmodel.marginTop floatValue]);
+            }
+            if (Flexmodel.width) {
+                if ([Flexmodel.width containsString:@"%"]) {
+                    layout.width = YGPercentValue([Flexmodel.width floatValue]);
+                }else{
+                    layout.width = YGPointValue([Flexmodel.width floatValue]);
+                }
             }
             if(Flexmodel.height){
                 layout.height = YGPointValue([Flexmodel.height floatValue]);
@@ -178,13 +212,31 @@
                     [flexIMG configureLayoutWithBlock:^(YGLayout * layout) {
                         layout.isEnabled = YES;
                         if (Imagemodel.marginLeft) {
-                            layout.marginLeft = YGPointValue([Imagemodel.marginLeft floatValue]);
+                            if ([Imagemodel.marginLeft containsString:@"%"]) {
+                                layout.marginLeft = YGPercentValue([Imagemodel.marginLeft floatValue]);
+                            }else{
+                                layout.marginLeft = YGPointValue([Imagemodel.marginLeft floatValue]);
+                            }
+                        }
+                        if (Imagemodel.marginRight) {
+                            if ([Imagemodel.marginRight containsString:@"%"]) {
+                                layout.marginRight = YGPercentValue([Imagemodel.marginRight floatValue]);
+                            }else{
+                                layout.marginRight = YGPointValue([Imagemodel.marginRight floatValue]);
+                            }
                         }
                         if (Imagemodel.width) {
-                            layout.width = YGPointValue([Imagemodel.width floatValue]);
+                            if ([Flexmodel.width containsString:@"%"]) {
+                                layout.width = YGPercentValue([Imagemodel.width floatValue]);
+                            }else{
+                                layout.width = YGPointValue([Imagemodel.width floatValue]);
+                            }
                         }
                         if (Imagemodel.height) {
                             layout.height = YGPointValue([Imagemodel.height floatValue]);
+                        }
+                        if (Imagemodel.marginTop) {
+                            layout.marginTop = YGPointValue([Imagemodel.marginTop floatValue]);
                         }
                         if (Imagemodel.alignItems) {
                             layout.alignItems = [self alignItems:Imagemodel.alignItems];
@@ -200,8 +252,18 @@
                         if (textmodel.marginLeft) {
                             layout.marginLeft = YGPointValue([textmodel.marginLeft floatValue]);
                         }
-                        if(textmodel.width){
-                            layout.width = YGPointValue([textmodel.width floatValue]);
+                        if (textmodel.marginRight) {
+                            layout.marginRight = YGPointValue([textmodel.marginRight floatValue]);
+                        }
+                        if (textmodel.marginTop) {
+                            layout.marginTop = YGPointValue([textmodel.marginTop floatValue]);
+                        }
+                        if (textmodel.width) {
+                            if ([textmodel.width containsString:@"%"]) {
+                                layout.width = YGPercentValue([textmodel.width floatValue]);
+                            }else{
+                                layout.width = YGPointValue([textmodel.width floatValue]);
+                            }
                         }
                         if(textmodel.height){
                             layout.height = YGPointValue([textmodel.height floatValue]);

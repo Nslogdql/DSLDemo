@@ -31,7 +31,8 @@
             newFlex.flexDirection = attributeDict[@"flexDirection"];
             newFlex.paddingBottom = attributeDict[@"paddingBottom"];
             newFlex.marginTop = attributeDict[@"marginTop"];
-            newFlex.marginTop = attributeDict[@"marginLeft"];
+            newFlex.marginLeft = attributeDict[@"marginLeft"];
+            newFlex.marginRight = attributeDict[@"marginRight"];
             newFlex.padding = attributeDict[@"padding"];
             self.currentFlex = newFlex;
             self.FatherrootFlex = newFlex;
@@ -41,12 +42,14 @@
             Flex *newFlex = [[Flex alloc] init];
             newFlex.key = attributeDict[@"key"];
             newFlex.width = attributeDict[@"width"];
+            newFlex.height = attributeDict[@"height"];
             newFlex.alignItems = attributeDict[@"alignItems"];
             newFlex.background = attributeDict[@"background"];
             newFlex.flexDirection = attributeDict[@"flexDirection"];
             newFlex.paddingBottom = attributeDict[@"paddingBottom"];
             newFlex.marginTop = attributeDict[@"marginTop"];
-            newFlex.marginTop = attributeDict[@"marginLeft"];
+            newFlex.marginLeft = attributeDict[@"marginLeft"];
+            newFlex.marginRight = attributeDict[@"marginRight"];
             newFlex.padding = attributeDict[@"padding"];
             self.currentFlex = newFlex;
             self.currentFatherFlex = self.currentElementsStack[self.currentElementsStack.count-1];
@@ -69,6 +72,9 @@
         self.currentImage.clickUrl = attributeDict[@"clickUrl"];
         self.currentImage.alignItems = attributeDict[@"alignItems"];
         self.currentImage.marginLeft = attributeDict[@"marginLeft"];
+        self.currentImage.marginTop = attributeDict[@"marginTop"];
+        self.currentImage.marginLeft = attributeDict[@"marginLeft"];
+        self.currentImage.marginRight = attributeDict[@"marginRight"];
         [self.currentFlex.images addObject:self.currentImage];
         
         
@@ -82,8 +88,11 @@
         self.currentText.textSize = attributeDict[@"textSize"];
         self.currentText.textStyle = attributeDict[@"textStyle"];
         self.currentText.marginLeft = attributeDict[@"marginLeft"];
+        self.currentText.marginRight = attributeDict[@"marginRight"];
+        self.currentText.marginTop = attributeDict[@"marginTop"];
         self.currentText.height = attributeDict[@"height"];
         self.currentText.width = attributeDict[@"width"];
+        self.currentText.textAlignment = attributeDict[@"textAlignment"];
         [self.currentFlex.texts addObject:self.currentText];
         
         

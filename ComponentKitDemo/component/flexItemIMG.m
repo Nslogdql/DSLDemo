@@ -14,7 +14,7 @@
 //@property (nonatomic, strong) NSString *clickUrl;
 + (UIImageView *)initWith:(Imagecomponent *)ImageModel{
     UIImageView *ItemIMG = [[UIImageView alloc] init];
-    ItemIMG.contentMode = UIViewContentModeScaleAspectFit;
+    ItemIMG.contentMode = UIViewContentModeScaleAspectFill;
     ItemIMG.backgroundColor = [UIColor clearColor];
     if(ImageModel.src.length > 0){
         ItemIMG.image = [UIImage imageNamed:ImageModel.src];

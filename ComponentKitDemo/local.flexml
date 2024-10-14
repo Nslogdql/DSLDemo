@@ -9,22 +9,21 @@
             key="Image"
             clickUrl="local-banner"
             height="140"
-            width="360"
+            width="100%"
             src="local-banner"></Image>
         
-        <Flex
-            key="Flex"
-            marginLeft="30"
-            flexDirection="column"
-            alignItems="center"
-            background="#DFC2AD"
-            width="360"
-            height="260">
+            <Flex
+                key="Flex"
+                flexDirection="column"
+                height="260">
             <Flex
                 key="Flex"
                 flexDirection="column"
                 background="#DFC2AD"
-                justifyContent="flexStart">
+                marginTop="-10"
+                marginLeft="20"
+                marginRight="20"
+                height="260">
                 <Text
                         key="Text"
                         marginLeft="10"
@@ -51,15 +50,14 @@
         <Flex
             key="Flex"
             flexDirection="row"
-            marginTop="30"
             >
             <Flex
                 key="Flex"
                 flexDirection="row"
                 background="#AEEEEE"
-                marginLeft="30"
-                marginRight="30"
-                
+                marginLeft="20"
+                marginRight="20"
+                marginTop="20"
                 height="80">
                 <Image
                     key="Image"
@@ -241,8 +239,9 @@
         <Image
                 key="Image"
                 height="60"
-                width="320"
                 marginTop="20"
+                marginLeft="20"
+                marginRight="20"
                 scaleType="centerInside"
                 src="local-daoshi"></Image>
         
@@ -251,25 +250,26 @@
                 alignItems="center"
                 flexDirection="column"
                 justifyContent="center"
-                marginTop="20"
-                width="320">
+                width="100%">
             <Flex
                     key="Flex"
                     flexDirection="row"
                     alignItems="center"
                     justifyContent="spaceBetween"
-                    width="320">
+                    width="100%">
                 <Text
-                        width="80"
+                        width="80%"
                         height="20"
                         key="Text"
+                        marginLeft="20"
                         textSize="15"
                         textStyle="bold"
                         text="热门活动"></Text>
                 <Text
-                        width="80"
+                        width="10%"
                         height="20"
                         key="Text"
+                        textAlignment="right"
                         textSize="11"
                         text="更多"></Text>
             </Flex>
@@ -331,28 +331,25 @@
         </Flex>
         <Flex
                 key="Flex"
-                alignItems="center"
+                alignItems="flexStart"
                 flexDirection="column"
-                justifyContent="center"
-                marginTop="20"
-                width="320">
+                justifyContent="flexStart"
+                marginTop="20">
             <Flex
                     key="Flex"
                     flexDirection="row"
-                    alignItems="center"
-                    justifyContent="spaceBetween"
-                    width="320">
+                    alignItems="flexStart">
                 <Text
-                        width="80"
+                        width="130"
                         height="20"
                         key="Text"
                         textSize="15"
                         textStyle="bold"
                         text="宝石山工具箱"></Text>
                 <Text
-                        width="80"
                         height="20"
                         key="Text"
+                        marginRight="30"
                         clickUrl="更多"
                         textSize="11"
                         text="更多"></Text>
