@@ -67,6 +67,7 @@
     }];
     [scroll addSubview: contentView];
 
+    
     if(self.rootFlex.FlexorderItem.count > 0){
         for (NSInteger i = 0; i < self.rootFlex.FlexorderItem.count; i++) {
             id itemModel  = self.rootFlex.FlexorderItem[i];
@@ -83,6 +84,7 @@
                             layout.marginLeft = YGPointValue([Imagemodel.marginLeft floatValue]);
                         }
                     }
+                    
                     if (Imagemodel.marginRight) {
                         if ([Imagemodel.marginRight containsString:@"%"]) {
                             layout.marginRight = YGPercentValue([Imagemodel.marginRight floatValue]);
@@ -143,9 +145,9 @@
         }
     }
 
-    [self.scroll.yoga applyLayoutPreservingOrigin:YES];
-    // 设置 UIScrollView 的 contentSize
-    self.scroll.contentSize = CGSizeMake(contentView.bounds.size.width, contentView.bounds.size.height+88); // 手动设置 contentSize
+//    [self.scroll.yoga applyLayoutPreservingOrigin:YES];
+//    // 设置 UIScrollView 的 contentSize
+//    self.scroll.contentSize = CGSizeMake(contentView.bounds.size.width, contentView.bounds.size.height+88); // 手动设置 contentSize
    
 }
 

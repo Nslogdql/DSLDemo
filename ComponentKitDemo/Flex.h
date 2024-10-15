@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "YGLayout.h"
 NS_ASSUME_NONNULL_BEGIN
 @interface Textcomponent : NSObject
 
