@@ -63,14 +63,13 @@
         layout.height = YGPercentValue(100);
         //layout.alignItems = YGAlignCenter;
         layout.paddingBottom = YGPointValue([self.rootFlex.paddingBottom floatValue]);
-        
     }];
     [scroll addSubview: contentView];
 
     if(self.rootFlex.FlexorderItem.count > 0){
         for (NSInteger i = 0; i < self.rootFlex.FlexorderItem.count; i++) {
             id itemModel  = self.rootFlex.FlexorderItem[i];
-            if([itemModel isKindOfClass:[Imagecomponent class]]){
+            if([itemModel isMemberOfClass:[Imagecomponent class]]){
                 Imagecomponent *Imagemodel = (Imagecomponent *)itemModel;
                 UIImageView *flexIMG = [flexItemIMG initWith:Imagemodel];
                 [flexIMG configureLayoutWithBlock:^(YGLayout * layout) {
@@ -109,7 +108,7 @@
                 [contentView addSubview: flexIMG];
             }
             
-            if([itemModel isKindOfClass:[Textcomponent class]]){
+            if([itemModel isMemberOfClass:[Textcomponent class]]){
                 Textcomponent *textmodel = (Textcomponent *)itemModel;
                 UILabel *flexlab = [flexItemLab initWithText:textmodel];
                 [flexlab configureLayoutWithBlock:^(YGLayout * layout) {
@@ -136,7 +135,7 @@
                 }];
                 [contentView addSubview: flexlab];
             }
-            if([itemModel isKindOfClass:[Flex class]]){
+            if([itemModel isMemberOfClass:[Flex class]]){
                 Flex *newmodel = (Flex *)itemModel;
                 [self flexBoxItem:newmodel.Flex with:contentView];
             }
@@ -199,7 +198,7 @@
         if(Flexmodel.FlexorderItem.count > 0){
             for (NSInteger i = 0; i < Flexmodel.FlexorderItem.count; i++) {
                 id itemModel = Flexmodel.FlexorderItem[i];
-                if([itemModel isKindOfClass:[Imagecomponent class]]){
+                if([itemModel isMemberOfClass:[Imagecomponent class]]){
                     Imagecomponent *Imagemodel = (Imagecomponent *)itemModel;
                     UIImageView *flexIMG = [flexItemIMG initWith:Imagemodel];
                     [flexIMG configureLayoutWithBlock:^(YGLayout * layout) {

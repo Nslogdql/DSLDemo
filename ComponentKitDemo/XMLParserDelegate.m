@@ -7,6 +7,12 @@
 
 #import "XMLParserDelegate.h"
 #import "Flex.h"
+
+@interface XMLParserDelegate()
+
+@property(nonatomic, strong)NSMutableArray *openTag;
+@end
+
 @implementation XMLParserDelegate
 - (instancetype)init {
     self = [super init];
@@ -14,6 +20,7 @@
         _FatherrootFlex = [[Flex alloc] init];
         _currentFlex = [[Flex alloc] init];
         _currentElementsStack = [NSMutableArray array];
+        _openTag = [NSMutableArray array];
     }
     return self;
 }
@@ -39,6 +46,7 @@
             self.FatherrootFlex = newFlex;
 //            [self.currentFlex.FlexorderItem addObject:newFlex];
             [self.currentElementsStack addObject:newFlex];
+            [self.openTag addObject:elementName];
         }else{
             Flex *newFlex = [[Flex alloc] init];
             newFlex.key = attributeDict[@"key"];
@@ -54,19 +62,21 @@
             newFlex.padding = attributeDict[@"padding"];
             newFlex.flexGrow = attributeDict[@"flexGrow"];
             
+            [self.currentFlex.FlexorderItem addObject:newFlex];
+            
+            newFlex.ParentFlex = self.currentFlex;
             self.currentFlex = newFlex;
             self.currentFatherFlex = self.currentElementsStack[self.currentElementsStack.count-1];
             [self.currentFatherFlex.Flex addObject:newFlex];
-//            self.currentFlex = self.currentElementsStack.lastObject;
-            //Flex *fatherFlex = self.currentElementsStack[[self.currentElementsStack count] -1];
-            [self.currentFatherFlex.FlexorderItem addObject:newFlex];
+            [self.openTag addObject:elementName];
+//            [self.currentFatherFlex.FlexorderItem addObject:newFlex];
             [self.currentElementsStack addObject:newFlex];
         }
         
     } else if ([elementName isEqualToString:@"Image"]) {
-        if(!self.currentFlex){
-            self.currentFlex = self.currentElementsStack.lastObject;
-        }
+//        if(!self.currentFlex){
+//            self.currentFlex = self.currentElementsStack.lastObject;
+//        }
         self.currentImage = [[Imagecomponent alloc] init];
         self.currentImage.src = attributeDict[@"src"];
         self.currentImage.height = attributeDict[@"height"];
@@ -78,12 +88,13 @@
         self.currentImage.marginLeft = attributeDict[@"marginLeft"];
         self.currentImage.marginRight = attributeDict[@"marginRight"];
         [self.currentFlex.images addObject:self.currentImage];
-        
+        [self.currentFlex.content addObject:self.currentImage];
         [self.currentFlex.FlexorderItem addObject:self.currentImage];
+        [self.openTag addObject:elementName];
     } else if ([elementName isEqualToString:@"Text"]) {
-        if(!self.currentFlex){
-            self.currentFlex = self.currentElementsStack.lastObject;
-        }
+//        if(!self.currentFlex){
+//            self.currentFlex = self.currentElementsStack.lastObject;
+//        }
         self.currentText = [[Textcomponent alloc] init];
         self.currentText.text = attributeDict[@"text"];
         self.currentText.textSize = attributeDict[@"textSize"];
@@ -95,8 +106,10 @@
         self.currentText.width = attributeDict[@"width"];
         self.currentText.textAlignment = attributeDict[@"textAlignment"];
         [self.currentFlex.texts addObject:self.currentText];
-        
+        [self.currentFlex.content addObject:self.currentText];
         [self.currentFlex.FlexorderItem addObject:self.currentText];
+        
+        [self.openTag addObject: elementName ];
         
     }
 //    self.currentElementValue = [[NSMutableString alloc] init];
@@ -116,13 +129,28 @@
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
-    if ([elementName isEqualToString:@"Flex"]) {
-        NSLog(@"xml解析堆栈数量---%ld",self.currentElementsStack.count);
-        [self.currentElementsStack removeLastObject];
-        self.currentFlex = nil;
-        if(self.currentElementsStack.count == 1){
-            NSLog(@"---");
+    
+    NSLog(@"%s", __FUNCTION__);
+    NSLog(@"%@%@%@", elementName, namespaceURI, qName);
+    if ([elementName isEqualToString:self.openTag.lastObject]) {
+        //开标签与闭标签符合
+        
+        //说明这个flex到了闭合标签了,到底了,再挂载内容应该往上找了
+        if ([elementName isEqualToString:@"Flex"]) {
+            Flex *lNode = self.currentFlex;
+            Flex *newLastNode = lNode.ParentFlex;
+            self.currentFlex = newLastNode;
         }
+    }
+    [self.openTag removeLastObject];
+    
+    if ([elementName isEqualToString:@"Flex"]) {
+//        NSLog(@"xml解析堆栈数量---%ld",self.currentElementsStack.count);
+//        [self.currentElementsStack removeLastObject];
+//        self.currentFlex = nil;
+//        if(self.currentElementsStack.count == 1){
+//            NSLog(@"---");
+//        }
 //        self.currentFlex = (self.currentFlex.Flex.count > 0) ? self.currentFlex.Flex.lastObject : nil;
     } else if ([elementName isEqualToString:@"Image"]) {
         self.currentImage = nil;
@@ -131,5 +159,7 @@
 //        [self.currentFlex.texts addObject:self.currentText];
         self.currentText = nil;
     }
+
 }
+
 @end

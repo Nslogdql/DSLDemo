@@ -32,6 +32,8 @@
 		6B981F4B2CB8FC51002EB23E /* template.flexml in Resources */ = {isa = PBXBuildFile; fileRef = 6B981F4A2CB8FC50002EB23E /* template.flexml */; };
 		6B981F572CBA17D3002EB23E /* local.flexml in Resources */ = {isa = PBXBuildFile; fileRef = 6B981F562CBA17D3002EB23E /* local.flexml */; };
 		7B41EFC671DA0828F7DAAAF7 /* Pods_ComponentKitDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDFBA7098F0BE3459131C78C /* Pods_ComponentKitDemo.framework */; };
+		85E097E52CBCF71F00ABD518 /* DataNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E097E12CBCF71F00ABD518 /* DataNode.m */; };
+		85E097E62CBCF71F00ABD518 /* Node.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E097E42CBCF71F00ABD518 /* Node.m */; };
 		D37B57994A2D1D48EA1F582B /* Pods_ComponentKitDemo_ComponentKitDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17AF7D7FB42689E212433B96 /* Pods_ComponentKitDemo_ComponentKitDemoUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +100,10 @@
 		6B981F482CB8CBB0002EB23E /* flexItemIMG.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = flexItemIMG.m; sourceTree = "<group>"; };
 		6B981F4A2CB8FC50002EB23E /* template.flexml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = template.flexml; sourceTree = "<group>"; };
 		6B981F562CBA17D3002EB23E /* local.flexml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = local.flexml; sourceTree = "<group>"; };
+		85E097E12CBCF71F00ABD518 /* DataNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataNode.m; sourceTree = "<group>"; };
+		85E097E22CBCF71F00ABD518 /* DataNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataNode.h; sourceTree = "<group>"; };
+		85E097E32CBCF71F00ABD518 /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
+		85E097E42CBCF71F00ABD518 /* Node.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Node.m; sourceTree = "<group>"; };
 		88B0811FE69E2876F070E04A /* Pods-ComponentKitDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComponentKitDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-ComponentKitDemoTests/Pods-ComponentKitDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B4FBEB9B55C9C24698DFEE97 /* Pods-ComponentKitDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComponentKitDemoTests.release.xcconfig"; path = "Target Support Files/Pods-ComponentKitDemoTests/Pods-ComponentKitDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		B7FFAE3E7CBDDF31319F9BAC /* Pods-ComponentKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComponentKitDemo.debug.xcconfig"; path = "Target Support Files/Pods-ComponentKitDemo/Pods-ComponentKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -169,6 +175,10 @@
 				6B981F342CB7CEF5002EB23E /* NBData.m */,
 				6B981F372CB8AABB002EB23E /* Flex.h */,
 				6B981F382CB8AABB002EB23E /* Flex.m */,
+				85E097E22CBCF71F00ABD518 /* DataNode.h */,
+				85E097E12CBCF71F00ABD518 /* DataNode.m */,
+				85E097E32CBCF71F00ABD518 /* Node.h */,
+				85E097E42CBCF71F00ABD518 /* Node.m */,
 				6B981F3A2CB8AB19002EB23E /* XMLParserDelegate.h */,
 				6B981F3B2CB8AB19002EB23E /* XMLParserDelegate.m */,
 				6B981DEE2CB630D2002EB23E /* ViewController.h */,
@@ -499,11 +509,13 @@
 				6B981F392CB8AABB002EB23E /* Flex.m in Sources */,
 				6B981F412CB8B676002EB23E /* homeXmlPageViewController.m in Sources */,
 				6B981F0F2CB771F4002EB23E /* homepageViewController.m in Sources */,
+				85E097E52CBCF71F00ABD518 /* DataNode.m in Sources */,
 				6B981DF02CB630D2002EB23E /* ViewController.mm in Sources */,
 				6B981F362CB7CEF5002EB23E /* NBData.m in Sources */,
 				6B981E322CB65D3A002EB23E /* test.swift in Sources */,
 				6B981F2B2CB78087002EB23E /* contextviewWithTextStr.m in Sources */,
 				6B981F2E2CB7B887002EB23E /* UIColor+Hex.m in Sources */,
+				85E097E62CBCF71F00ABD518 /* Node.m in Sources */,
 				6B981F452CB8BD76002EB23E /* flexItemLab.m in Sources */,
 				6B981DEA2CB630D2002EB23E /* AppDelegate.m in Sources */,
 				6B981F332CB7CE23002EB23E /* XMLReader.m in Sources */,

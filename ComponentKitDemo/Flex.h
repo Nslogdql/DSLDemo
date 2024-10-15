@@ -6,9 +6,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DataNode.h"
 
 NS_ASSUME_NONNULL_BEGIN
-@interface Textcomponent : NSObject
+@interface Textcomponent : DataNode
 
 @property (nonatomic, strong) NSString *textSize;
 @property (nonatomic, strong) NSString *textStyle;
@@ -21,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *textAlignment;
 
 @end
-@interface Imagecomponent : NSObject
+@interface Imagecomponent : DataNode
 
 @property (nonatomic, strong) NSString *src;
 @property (nonatomic, strong) NSString *height;
@@ -32,12 +33,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *marginRight;
 @property (nonatomic, strong) NSString *alignItems;
 @end
-@interface Flex : NSObject
+@interface Flex : DataNode
 @property (nonatomic, strong) NSMutableArray<Imagecomponent *> *images;
 @property (nonatomic, strong) NSMutableArray<Textcomponent *> *texts;
 @property (nonatomic, strong) NSMutableArray<Flex *> *Flex;
 @property (nonatomic, strong) NSString *key;
-@property (nonatomic, strong) NSString *width;
+@property (nonatomic, strong) NSString *     width;
 @property (nonatomic, strong) NSString *height;
 @property (nonatomic, strong) NSString *alignItems;
 @property (nonatomic, strong) NSString *background;
