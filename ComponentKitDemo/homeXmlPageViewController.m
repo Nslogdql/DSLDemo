@@ -144,9 +144,9 @@
         }
     }
 
-//    [self.scroll.yoga applyLayoutPreservingOrigin:YES];
-//    // 设置 UIScrollView 的 contentSize
-//    self.scroll.contentSize = CGSizeMake(contentView.bounds.size.width, contentView.bounds.size.height+88); // 手动设置 contentSize
+    [self.scroll.yoga applyLayoutPreservingOrigin:YES];
+    // 设置 UIScrollView 的 contentSize
+    self.scroll.contentSize = CGSizeMake(contentView.bounds.size.width, contentView.bounds.size.height+88); // 手动设置 contentSize
    
 }
 
