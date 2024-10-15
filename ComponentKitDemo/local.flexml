@@ -116,9 +116,7 @@
         marginTop="20">
         <Flex
             key="Flex"
-            alignItems="flexStart"
-            flexDirection="row"
-            marginTop="20">
+            flexDirection="row">
             <Flex
                 key="Flex"
                 flexDirection="column"
@@ -143,36 +141,143 @@
                 <Flex
                     key="Flex"
                     alignItems="center"
-                    flexDirection="column"
-                    background="#FF018786"
-                    justifyContent="flexStart">
-                    <Text
-                        width="80"
+                    justifyContent="spaceBetween"
+                    width="100%">
+                <Text
+                        width="80%"
                         height="20"
                         key="Text"
-                        textSize="13"
+                        marginLeft="20"
+                        textSize="15"
                         textStyle="bold"
-                        text="珠联璧合"></Text>
+                        text="热门活动"></Text>
+                <Text
+                        width="10%"
+                        height="20"
+                        key="Text"
+                        textAlignment="right"
+                        textSize="11"
+                        text="更多"></Text>
+            </Flex>
+            <Flex
+                        key="Flex"
+                        flexDirection="row"
+                        justifyContent="center"
+                        padding="10"
+                        marginTop="10"
+                        width="100%">
+                <Flex
+                            key="Flex"
+                            flexDirection="row"
+                            alignItems="center"
+                            width="100%"
+                            justifyContent="spaceBetween">
+                    <Flex
+                        key="Flex"
+                        alignItems="flexStart"
+                        flexDirection="column"
+                        justifyContent="flexStart"
+                        width="15%">
+                    <Image
+                                key="Image"
+                                marginLeft="20"
+                                marginTop="10"
+                                height="30"
+                                width="30"
+                                src="wERGk2MQI-GAPtjMAAAP3ZmTxIM649"></Image>
+                    </Flex>
+                    <Flex
+                                key="Flex"
+                                alignItems="flexStart"
+                                flexDirection="column"
+                                justifyContent="flexStart"
+                                marginLeft="10"
+                                flexGrow="1"
+                                width="65%">
+                        <Text
+                                    height="20"
+                                    key="Text"
+                                    textSize="11"
+                                    marginTop="5"
+                                    text="每日签到获取新朋友"></Text>
+                        <Text
+                                    height="20"
+                                    key="Text"
+                                    textSize="15"
+                                    textStyle="bold"
+                                    text="每日签到获取1mg积分"></Text>
+                    </Flex>
+                    <Flex
+                        key="Flex"
+                        marginRight="20"
+                        flexDirection="column"
+                        justifyContent="flexStart"
+                        width="65%">
                     <Text
-                        width="80"
+                                key="Text"
+                                width="40"
+                                marginTop="20"
+                                marginRight = "20"
+                                height="20"
+                                textSize="11"
+                                text="参加"></Text>
+                    </Flex>
+                </Flex>
+                <Flex
+                    key="Flex"
+                    width="100%"
+                    marginTop="20"
+                    marginLeft="20%"
+                    flexDirection="column"
+                    height="1"
+                    background="#000000">
+                </Flex>
+            </Flex>
+        </Flex>
+        
+        
+        
+        <Flex
+                key="Flex"
+                flexDirection="column"
+                marginTop="20"
+                width="100%">
+            <Flex
+                    key="Flex"
+                    flexDirection="row"
+                    alignItems="flexStart"
+                    width="100%">
+                    <Flex
+                        flexDirection="row"
+                        alignItems="flexStart"
+                        width="80%">
+                <Text
+                        width="130"
                         height="20"
                         key="Text"
                         textSize="15"
                         textStyle="bold"
-                        text="2.99%"></Text>
-                    <Text
-                        width="80"
+                        text="宝石山工具箱"></Text>
+                    </Flex>
+                    <Flex
+                        flexDirection="row"
+                        alignItems="flexStart"
+                        width="20%">
+                        <Text
                         height="20"
                         key="Text"
                         textSize="11"
-                        text="近一年变化"></Text>
-                </Flex>
+                        text="更多"></Text>
+                    </Flex>
             </Flex>
             
             <Flex
-                key="Flex"
-                flexDirection="column"
-                width="50%">
+                        key="Flex"
+                        flexDirection="row"
+                        alignItems="center"
+                        justifyContent="spaceBetween"
+                        marginTop="10"
+                        width="100%">
                 <Flex
                     key="Flex"
                     alignItems="flexStart"
@@ -272,6 +377,10 @@
                 textSize="11"
                 text="更多"></Text>
         </Flex>
+        
+        
+        
+        
         <Flex
             key="Flex"
             clickUrl="${hotDatas[index]}"
@@ -337,13 +446,21 @@
             </Flex>
             <Flex
                 key="Flex"
-                width="100%"
                 marginTop="20"
-                marginLeft="20%"
-                flexDirection="column"
-                height="1"
-                background="#000000">
-            </Flex>
+                width="100%">
+            <Text
+                    width="80"
+                    height="20"
+                    key="Text"
+                    textSize="11"
+                    text="杭州银行旗下专业理财平台"></Text>
+            <Text
+                    width="80"
+                    height="20"
+                    key="Text"
+                    textSize="11"
+                    marginTop="5"
+                    text="2015年开始运营.共服务用户5000万次"></Text>
         </Flex>
     </Flex>
     
@@ -457,6 +574,3 @@
     </Flex>
     
 </Flex>
-
-
-
