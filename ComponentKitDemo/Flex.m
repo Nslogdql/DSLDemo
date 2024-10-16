@@ -32,6 +32,7 @@
         _texts = [NSMutableArray array];
         _Flex = [NSMutableArray array];
         _FlexorderItem = [NSMutableArray array];
+        _ParentFlexView = [UIView new];
     }
     return self;
 }

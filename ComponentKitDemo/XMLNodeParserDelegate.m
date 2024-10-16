@@ -1,11 +1,12 @@
 //
-//  XMLParserDelegate.m
+//  XMLNodeParserDelegate.m
 //  ComponentKitDemo
 //
-//  Created by 董其林 on 2024/10/11.
+//  Created by 董其林 on 2024/10/15.
 //
 
-#import "XMLParserDelegate.h"
+#import "XMLNodeParserDelegate.h"
+
 #import "Flex.h"
 #import <YGLayout.h>
 #import <UIView+Yoga.h>
@@ -16,7 +17,7 @@
 #import "flexItemLab.h"
 #import "flexItemIMG.h"
 #import "UIColor+Hex.h"
-@implementation XMLParserDelegate
+@implementation XMLNodeParserDelegate
 - (instancetype)init {
     self = [super init];
     if (self) {
@@ -91,10 +92,12 @@
                     }
                 }
             }];
+            [self.contentView addSubview:contentView];
+            self.contentView.frame = contentView.frame;
             self.currentFlex = newFlex;
-            self.currentFlex.ParentFlexView = contentView;
             self.FatherrootFlex = newFlex;
-//            [self.currentFlex.FlexorderItem addObject:newFlex];
+            self.FatherrootFlex.ParentFlexView = contentView;
+            //            [self.currentFlex.FlexorderItem addObject:newFlex];
             [self.currentElementsStack addObject:newFlex];
         }else{
             Flex *newFlex = [[Flex alloc] init];
@@ -157,7 +160,7 @@
                     layout.height = YGPointValue([newFlex.height floatValue]);
                 }
             }];
-     
+            
             
             
             
@@ -165,13 +168,14 @@
             
             self.currentFlex = newFlex;
             self.currentFatherFlex = self.currentElementsStack[self.currentElementsStack.count-1];
-            self.currentFatherFlex.ParentFlexView = contentView;
+            [self.currentFatherFlex.ParentFlexView addSubview:contentView];
+            self.currentFlex.ParentFlexView = contentView;
             [self.currentFatherFlex.Flex addObject:newFlex];
-//            self.currentFlex = self.currentElementsStack.lastObject;
+            //            self.currentFlex = self.currentElementsStack.lastObject;
             //Flex *fatherFlex = self.currentElementsStack[[self.currentElementsStack count] -1];
             [self.currentFatherFlex.FlexorderItem addObject:newFlex];
             [self.currentElementsStack addObject:newFlex];
-           
+            
         }
         
     } else if ([elementName isEqualToString:@"Image"]) {
@@ -193,39 +197,39 @@
         UIImageView *flexIMG = [flexItemIMG initWith:self.currentImage];
         [flexIMG configureLayoutWithBlock:^(YGLayout * layout) {
             layout.isEnabled = YES;
-            if (self.currentFlex.marginLeft) {
+            if (self.currentImage.marginLeft) {
                 if ([self.currentFlex.marginLeft containsString:@"%"]) {
-                    layout.marginLeft = YGPercentValue([self.currentFlex.marginLeft floatValue]);
+                    layout.marginLeft = YGPercentValue([self.currentImage.marginLeft floatValue]);
                 }else{
-                    layout.marginLeft = YGPointValue([self.currentFlex.marginLeft floatValue]);
+                    layout.marginLeft = YGPointValue([self.currentImage.marginLeft floatValue]);
                 }
             }
-            if (self.currentFlex.marginRight) {
+            if (self.currentImage.marginRight) {
                 if ([self.currentImage.marginRight containsString:@"%"]) {
-                    layout.marginRight = YGPercentValue([self.currentFlex.marginRight floatValue]);
+                    layout.marginRight = YGPercentValue([self.currentImage.marginRight floatValue]);
                 }else{
-                    layout.marginRight = YGPointValue([self.currentFlex.marginRight floatValue]);
+                    layout.marginRight = YGPointValue([self.currentImage.marginRight floatValue]);
                 }
             }
-            if (self.currentFlex.width) {
+            if (self.currentImage.width) {
                 if ([self.currentImage.width containsString:@"%"]) {
-                    layout.width = YGPercentValue([self.currentFlex.width floatValue]);
+                    layout.width = YGPercentValue([self.currentImage.width floatValue]);
                 }else{
-                    layout.width = YGPointValue([self.currentFlex.width floatValue]);
+                    layout.width = YGPointValue([self.currentImage.width floatValue]);
                 }
             }
-            if (self.currentFlex.height) {
-                layout.height = YGPointValue([self.currentFlex.height floatValue]);
+            if (self.currentImage.height) {
+                layout.height = YGPointValue([self.currentImage.height floatValue]);
             }
-            if (self.currentFlex.marginTop) {
-                layout.marginTop = YGPointValue([self.currentFlex.marginTop floatValue]);
+            if (self.currentImage.marginTop) {
+                layout.marginTop = YGPointValue([self.currentImage.marginTop floatValue]);
             }
-            if (self.currentFlex.alignItems) {
-                layout.alignItems = [self alignItems:self.currentFlex.alignItems];
+            if (self.currentImage.alignItems) {
+                layout.alignItems = [self alignItems:self.currentImage.alignItems];
             }
         }];
-        if (!self.currentFlex.ParentFlex.ParentFlexView) {
-            self.currentFlex.ParentFlex.ParentFlexView = [[UIView alloc] init];
+        if (!self.currentFlex.ParentFlexView) {
+            self.currentFlex.ParentFlexView = [[UIView alloc] init];
         }
         [self.currentFlex.ParentFlexView addSubview: flexIMG];
         [self.currentFlex.FlexorderItem addObject:self.currentImage];
@@ -268,50 +272,56 @@
             if(self.currentText.height){
                 layout.height = YGPointValue([self.currentText.height floatValue]);
             }
-           
+            
         }];
-        if (!self.currentFlex.ParentFlex.ParentFlexView) {
-            self.currentFlex.ParentFlex.ParentFlexView = [[UIView alloc] init];
+        if (!self.currentFlex.ParentFlexView) {
+            self.currentFlex.ParentFlexView = [[UIView alloc] init];
         }
         [self.currentFlex.ParentFlexView addSubview: flexlab];
         
         [self.currentFlex.FlexorderItem addObject:self.currentText];
         
     }
-//    self.currentElementValue = [[NSMutableString alloc] init];
+    //    self.currentElementValue = [[NSMutableString alloc] init];
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
     // 只处理非空白字符
-//        NSString *trimmedString = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-//        
-//        if (trimmedString.length > 0) {
-//            if (!self.currentElementValue) {
-//                self.currentElementValue = [[NSMutableString alloc] init];
-//            }
-//            [self.currentElementValue appendString:trimmedString]; // 拼接非空白字符
-//        }
-   // [self.currentElementValue appendString:string];
+    //        NSString *trimmedString = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    //
+    //        if (trimmedString.length > 0) {
+    //            if (!self.currentElementValue) {
+    //                self.currentElementValue = [[NSMutableString alloc] init];
+    //            }
+    //            [self.currentElementValue appendString:trimmedString]; // 拼接非空白字符
+    //        }
+    // [self.currentElementValue appendString:string];
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
     if ([elementName isEqualToString:@"Flex"]) {
-        NSLog(@"xml解析堆栈数量---%ld",self.currentElementsStack.count);
-//        if (self.currentFlex.ParentFlexView.subviews.count > 0) {
-//            [self.currentFlex.ParentFlexView.yoga applyLayoutPreservingOrigin:YES];
-//        }
+//        NSLog(@"xml解析堆栈数量---%ld",self.currentElementsStack.count);
+        //        if (self.currentFlex.ParentFlexView.subviews.count > 0) {
+        //            [self.currentFlex.ParentFlexView.yoga applyLayoutPreservingOrigin:YES];
+        //        }
         [self.currentElementsStack removeLastObject];
         self.currentFlex = nil;
-        if(self.currentElementsStack.count == 1){
-            NSLog(@"---");
-        }
-//        self.currentFlex = (self.currentFlex.Flex.count > 0) ? self.currentFlex.Flex.lastObject : nil;
+//        if(self.currentElementsStack.count == 1){
+//            NSLog(@"---");
+//        }
+        //        self.currentFlex = (self.currentFlex.Flex.count > 0) ? self.currentFlex.Flex.lastObject : nil;
     } else if ([elementName isEqualToString:@"Image"]) {
         self.currentImage = nil;
     } else if ([elementName isEqualToString:@"Text"]) {
         //self.currentText.text = [self.currentElementValue copy];
-//        [self.currentFlex.texts addObject:self.currentText];
+        //        [self.currentFlex.texts addObject:self.currentText];
         self.currentText = nil;
+    }
+}
+- (void)parserDidEndDocument:(NSXMLParser *)parser{
+    NSLog(@"---解析结束");
+    if (self.endParse) {
+        self.endParse();
     }
 }
 - (YGAlign)alignItems:(NSString *)alignItems{

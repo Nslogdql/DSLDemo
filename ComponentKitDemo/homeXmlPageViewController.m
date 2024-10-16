@@ -51,105 +51,136 @@
     }];
     [self.view addSubview: scroll];
     
-    UIView *contentView = [[UIView alloc]init];
-    contentView.backgroundColor = [UIColor whiteColor];
-    self.contentView = contentView;
-    [contentView configureLayoutWithBlock:^(YGLayout * layout) {
-        layout.isEnabled = YES;
-        //layout.flexDirection =  [self.rootFlex.flexDirection floatValue];
-       // layout.width = YGPointValue(self.view.bounds.size.width);
-        //layout.height = YGPointValue(self.view.bounds.size.height);
-        layout.width = YGPercentValue(100);
-        layout.height = YGPercentValue(100);
-        //layout.alignItems = YGAlignCenter;
-        layout.paddingBottom = YGPointValue([self.rootFlex.paddingBottom floatValue]);
-        
-    }];
-    [scroll addSubview: contentView];
-
+//    UIView *contentView = [[UIView alloc]init];
+//    contentView.backgroundColor = [UIColor whiteColor];
+//    self.contentView = contentView;
+//    [contentView configureLayoutWithBlock:^(YGLayout * layout) {
+//        layout.isEnabled = YES;
+//        //layout.flexDirection =  [self.rootFlex.flexDirection floatValue];
+//       // layout.width = YGPointValue(self.view.bounds.size.width);
+//        //layout.height = YGPointValue(self.view.bounds.size.height);
+//        layout.width = YGPercentValue(100);
+//        layout.height = YGPercentValue(100);
+////        layout.width = YGPointValue(self.view.bounds.size.width);
+////        layout.height = YGPointValue(self.view.bounds.size.height);
+//        //layout.alignItems = YGAlignCenter;
+//        layout.paddingBottom = YGPointValue([self.rootFlex.paddingBottom floatValue]);
+//        
+//    }];
+//    [scroll addSubview: contentView];
     
-    if(self.rootFlex.FlexorderItem.count > 0){
-        for (NSInteger i = 0; i < self.rootFlex.FlexorderItem.count; i++) {
-            id itemModel  = self.rootFlex.FlexorderItem[i];
-            if([itemModel isKindOfClass:[Imagecomponent class]]){
-                Imagecomponent *Imagemodel = (Imagecomponent *)itemModel;
-                UIImageView *flexIMG = [flexItemIMG initWith:Imagemodel];
-                [flexIMG configureLayoutWithBlock:^(YGLayout * layout) {
-                    layout.isEnabled = YES;
-                    layout.marginTop = YGPointValue(20);
-                    if (Imagemodel.marginLeft) {
-                        if ([Imagemodel.marginLeft containsString:@"%"]) {
-                            layout.marginLeft = YGPercentValue([Imagemodel.marginLeft floatValue]);
-                        }else{
-                            layout.marginLeft = YGPointValue([Imagemodel.marginLeft floatValue]);
-                        }
-                    }
-                    
-                    if (Imagemodel.marginRight) {
-                        if ([Imagemodel.marginRight containsString:@"%"]) {
-                            layout.marginRight = YGPercentValue([Imagemodel.marginRight floatValue]);
-                        }else{
-                            layout.marginRight = YGPointValue([Imagemodel.marginRight floatValue]);
-                        }
-                    }
-                    
-                    if (Imagemodel.width) {
-                        if ([Imagemodel.width containsString:@"%"]) {
-                            layout.width = YGPercentValue([Imagemodel.width floatValue]);
-                        }else{
-                            layout.width = YGPointValue([Imagemodel.width floatValue]);
-                        }
-                    }
-                    if (Imagemodel.height) {
-                        layout.height = YGPointValue([Imagemodel.height floatValue]);
-                    }
-                    if (Imagemodel.alignItems) {
-                        layout.alignItems = [self alignItems:Imagemodel.alignItems];
-                    }
-                    
-                }];
-                [contentView addSubview: flexIMG];
-            }
-            
-            if([itemModel isKindOfClass:[Textcomponent class]]){
-                Textcomponent *textmodel = (Textcomponent *)itemModel;
-                UILabel *flexlab = [flexItemLab initWithText:textmodel];
-                [flexlab configureLayoutWithBlock:^(YGLayout * layout) {
-                    layout.isEnabled = YES;
-                    if (textmodel.marginLeft) {
-                        layout.marginLeft = YGPointValue([textmodel.marginLeft floatValue]);
-                    }
-                    if (textmodel.marginRight) {
-                        layout.marginRight = YGPointValue([textmodel.marginRight floatValue]);
-                    }
-                    if (textmodel.marginTop) {
-                        layout.marginTop = YGPointValue([textmodel.marginTop floatValue]);
-                    }
-                    if (textmodel.width) {
-                        if ([textmodel.width containsString:@"%"]) {
-                            layout.width = YGPercentValue([textmodel.width floatValue]);
-                        }else{
-                            layout.width = YGPointValue([textmodel.width floatValue]);
-                        }
-                    }
-                    if(textmodel.height){
-                        layout.height = YGPointValue([textmodel.height floatValue]);
-                    }
-                }];
-                [contentView addSubview: flexlab];
-            }
-            if([itemModel isKindOfClass:[Flex class]]){
-                Flex *newmodel = (Flex *)itemModel;
-                [self flexBoxItem:newmodel.Flex with:contentView];
-            }
-        }
-    }
-
+    [self.rootFlex.ParentFlexView.yoga applyLayoutPreservingOrigin:YES];
+    [scroll addSubview:self.rootFlex.ParentFlexView];
+    
+//    NSMutableArray *rootArray = [NSMutableArray array];
+//    if(self.rootFlex.FlexorderItem.count > 0){
+//        for (NSInteger i = 0; i < self.rootFlex.FlexorderItem.count; i++) {
+//            id itemModel  = self.rootFlex.FlexorderItem[i];
+//            if([itemModel isKindOfClass:[Imagecomponent class]]){
+//                Imagecomponent *Imagemodel = (Imagecomponent *)itemModel;
+//                UIImageView *flexIMG = [flexItemIMG initWith:Imagemodel];
+//                [flexIMG configureLayoutWithBlock:^(YGLayout * layout) {
+//                    layout.isEnabled = YES;
+//                    layout.marginTop = YGPointValue(20);
+//                    if (Imagemodel.marginLeft) {
+//                        if ([Imagemodel.marginLeft containsString:@"%"]) {
+//                            layout.marginLeft = YGPercentValue([Imagemodel.marginLeft floatValue]);
+//                        }else{
+//                            layout.marginLeft = YGPointValue([Imagemodel.marginLeft floatValue]);
+//                        }
+//                    }
+//                    
+//                    if (Imagemodel.marginRight) {
+//                        if ([Imagemodel.marginRight containsString:@"%"]) {
+//                            layout.marginRight = YGPercentValue([Imagemodel.marginRight floatValue]);
+//                        }else{
+//                            layout.marginRight = YGPointValue([Imagemodel.marginRight floatValue]);
+//                        }
+//                    }
+//                    
+//                    if (Imagemodel.width) {
+//                        if ([Imagemodel.width containsString:@"%"]) {
+//                            layout.width = YGPercentValue([Imagemodel.width floatValue]);
+//                        }else{
+//                            layout.width = YGPointValue([Imagemodel.width floatValue]);
+//                        }
+//                    }
+//                    if (Imagemodel.height) {
+//                        layout.height = YGPointValue([Imagemodel.height floatValue]);
+//                    }
+//                    if (Imagemodel.alignItems) {
+//                        layout.alignItems = [self alignItems:Imagemodel.alignItems];
+//                    }
+//                    
+//                }];
+//                [contentView addSubview: flexIMG];
+//            }
+//            
+//            if([itemModel isKindOfClass:[Textcomponent class]]){
+//                Textcomponent *textmodel = (Textcomponent *)itemModel;
+//                UILabel *flexlab = [flexItemLab initWithText:textmodel];
+//                [flexlab configureLayoutWithBlock:^(YGLayout * layout) {
+//                    layout.isEnabled = YES;
+//                    if (textmodel.marginLeft) {
+//                        layout.marginLeft = YGPointValue([textmodel.marginLeft floatValue]);
+//                    }
+//                    if (textmodel.marginRight) {
+//                        layout.marginRight = YGPointValue([textmodel.marginRight floatValue]);
+//                    }
+//                    if (textmodel.marginTop) {
+//                        layout.marginTop = YGPointValue([textmodel.marginTop floatValue]);
+//                    }
+//                    if (textmodel.width) {
+//                        if ([textmodel.width containsString:@"%"]) {
+//                            layout.width = YGPercentValue([textmodel.width floatValue]);
+//                        }else{
+//                            layout.width = YGPointValue([textmodel.width floatValue]);
+//                        }
+//                    }
+//                    if(textmodel.height){
+//                        layout.height = YGPointValue([textmodel.height floatValue]);
+//                    }
+//                }];
+//                [contentView addSubview: flexlab];
+//            }
+//            if([itemModel isKindOfClass:[Flex class]]){
+//                Flex *newmodel = (Flex *)itemModel;
+//                [rootArray addObject:newmodel];
+//                
+//            }
+//            if (i == self.rootFlex.FlexorderItem.count-1) {
+//                [self NodeFlexCompoent:rootArray with:contentView];
+//            }
+//        }
+//    }
+    
+//    [self.contentView.yoga applyLayoutPreservingOrigin:YES];
+    
     [self.scroll.yoga applyLayoutPreservingOrigin:YES];
     // 设置 UIScrollView 的 contentSize
-    self.scroll.contentSize = CGSizeMake(contentView.bounds.size.width, contentView.bounds.size.height+88); // 手动设置 contentSize
+    self.scroll.contentSize = CGSizeMake(self.rootFlex.ParentFlexView.bounds.size.width, self.rootFlex.ParentFlexView.bounds.size.height+88); // 手动设置 contentSize
    
 }
+- (void)NodeFlexCompoent:(NSMutableArray<Flex *> *)sonFlex with:(UIView *)FlexView{
+    
+    for (NSInteger i = 0; i < sonFlex.count; i++ ) {
+        Flex *Flexmodel = sonFlex[i];
+        [FlexView addSubview:Flexmodel.ParentFlexView];
+    
+    if (i == sonFlex.count-1) {
+        [self.contentView.yoga applyLayoutPreservingOrigin:YES dimensionFlexibility:YGDimensionFlexibilityFlexibleWidth];
+        [self.scroll.yoga applyLayoutPreservingOrigin:YES dimensionFlexibility:YGDimensionFlexibilityFlexibleWidth];
+//        [self.contentView.yoga applyLayoutPreservingOrigin:YES];
+//        // 设置 UIScrollView 的 contentSize
+//        [self.scroll.yoga applyLayoutPreservingOrigin:YES];
+        self.scroll.contentSize = CGSizeMake(self.contentView.bounds.size.width, self.contentView.bounds.size.height+88); // 手动设置 contentSize
+    }
+    }
+    
+}
+
+
+
 
 - (void)flexBoxItem:(NSMutableArray<Flex *> *)sonFlex with:(UIView *)FlexView{
     for (NSInteger i = 0; i < sonFlex.count; i++ ) {

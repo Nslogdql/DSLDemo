@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5923D4CA8D214350E8E49BEE /* Pods_ComponentKitDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D750104D98F9588B76ACB9A /* Pods_ComponentKitDemoTests.framework */; };
+		6B2B82762CBE5C3F00573019 /* node.flexml in Resources */ = {isa = PBXBuildFile; fileRef = 6B2B82752CBE5C3F00573019 /* node.flexml */; };
+		6B2B82792CBE65D500573019 /* XMLNodeParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2B82782CBE65D500573019 /* XMLNodeParserDelegate.m */; };
+		6B2B827C2CBE663200573019 /* XMLDelegateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2B827B2CBE663200573019 /* XMLDelegateViewController.m */; };
 		6B981DEA2CB630D2002EB23E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B981DE92CB630D2002EB23E /* AppDelegate.m */; };
 		6B981DF02CB630D2002EB23E /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6B981DEF2CB630D2002EB23E /* ViewController.mm */; };
 		6B981DF32CB630D2002EB23E /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 6B981DF22CB630D2002EB23E /* Base */; };
@@ -57,6 +60,11 @@
 		1C542D6C6DD62D233A82C5F2 /* Pods-ComponentKitDemo-ComponentKitDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComponentKitDemo-ComponentKitDemoUITests.release.xcconfig"; path = "Target Support Files/Pods-ComponentKitDemo-ComponentKitDemoUITests/Pods-ComponentKitDemo-ComponentKitDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		1D750104D98F9588B76ACB9A /* Pods_ComponentKitDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ComponentKitDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D3021858C685450B5454129 /* Pods-ComponentKitDemo-ComponentKitDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComponentKitDemo-ComponentKitDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-ComponentKitDemo-ComponentKitDemoUITests/Pods-ComponentKitDemo-ComponentKitDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		6B2B82752CBE5C3F00573019 /* node.flexml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = node.flexml; sourceTree = "<group>"; };
+		6B2B82772CBE65D500573019 /* XMLNodeParserDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMLNodeParserDelegate.h; sourceTree = "<group>"; };
+		6B2B82782CBE65D500573019 /* XMLNodeParserDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMLNodeParserDelegate.m; sourceTree = "<group>"; };
+		6B2B827A2CBE663200573019 /* XMLDelegateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMLDelegateViewController.h; sourceTree = "<group>"; };
+		6B2B827B2CBE663200573019 /* XMLDelegateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMLDelegateViewController.m; sourceTree = "<group>"; };
 		6B981DE52CB630D2002EB23E /* ComponentKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComponentKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B981DE82CB630D2002EB23E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6B981DE92CB630D2002EB23E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -165,18 +173,23 @@
 				6B981F322CB7CE23002EB23E /* XMLReader.m */,
 				6B981F4A2CB8FC50002EB23E /* template.flexml */,
 				6B981F562CBA17D3002EB23E /* local.flexml */,
+				6B2B82752CBE5C3F00573019 /* node.flexml */,
 				6B981F352CB7CEF5002EB23E /* NBData.h */,
 				6B981F342CB7CEF5002EB23E /* NBData.m */,
 				6B981F372CB8AABB002EB23E /* Flex.h */,
 				6B981F382CB8AABB002EB23E /* Flex.m */,
 				6B981F3A2CB8AB19002EB23E /* XMLParserDelegate.h */,
 				6B981F3B2CB8AB19002EB23E /* XMLParserDelegate.m */,
+				6B2B82772CBE65D500573019 /* XMLNodeParserDelegate.h */,
+				6B2B82782CBE65D500573019 /* XMLNodeParserDelegate.m */,
 				6B981DEE2CB630D2002EB23E /* ViewController.h */,
 				6B981DEF2CB630D2002EB23E /* ViewController.mm */,
 				6B981F0D2CB771F4002EB23E /* homepageViewController.h */,
 				6B981F0E2CB771F4002EB23E /* homepageViewController.m */,
 				6B981F3F2CB8B676002EB23E /* homeXmlPageViewController.h */,
 				6B981F402CB8B676002EB23E /* homeXmlPageViewController.m */,
+				6B2B827A2CBE663200573019 /* XMLDelegateViewController.h */,
+				6B2B827B2CBE663200573019 /* XMLDelegateViewController.m */,
 				6B981F462CB8BD7E002EB23E /* component */,
 				6B981F422CB8BD25002EB23E /* old */,
 				6B981F2D2CB7B887002EB23E /* UIColor+Hex.h */,
@@ -365,6 +378,7 @@
 				6B981F572CBA17D3002EB23E /* local.flexml in Resources */,
 				6B981DF52CB630D3002EB23E /* Assets.xcassets in Resources */,
 				6B981F4B2CB8FC51002EB23E /* template.flexml in Resources */,
+				6B2B82762CBE5C3F00573019 /* node.flexml in Resources */,
 				6B981DF82CB630D3002EB23E /* Base in Resources */,
 				6B981DF32CB630D2002EB23E /* Base in Resources */,
 			);
@@ -495,6 +509,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B981F252CB774A3002EB23E /* contextLable.m in Sources */,
+				6B2B82792CBE65D500573019 /* XMLNodeParserDelegate.m in Sources */,
 				6B981F492CB8CBB0002EB23E /* flexItemIMG.m in Sources */,
 				6B981F392CB8AABB002EB23E /* Flex.m in Sources */,
 				6B981F412CB8B676002EB23E /* homeXmlPageViewController.m in Sources */,
@@ -505,6 +520,7 @@
 				6B981F2B2CB78087002EB23E /* contextviewWithTextStr.m in Sources */,
 				6B981F2E2CB7B887002EB23E /* UIColor+Hex.m in Sources */,
 				6B981F452CB8BD76002EB23E /* flexItemLab.m in Sources */,
+				6B2B827C2CBE663200573019 /* XMLDelegateViewController.m in Sources */,
 				6B981DEA2CB630D2002EB23E /* AppDelegate.m in Sources */,
 				6B981F332CB7CE23002EB23E /* XMLReader.m in Sources */,
 				6B981DFB2CB630D3002EB23E /* main.m in Sources */,

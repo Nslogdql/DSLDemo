@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import "YGLayout.h"
+#import <UIKit/UIKit.h>
 NS_ASSUME_NONNULL_BEGIN
 @interface Textcomponent : NSObject
 
@@ -53,6 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
 // 其他属性...
 //父节点
 @property (nonatomic, strong) Flex *ParentFlex;
+@property (nonatomic, strong) UIView *ParentFlexView;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 @implementation flexItemLab
 + (UILabel *)initWithText:(Textcomponent *)TextModel{
-    UILabel *lable = [[UILabel alloc] init];
+    UILabel *lable = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, [TextModel.width floatValue], [TextModel.height floatValue])];
     lable.backgroundColor = [UIColor clearColor];
     lable.textColor = [UIColor blackColor];
     if ([TextModel.textAlignment isEqualToString:@"left"]) {

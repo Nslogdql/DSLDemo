@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Flex
+        key="Flex"
+        flexDirection="column"
+        justifyContent="flexStart"
+        alignItems="flexStart"
+        width="393"
+        height="1000">
+        <Image
+            key="Image"
+            marginTop="0"
+            clickUrl="local-banner"
+            height="140"
+            width="393"
+            src="local-banner"></Image>
+        <Flex
+            key="Flex"
+            flexDirection="row"
+            background="#DFC2AD"
+            marginTop="-10"
+            marginLeft="20"
+            marginRight="20"
+            width="353"
+            height="160">
+            <Flex
+                key="Flex"
+                flexDirection="row"
+                background="#DFC2AD"
+                marginTop="0"
+                marginLeft="0"
+                marginRight="0"
+                width="353"
+                height="160">
+                <Text
+                        key="Text"
+                        marginLeft="10"
+                        textSize="18"
+                        textStyle="bold"
+                        text="贷款"
+                        width="50"
+                        height="30"></Text>
+                <Text
+                        key="Text"
+                        marginLeft="5"
+                        textSize="10"
+                        marginTop="2"
+                        text="让生活更美好"
+                        width="100"
+                        height="30"></Text>
+        </Flex>
+        </Flex>
+        
+        
+        
+        <Flex
+            key="Flex"
+            flexDirection="row"
+            background="#EEF8FC"
+            width="353"
+            height="100"
+            marginTop="20"
+            marginLeft="20"
+            marginRight="20">
+            <Flex
+                key="Flex"
+                flexDirection="row"
+                background="#EEF8FC"
+                marginLeft="20"
+                marginRight="20"
+                marginTop="0"
+                width="50"
+                height="100">
+                <Image
+                    key="Image"
+                    height="50"
+                    width="50"
+                    src="hangxiaobao_logo"
+                    marginTop="20"
+                    marginLeft="0"></Image>
+            </Flex>
+                <Flex
+                    flexDirection="column"
+                    flexGrow="1"
+                    background="#EEF8FC"
+                    height="100">
+                    <Flex
+                        key="Flex"
+                        flexDirection="column"
+                        background="#EEF8FC"
+                        marginLeft="0"
+                        width="80%"
+                        height="100">
+                    <Text
+                        key="Text"
+                        textSize="10"
+                        text="下午好~"
+                        marginTop="15"
+                        width="100"
+                        height="20"></Text>
+                    <Text
+                        key="Text"
+                        textSize="10"
+                        marginTop="10"
+                        text="杭小宝给您发了2条消息"
+                        width="160"
+                        height="20"></Text>
+                    </Flex>
+                </Flex>
+            
+        </Flex>
+        
+        
+        
+        <Flex
+            key="Flex"
+            alignItems="flexStart"
+            flexDirection="row"
+            width="353"
+            height="150"
+            marginTop="20"
+            marginLeft="20"
+            marginRight="20">
+            
+            <Flex
+                key="Flex"
+                flexDirection="row"
+                width="176"
+                height="150"
+                background="#EEF8FC">
+                <Flex
+                        key="Flex"
+                        flexDirection="column"
+                        alignItems="flexStart"
+                        background="#EEF8FC"
+                        width="176"
+                        height="150">
+                        <Flex
+                            key="Flex"
+                            flexDirection="column"
+                            marginLeft="30"
+                            background="#038cff"
+                            width="146"
+                            height="45">
+                        <Text
+                                key="Text"
+                                textSize="14"
+                                textColor="#ffffff"
+                                background="#4BA0FF"
+                                text="大家都在买"
+                                width="146"
+                                height="45"
+                                ></Text>
+                        </Flex>
+                        <Flex
+                                key="Flex"
+                                flexDirection="column"
+                                background="#FF018786"
+                                marginLeft="20"
+                                marginTop="20"
+                                width="176"
+                                height="90">
+                            <Text
+                                    width="80"
+                                    height="20"
+                                    key="Text"
+                                    textSize="13"
+                                    textStyle="bold"
+                                    text="珠联璧合"></Text>
+                            <Text
+                                   width="80"
+                                   height="20"
+                                   key="Text"
+                                   textSize="15"
+                                   textStyle="bold"
+                                   text="2.99%"></Text>
+                            <Text
+                                    width="80"
+                                    height="20"
+                                    key="Text"
+                                    textSize="15"
+                                    textStyle="bold"
+                                    text="近一年变化"></Text>
+                            <Text
+                                    width="80"
+                                    height="20"
+                                    key="Text"
+                                    textSize="15"
+                                    textStyle="bold"
+                                    text="每周二变化"></Text>
+                        </Flex>
+                </Flex>
+                
+        
+                <Flex
+                        key="Flex"
+                        flexDirection="column"
+                        alignItems="flexStart"
+                        width="176"
+                        height="150"
+                        background="#EEF8FC">
+                        <Flex
+                            key="Flex"
+                            flexDirection="column"
+                            marginLeft="30"
+                            width="176"
+                            background="#FF7e61"
+                            height="45">
+                        <Text
+                                width="176"
+                                height="45"
+                                key="Text"
+                                textSize="14"
+                                textColor="#ffffff"
+                                background="#4BA0FF"
+                                text="明星理财榜"
+                                ></Text>
+                        </Flex>
+                        <Flex
+                                key="Flex"
+                                flexDirection="column"
+                                background="#FF018786"
+                                marginLeft="20"
+                                marginTop="20"
+                                width="176"
+                                height="80">
+                            <Text
+                                    width="80"
+                                    height="20"
+                                    key="Text"
+                                    textSize="13"
+                                    textStyle="bold"
+                                    text="月定开榜单"></Text>
+                            <Text
+                                   width="80"
+                                   height="20"
+                                   key="Text"
+                                   textSize="15"
+                                   textStyle="bold"
+                                   text="业绩比较基准平均3.0%"></Text>
+                            <Text
+                                    width="80"
+                                    height="20"
+                                    key="Text"
+                                    textSize="15"
+                                    textStyle="bold"
+                                    text="灵活申赎榜单"></Text>
+                            <Text
+                                    width="80"
+                                    height="20"
+                                    key="Text"
+                                    textSize="11"
+                                    text="业绩比较基准平均3.0%"></Text>
+                        </Flex>
+                </Flex>
+            </Flex>
+        </Flex>
+        
+        
+        
+        
+        
+        
+        
+        
+        <Image
+                key="Image"
+                height="60"
+                marginTop="20"
+                marginLeft="20"
+                marginRight="20"
+                scaleType="centerInside"
+                src="local-daoshi"></Image>
+        
+        
+        
+        
+        
+        
+        
+        
+       
+        
+        
+</Flex>

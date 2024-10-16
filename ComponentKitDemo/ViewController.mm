@@ -13,6 +13,7 @@
 #import "XMLReader.h"
 #import "NBData.h"
 #import "XMLParserDelegate.h"
+#import "XMLDelegateViewController.h"
 @interface ViewController ()
 @property (nonatomic, strong) YGLayout *yoga;
 
@@ -83,7 +84,7 @@
 - (void)tohome{
     
     
-    NSString* path =[[NSBundle mainBundle] pathForResource:@"local.flexml" ofType:@""];
+    NSString* path =[[NSBundle mainBundle] pathForResource:@"node.flexml" ofType:@""];
     NSData *data = [NSData dataWithContentsOfFile:path];
     NSError *error;
    NSDictionary *dic = [XMLReader dictionaryForXMLData:data error:&error];
@@ -95,22 +96,22 @@
         
     }
     
-    // 将 NSData 转换为 NSString
-    NSString *xmlString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSData *xmldata =[xmlString dataUsingEncoding:NSUTF8StringEncoding];
-    XMLParserDelegate *parserDelegate = [[XMLParserDelegate alloc] init];
-    NSXMLParser *parser = [[NSXMLParser alloc] initWithData:xmldata];
-    parser.delegate = parserDelegate;
-    
-    if ([parser parse]) {
-        // 解析成功，可以访问 parserDelegate.rootFlex
-        NSLog(@"Successfully parsed XML.%@---%@",parserDelegate.FatherrootFlex,parserDelegate.currentElementValue);
-        homeXmlPageViewController *xml = [[homeXmlPageViewController alloc] init];
-        xml.rootFlex =parserDelegate.FatherrootFlex;
-        [self.navigationController pushViewController:xml animated:YES];
-    } else {
-        NSLog(@"Failed to parse XML.");
-    }
+//    // 将 NSData 转换为 NSString
+//    NSString *xmlString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//    NSData *xmldata =[xmlString dataUsingEncoding:NSUTF8StringEncoding];
+//    XMLParserDelegate *parserDelegate = [[XMLParserDelegate alloc] init];
+//    NSXMLParser *parser = [[NSXMLParser alloc] initWithData:xmldata];
+//    parser.delegate = parserDelegate;
+    XMLDelegateViewController *xml = [[XMLDelegateViewController alloc] init];
+    [self.navigationController pushViewController:xml animated:YES];
+//    if ([parser parse]) {
+//        // 解析成功，可以访问 parserDelegate.rootFlex
+//        NSLog(@"Successfully parsed XML.%@---%@",parserDelegate.FatherrootFlex,parserDelegate.currentElementValue);
+//        XMLDelegateViewController *xml = [[XMLDelegateViewController alloc] init];
+//        [self.navigationController pushViewController:xml animated:YES];
+//    } else {
+//        NSLog(@"Failed to parse XML.");
+//    }
         
     
     
