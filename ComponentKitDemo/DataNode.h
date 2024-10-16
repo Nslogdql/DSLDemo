@@ -10,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DataNode : Node
-
+@property (nonatomic, strong) NSMutableArray *FlexorderItem;
 @end
 
 NS_ASSUME_NONNULL_END

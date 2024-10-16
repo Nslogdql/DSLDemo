@@ -8,5 +8,10 @@
 #import "DataNode.h"
 
 @implementation DataNode
-
+- (NSMutableArray *)FlexorderItem {
+    if (!_FlexorderItem) {
+        _FlexorderItem = [NSMutableArray array];
+    }
+    return _FlexorderItem;
+}
 @end

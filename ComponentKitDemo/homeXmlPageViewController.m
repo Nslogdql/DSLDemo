@@ -66,7 +66,11 @@
     }];
     [scroll addSubview: contentView];
 
-    
+    [self createChildDg:self.rootFlex node:contentView];
+    [self.scroll.yoga applyLayoutPreservingOrigin:YES];
+    // 设置 UIScrollView 的 contentSize
+    self.scroll.contentSize = CGSizeMake(contentView.bounds.size.width, contentView.bounds.size.height+88); // 手动设置 contentSize
+    return;
     if(self.rootFlex.FlexorderItem.count > 0){
         for (NSInteger i = 0; i < self.rootFlex.FlexorderItem.count; i++) {
             id itemModel  = self.rootFlex.FlexorderItem[i];
@@ -149,6 +153,153 @@
     self.scroll.contentSize = CGSizeMake(contentView.bounds.size.width, contentView.bounds.size.height+88); // 手动设置 contentSize
    
 }
+
+- (void)createChildDg:(DataNode *)origin node:(UIView *)node
+{
+    for (Flex *model in origin.FlexorderItem) {
+        NSArray *childList = model.FlexorderItem;
+        if (childList == NULL  || childList.count == 0) {
+            [self createChildNode:model node:node];
+            
+        } else {
+            UIView *view = [self createFlexNode:model ];
+            [node addSubview:view];
+            [self createChildDg:model node:view];
+        }
+    }
+}
+
+- (UIView *)createChildNode:(DataNode *)model node:(UIView *)node
+{
+    UIView *view;
+    if ([model isMemberOfClass:[Imagecomponent class]]) {
+        view = [self createImageNode:(Imagecomponent *)model];
+    } else if ([model isMemberOfClass:[Textcomponent class]]) {
+        view = [self createTextNode:(Textcomponent *)model];
+    } else if ([model isMemberOfClass:[Flex class]]) {
+        view = [self createFlexNode:(Flex *)model];
+    }
+    [node addSubview:view];
+    return view;
+}
+
+-(UIView *)createFlexNode:(Flex *)Flexmodel
+{
+    UIView *contentView = [[UIView alloc]init];
+    if (Flexmodel.background) {
+        contentView.backgroundColor = [UIColor colorWithHexString_xt:Flexmodel.background];
+    }else{
+        contentView.backgroundColor = [UIColor whiteColor];
+    }
+    
+    [contentView configureLayoutWithBlock:^(YGLayout * layout) {
+        layout.isEnabled = YES;
+        if([Flexmodel.flexDirection isEqualToString: @"column"]){
+            layout.flexDirection =  YGFlexDirectionColumn;
+        }else{
+            layout.flexDirection =  YGFlexDirectionRow;
+        }
+        if (Flexmodel.marginLeft) {
+            if ([Flexmodel.marginLeft containsString:@"%"]) {
+                layout.marginLeft = YGPercentValue([Flexmodel.marginLeft floatValue]);
+            }else{
+                layout.marginLeft = YGPointValue([Flexmodel.marginLeft floatValue]);
+            }
+        }
+        if (Flexmodel.marginRight) {
+            if ([Flexmodel.marginRight containsString:@"%"]) {
+                layout.marginRight = YGPercentValue([Flexmodel.marginRight floatValue]);
+            }else{
+                layout.marginRight = YGPointValue([Flexmodel.marginRight floatValue]);
+            }
+        }
+        if (Flexmodel.marginTop) {
+            layout.marginTop = YGPointValue([Flexmodel.marginTop floatValue]);
+        }
+        if (Flexmodel.width) {
+            if ([Flexmodel.width containsString:@"%"]) {
+                layout.width = YGPercentValue([Flexmodel.width floatValue]);
+            }else{
+                layout.width = YGPointValue([Flexmodel.width floatValue]);
+            }
+        }
+        if(Flexmodel.height){
+            layout.height = YGPointValue([Flexmodel.height floatValue]);
+        }
+    }];
+    return contentView;
+}
+
+-(UIView *)createTextNode:(Textcomponent *)textmodel
+{
+    UILabel *flexlab = [flexItemLab initWithText:textmodel];
+    [flexlab configureLayoutWithBlock:^(YGLayout * layout) {
+        layout.isEnabled = YES;
+        if (textmodel.marginLeft) {
+            layout.marginLeft = YGPointValue([textmodel.marginLeft floatValue]);
+        }
+        if (textmodel.marginRight) {
+            layout.marginRight = YGPointValue([textmodel.marginRight floatValue]);
+        }
+        if (textmodel.marginTop) {
+            layout.marginTop = YGPointValue([textmodel.marginTop floatValue]);
+        }
+        if (textmodel.width) {
+            if ([textmodel.width containsString:@"%"]) {
+                layout.width = YGPercentValue([textmodel.width floatValue]);
+            }else{
+                layout.width = YGPointValue([textmodel.width floatValue]);
+            }
+        }
+        if(textmodel.height){
+            layout.height = YGPointValue([textmodel.height floatValue]);
+        }
+    }];
+    return flexlab;;
+}
+
+-(UIView *)createImageNode:(Imagecomponent *)Imagemodel
+{
+    UIImageView *flexIMG = [flexItemIMG initWith:Imagemodel];
+    [flexIMG configureLayoutWithBlock:^(YGLayout * layout) {
+        layout.isEnabled = YES;
+        layout.marginTop = YGPointValue(20);
+        if (Imagemodel.marginLeft) {
+            if ([Imagemodel.marginLeft containsString:@"%"]) {
+                layout.marginLeft = YGPercentValue([Imagemodel.marginLeft floatValue]);
+            }else{
+                layout.marginLeft = YGPointValue([Imagemodel.marginLeft floatValue]);
+            }
+        }
+        
+        if (Imagemodel.marginRight) {
+            if ([Imagemodel.marginRight containsString:@"%"]) {
+                layout.marginRight = YGPercentValue([Imagemodel.marginRight floatValue]);
+            }else{
+                layout.marginRight = YGPointValue([Imagemodel.marginRight floatValue]);
+            }
+        }
+        
+        if (Imagemodel.width) {
+            if ([Imagemodel.width containsString:@"%"]) {
+                layout.width = YGPercentValue([Imagemodel.width floatValue]);
+            }else{
+                layout.width = YGPointValue([Imagemodel.width floatValue]);
+            }
+        }
+        if (Imagemodel.height) {
+            layout.height = YGPointValue([Imagemodel.height floatValue]);
+        }
+        if (Imagemodel.alignItems) {
+            layout.alignItems = [self alignItems:Imagemodel.alignItems];
+        }
+        
+    }];
+    
+    return flexIMG;
+}
+
+
 
 - (void)flexBoxItem:(NSMutableArray<Flex *> *)sonFlex with:(UIView *)FlexView{
     for (NSInteger i = 0; i < sonFlex.count; i++ ) {

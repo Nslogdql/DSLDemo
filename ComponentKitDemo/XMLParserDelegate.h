@@ -17,7 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) Imagecomponent *currentImage;
 @property (nonatomic, strong) Textcomponent *currentText;
 @property (nonatomic, strong) NSMutableString *currentElementValue;
-@property (nonatomic, strong) NSMutableArray *currentElementsStack;
 @end
 
 NS_ASSUME_NONNULL_END

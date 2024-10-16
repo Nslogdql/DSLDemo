@@ -31,7 +31,7 @@
         _images = [NSMutableArray array];
         _texts = [NSMutableArray array];
         _Flex = [NSMutableArray array];
-        _FlexorderItem = [NSMutableArray array];
+//        _FlexorderItem = [NSMutableArray array];
     }
     return self;
 }

@@ -19,64 +19,41 @@
     if (self) {
         _FatherrootFlex = [[Flex alloc] init];
         _currentFlex = [[Flex alloc] init];
-        _currentElementsStack = [NSMutableArray array];
         _openTag = [NSMutableArray array];
     }
     return self;
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary<NSString *,NSString *> *)attributeDict {
+    //走UI
+    
     if ([elementName isEqualToString:@"Flex"]) {
-        if(self.currentElementsStack.count == 0){
-            //根节点
-            Flex *newFlex = [[Flex alloc] init];
-            newFlex.key = attributeDict[@"key"];
-            newFlex.width = attributeDict[@"width"];
-            newFlex.height = attributeDict[@"height"];
-            newFlex.alignItems = attributeDict[@"alignItems"];
-            newFlex.background = attributeDict[@"background"];
-            newFlex.flexDirection = attributeDict[@"flexDirection"];
-            newFlex.paddingBottom = attributeDict[@"paddingBottom"];
-            newFlex.marginTop = attributeDict[@"marginTop"];
-            newFlex.marginLeft = attributeDict[@"marginLeft"];
-            newFlex.marginRight = attributeDict[@"marginRight"];
-            newFlex.padding = attributeDict[@"padding"];
-            newFlex.flexGrow = attributeDict[@"flexGrow"];
-            self.currentFlex = newFlex;
-            self.FatherrootFlex = newFlex;
-//            [self.currentFlex.FlexorderItem addObject:newFlex];
-            [self.currentElementsStack addObject:newFlex];
-            [self.openTag addObject:elementName];
-        }else{
-            Flex *newFlex = [[Flex alloc] init];
-            newFlex.key = attributeDict[@"key"];
-            newFlex.width = attributeDict[@"width"];
-            newFlex.height = attributeDict[@"height"];
-            newFlex.alignItems = attributeDict[@"alignItems"];
-            newFlex.background = attributeDict[@"background"];
-            newFlex.flexDirection = attributeDict[@"flexDirection"];
-            newFlex.paddingBottom = attributeDict[@"paddingBottom"];
-            newFlex.marginTop = attributeDict[@"marginTop"];
-            newFlex.marginLeft = attributeDict[@"marginLeft"];
-            newFlex.marginRight = attributeDict[@"marginRight"];
-            newFlex.padding = attributeDict[@"padding"];
-            newFlex.flexGrow = attributeDict[@"flexGrow"];
-            
-            [self.currentFlex.FlexorderItem addObject:newFlex];
-            
-            newFlex.ParentFlex = self.currentFlex;
-            self.currentFlex = newFlex;
-            self.currentFatherFlex = self.currentElementsStack[self.currentElementsStack.count-1];
-            [self.currentFatherFlex.Flex addObject:newFlex];
-            [self.openTag addObject:elementName];
-//            [self.currentFatherFlex.FlexorderItem addObject:newFlex];
-            [self.currentElementsStack addObject:newFlex];
-        }
         
+        Flex *newFlex = [[Flex alloc] init];
+        newFlex.key = attributeDict[@"key"];
+        newFlex.width = attributeDict[@"width"];
+        newFlex.height = attributeDict[@"height"];
+        newFlex.alignItems = attributeDict[@"alignItems"];
+        newFlex.background = attributeDict[@"background"];
+        newFlex.flexDirection = attributeDict[@"flexDirection"];
+        newFlex.paddingBottom = attributeDict[@"paddingBottom"];
+        newFlex.marginTop = attributeDict[@"marginTop"];
+        newFlex.marginLeft = attributeDict[@"marginLeft"];
+        newFlex.marginRight = attributeDict[@"marginRight"];
+        newFlex.padding = attributeDict[@"padding"];
+        newFlex.flexGrow = attributeDict[@"flexGrow"];
+        if(self.openTag.count == 0){
+            //根节点
+            self.FatherrootFlex = newFlex;
+        } else {
+            newFlex.ParentFlex = self.currentFlex;
+        }
+        [self.openTag addObject:elementName];
+        [self.currentFlex.FlexorderItem addObject:newFlex];
+        
+        
+        self.currentFlex = newFlex;
     } else if ([elementName isEqualToString:@"Image"]) {
-//        if(!self.currentFlex){
-//            self.currentFlex = self.currentElementsStack.lastObject;
-//        }
         self.currentImage = [[Imagecomponent alloc] init];
         self.currentImage.src = attributeDict[@"src"];
         self.currentImage.height = attributeDict[@"height"];
@@ -87,14 +64,13 @@
         self.currentImage.marginTop = attributeDict[@"marginTop"];
         self.currentImage.marginLeft = attributeDict[@"marginLeft"];
         self.currentImage.marginRight = attributeDict[@"marginRight"];
+        
         [self.currentFlex.images addObject:self.currentImage];
         [self.currentFlex.content addObject:self.currentImage];
         [self.currentFlex.FlexorderItem addObject:self.currentImage];
         [self.openTag addObject:elementName];
     } else if ([elementName isEqualToString:@"Text"]) {
-//        if(!self.currentFlex){
-//            self.currentFlex = self.currentElementsStack.lastObject;
-//        }
+
         self.currentText = [[Textcomponent alloc] init];
         self.currentText.text = attributeDict[@"text"];
         self.currentText.textSize = attributeDict[@"textSize"];
@@ -145,12 +121,6 @@
     [self.openTag removeLastObject];
     
     if ([elementName isEqualToString:@"Flex"]) {
-//        NSLog(@"xml解析堆栈数量---%ld",self.currentElementsStack.count);
-//        [self.currentElementsStack removeLastObject];
-//        self.currentFlex = nil;
-//        if(self.currentElementsStack.count == 1){
-//            NSLog(@"---");
-//        }
 //        self.currentFlex = (self.currentFlex.Flex.count > 0) ? self.currentFlex.Flex.lastObject : nil;
     } else if ([elementName isEqualToString:@"Image"]) {
         self.currentImage = nil;

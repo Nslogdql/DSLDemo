@@ -51,7 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *flexGrow;
 
 @property (nonatomic, strong) NSString *padding;
-@property (nonatomic, strong) NSMutableArray *FlexorderItem;
+//@property (nonatomic, strong) NSMutableArray *FlexorderItem;
 // 其他属性...
 //父节点
 @property (nonatomic, strong) Flex *ParentFlex;
