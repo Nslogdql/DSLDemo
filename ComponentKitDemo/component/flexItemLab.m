@@ -8,7 +8,7 @@
 #import "flexItemLab.h"
 #import <UIKit/UIKit.h>
 @implementation flexItemLab
-+ (UILabel *)initWithText:(Textcomponent *)TextModel{
+- (UILabel *)ItemLabinitWithText:(Textcomponent *)TextModel{
     UILabel *lable = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, [TextModel.width floatValue], [TextModel.height floatValue])];
     lable.backgroundColor = [UIColor clearColor];
     lable.textColor = [UIColor blackColor];
@@ -26,6 +26,15 @@
     if(TextModel.text.length > 0){
         lable.text = TextModel.text;
     }
+    if (TextModel.FlexEvent.length > 0) {
+        lable.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickMe)];
+        [lable addGestureRecognizer:tapGesture];
+    }
+    self.Lab = lable;
     return lable;
+}
+- (void)clickMe{
+    self.Lab.backgroundColor = [UIColor blackColor];
 }
 @end

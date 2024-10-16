@@ -9,6 +9,20 @@
 #import "YGLayout.h"
 #import <UIKit/UIKit.h>
 NS_ASSUME_NONNULL_BEGIN
+@interface Buttoncomponent : NSObject
+
+@property (nonatomic, strong) NSString *textSize;
+@property (nonatomic, strong) NSString *textStyle;
+@property (nonatomic, strong) NSString *text;
+@property (nonatomic, strong) NSString *marginTop;
+@property (nonatomic, strong) NSString *marginLeft;
+@property (nonatomic, strong) NSString *marginRight;
+@property (nonatomic, strong) NSString *width;
+@property (nonatomic, strong) NSString *height;
+@property (nonatomic, strong) NSString *FlexEvent;
+@property (nonatomic, strong) NSString *textAlignment;
+
+@end
 @interface Textcomponent : NSObject
 
 @property (nonatomic, strong) NSString *textSize;
@@ -19,6 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *marginRight;
 @property (nonatomic, strong) NSString *width;
 @property (nonatomic, strong) NSString *height;
+@property (nonatomic, strong) NSString *FlexEvent;
 @property (nonatomic, strong) NSString *textAlignment;
 
 @end
@@ -36,6 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Flex : NSObject
 @property (nonatomic, strong) NSMutableArray<Imagecomponent *> *images;
 @property (nonatomic, strong) NSMutableArray<Textcomponent *> *texts;
+@property (nonatomic, strong) NSMutableArray<Buttoncomponent *> *buttons;
 @property (nonatomic, strong) NSMutableArray<Flex *> *Flex;
 @property (nonatomic, strong) NSString *key;
 @property (nonatomic, strong) NSString *width;
@@ -48,6 +64,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *marginLeft;
 @property (nonatomic, strong) NSString *marginRight;
 @property (nonatomic, strong) NSString *flexGrow;
+@property (nonatomic, strong) NSString *FlexEvent;
 
 @property (nonatomic, strong) NSString *padding;
 @property (nonatomic, strong) NSMutableArray *FlexorderItem;

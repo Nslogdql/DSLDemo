@@ -272,7 +272,8 @@
                 }
                 if([itemModel isKindOfClass:[Textcomponent class]]){
                     Textcomponent *textmodel = (Textcomponent *)itemModel;
-                    UILabel *flexlab = [flexItemLab initWithText:textmodel];
+                    flexItemLab *flexItem = [[flexItemLab alloc] init];
+                    UILabel *flexlab = [flexItem ItemLabinitWithText:textmodel];
                     [flexlab configureLayoutWithBlock:^(YGLayout * layout) {
                         layout.isEnabled = YES;
                         if (textmodel.marginLeft) {

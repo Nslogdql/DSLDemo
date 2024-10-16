@@ -10,7 +10,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface homepageViewController : UIViewController
-
+@property(nonatomic,strong)UIScrollView *scroll;
+@property(nonatomic,strong)UIView *contentView;
 @end
 
 NS_ASSUME_NONNULL_END

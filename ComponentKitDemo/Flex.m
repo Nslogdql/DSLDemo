@@ -8,6 +8,8 @@
 #import "Flex.h"
 #import <YGLayout.h>
 #import <UIView+Yoga.h>
+@implementation Buttoncomponent
+@end
 @implementation Textcomponent
 @end
 @implementation Imagecomponent
@@ -30,12 +32,17 @@
     if (self) {
         _images = [NSMutableArray array];
         _texts = [NSMutableArray array];
+        _buttons = [NSMutableArray array];
         _Flex = [NSMutableArray array];
         _FlexorderItem = [NSMutableArray array];
         _ParentFlexView = [UIView new];
     }
     return self;
 }
+- (void)setFlexEvent:(NSString *)FlexEvent{
+    _FlexEvent = FlexEvent;
+}
+
 //- (NSString *)flexDirection{
 //    if([_flexDirection isEqualToString: @"column"]){
 //        return [NSString stringWithFormat:@"%d",1];

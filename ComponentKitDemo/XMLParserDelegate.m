@@ -246,7 +246,8 @@
         [self.currentFlex.texts addObject:self.currentText];
         
         
-        UILabel *flexlab = [flexItemLab initWithText:self.currentText];
+        flexItemLab *flexItem = [[flexItemLab alloc] init];
+        UILabel *flexlab = [flexItem ItemLabinitWithText:self.currentText];
         [flexlab configureLayoutWithBlock:^(YGLayout * layout) {
             layout.isEnabled = YES;
             if (self.currentText.marginLeft) {

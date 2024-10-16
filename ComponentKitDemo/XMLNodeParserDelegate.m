@@ -17,6 +17,7 @@
 #import "flexItemLab.h"
 #import "flexItemIMG.h"
 #import "UIColor+Hex.h"
+#import "flexItemBtn.h"
 @implementation XMLNodeParserDelegate
 - (instancetype)init {
     self = [super init];
@@ -44,6 +45,7 @@
             newFlex.marginLeft = attributeDict[@"marginLeft"];
             newFlex.marginRight = attributeDict[@"marginRight"];
             newFlex.padding = attributeDict[@"padding"];
+            newFlex.FlexEvent = [NSString stringWithFormat:@"%@",attributeDict[@"FlexEvent"]];
             newFlex.flexGrow = attributeDict[@"flexGrow"];
             
             UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [newFlex.width floatValue], [newFlex.height floatValue])];
@@ -51,6 +53,10 @@
                 contentView.backgroundColor = [UIColor colorWithHexString_xt:newFlex.background];
             }else{
                 contentView.backgroundColor = [UIColor whiteColor];
+            }
+            if (newFlex.FlexEvent.length > 0) {
+                contentView.userInteractionEnabled = YES;
+                [contentView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self.xmlContentVC action:@selector(viewClick)]];
             }
             
             [contentView configureLayoutWithBlock:^(YGLayout * layout) {
@@ -113,7 +119,7 @@
             newFlex.marginRight = attributeDict[@"marginRight"];
             newFlex.padding = attributeDict[@"padding"];
             newFlex.flexGrow = attributeDict[@"flexGrow"];
-            
+            newFlex.FlexEvent = attributeDict[@"FlexEvent"];
             
             
             
@@ -123,6 +129,10 @@
                 contentView.backgroundColor = [UIColor colorWithHexString_xt:newFlex.background];
             }else{
                 contentView.backgroundColor = [UIColor whiteColor];
+            }
+            if (newFlex.FlexEvent.length > 0) {
+                contentView.userInteractionEnabled = YES;
+                [contentView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self.xmlContentVC action:@selector(viewClick)]];
             }
             
             [contentView configureLayoutWithBlock:^(YGLayout * layout) {
@@ -246,11 +256,14 @@
         self.currentText.marginTop = attributeDict[@"marginTop"];
         self.currentText.height = attributeDict[@"height"];
         self.currentText.width = attributeDict[@"width"];
+        if (attributeDict[@"FlexEvent"].length > 0) {
+            self.currentText.FlexEvent = attributeDict[@"FlexEvent"];
+        }
         self.currentText.textAlignment = attributeDict[@"textAlignment"];
         [self.currentFlex.texts addObject:self.currentText];
         
-        
-        UILabel *flexlab = [flexItemLab initWithText:self.currentText];
+        flexItemLab *flexItem = [[flexItemLab alloc] init];
+        UILabel *flexlab = [flexItem ItemLabinitWithText:self.currentText];
         [flexlab configureLayoutWithBlock:^(YGLayout * layout) {
             layout.isEnabled = YES;
             if (self.currentText.marginLeft) {
@@ -281,10 +294,65 @@
         
         [self.currentFlex.FlexorderItem addObject:self.currentText];
         
+    }else if ([elementName isEqualToString:@"Button"]) {
+        if(!self.currentFlex){
+            self.currentFlex = self.currentElementsStack.lastObject;
+        }
+        self.currentButton = [[Buttoncomponent alloc] init];
+        self.currentButton.text = attributeDict[@"text"];
+        self.currentButton.textSize = attributeDict[@"textSize"];
+        self.currentButton.textStyle = attributeDict[@"textStyle"];
+        self.currentButton.marginLeft = attributeDict[@"marginLeft"];
+        self.currentButton.marginRight = attributeDict[@"marginRight"];
+        self.currentButton.marginTop = attributeDict[@"marginTop"];
+        self.currentButton.height = attributeDict[@"height"];
+        self.currentButton.width = attributeDict[@"width"];
+        if (attributeDict[@"FlexEvent"].length > 0) {
+            self.currentButton.FlexEvent = attributeDict[@"FlexEvent"];
+        }
+        self.currentButton.textAlignment = attributeDict[@"textAlignment"];
+        [self.currentFlex.buttons addObject:self.currentButton];
+        
+        flexItemBtn *flexItem = [[flexItemBtn alloc] init];
+        UIButton *flexlab = [flexItem ItemLabinitWithText:self.currentButton];
+        [flexlab configureLayoutWithBlock:^(YGLayout * layout) {
+            layout.isEnabled = YES;
+            if (self.currentButton.marginLeft) {
+                layout.marginLeft = YGPointValue([self.currentButton.marginLeft floatValue]);
+            }
+            if (self.currentButton.marginRight) {
+                layout.marginRight = YGPointValue([self.currentButton.marginRight floatValue]);
+            }
+            if (self.currentButton.marginTop) {
+                layout.marginTop = YGPointValue([self.currentButton.marginTop floatValue]);
+            }
+            if (self.currentButton.width) {
+                if ([self.currentButton.width containsString:@"%"]) {
+                    layout.width = YGPercentValue([self.currentButton.width floatValue]);
+                }else{
+                    layout.width = YGPointValue([self.currentButton.width floatValue]);
+                }
+            }
+            if(self.currentButton.height){
+                layout.height = YGPointValue([self.currentButton.height floatValue]);
+            }
+            
+        }];
+        if (!self.currentFlex.ParentFlexView) {
+            self.currentFlex.ParentFlexView = [[UIView alloc] init];
+        }
+        flexlab.userInteractionEnabled = YES;
+        [flexlab addTarget:self.xmlContentVC action:@selector(clickMe:) forControlEvents:UIControlEventTouchUpInside];
+        [self.currentFlex.ParentFlexView addSubview: flexlab];
+        
+        [self.currentFlex.FlexorderItem addObject:self.currentButton];
+        
     }
     //    self.currentElementValue = [[NSMutableString alloc] init];
 }
-
+- (void)clickMe:(UIButton *)sender{
+    sender.backgroundColor = [UIColor blackColor];
+}
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
     // 只处理非空白字符
     //        NSString *trimmedString = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
@@ -312,6 +380,8 @@
         //        self.currentFlex = (self.currentFlex.Flex.count > 0) ? self.currentFlex.Flex.lastObject : nil;
     } else if ([elementName isEqualToString:@"Image"]) {
         self.currentImage = nil;
+    }else if ([elementName isEqualToString:@"Button"]) {
+        self.currentButton = nil;
     } else if ([elementName isEqualToString:@"Text"]) {
         //self.currentText.text = [self.currentElementValue copy];
         //        [self.currentFlex.texts addObject:self.currentText];

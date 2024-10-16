@@ -38,6 +38,7 @@
     UIScrollView *scroll = [[UIScrollView alloc] init];
     //[scroll sizeToFit];
     scroll.scrollEnabled = YES;
+    self.scroll = scroll;
     //scroll.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.width*5);
     [scroll configureLayoutWithBlock:^(YGLayout * layout) {
         layout.isEnabled = YES;
@@ -50,6 +51,7 @@
     [self.view addSubview: scroll];
     
     UIView *contentView = [[UIView alloc]init];
+    self.contentView = contentView;
     [contentView configureLayoutWithBlock:^(YGLayout * layout) {
         layout.isEnabled = YES;
         layout.flexDirection =  YGFlexDirectionColumn;
@@ -518,6 +520,24 @@
     }];
     [contentView addSubview: daoshi];
     
+    
+    UIButton *btn = [[UIButton alloc] init];
+    btn.backgroundColor = [UIColor whiteColor];
+    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    btn.titleLabel.textAlignment = NSTextAlignmentCenter;
+    
+    btn.titleLabel.font = [UIFont systemFontOfSize:14];
+    [btn setTitle:@"点击" forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(clickMe:) forControlEvents:UIControlEventTouchUpInside];
+    [btn configureLayoutWithBlock:^(YGLayout * layout) {
+        layout.isEnabled = YES;
+        layout.marginTop = YGPointValue(20);
+        layout.marginLeft = YGPercentValue(30);
+        layout.width = YGPointValue(50);
+        layout.height = YGPointValue(50);
+    }];
+    [contentView addSubview:btn];
+    
 #pragma mark--热门活动
     UIView *remenhuodong = [[UIView alloc]init];
     remenhuodong.backgroundColor = [UIColor whiteColor];
@@ -881,6 +901,12 @@
     scroll.contentSize = CGSizeMake(contentView.bounds.size.width, contentView.bounds.size.height+88); // 手动设置 contentSize
 }
 
-
+- (void)clickMe:(UIButton *)sender{
+    sender.backgroundColor = [UIColor blackColor];
+    sender.yoga.width = YGPointValue(500);
+    sender.yoga.height = YGPointValue(120);
+    [self.contentView.yoga applyLayoutPreservingOrigin:YES];
+    self.scroll.contentSize = CGSizeMake(self.contentView.bounds.size.width, self.contentView.bounds.size.height+88);
+}
 
 @end

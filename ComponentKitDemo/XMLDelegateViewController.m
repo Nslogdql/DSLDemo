@@ -37,10 +37,6 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     
-    
-    
-    
-    
     [self.view configureLayoutWithBlock:^(YGLayout * layout) {
         layout.isEnabled = YES;
         layout.flexDirection =  YGFlexDirectionColumn;
@@ -85,6 +81,7 @@
     
     XMLNodeParserDelegate *parserDelegate = [[XMLNodeParserDelegate alloc] init];
     parserDelegate.contentView = self.contentView;
+    parserDelegate.xmlContentVC = self;
     NSXMLParser *parser = [[NSXMLParser alloc] initWithData:xmldata];
     parser.delegate = parserDelegate;
     __weak typeof(parserDelegate) weakparserDelegate = parserDelegate;
@@ -98,5 +95,18 @@
     }else{
         
     }
+}
+- (void)clickMe:(UIButton *)sender{
+    sender.backgroundColor = [UIColor blackColor];
+//    sender.yoga.width = YGPointValue(80);
+//    sender.yoga.height = YGPointValue(120);
+    float oldheight2 = sender.superview.superview.superview.yoga.height.value;
+    float heightvale = oldheight2 +70;
+    sender.superview.superview.superview.yoga.height = YGPointValue(heightvale);
+    
+    [self.contentView.yoga applyLayoutPreservingOrigin:YES];
+    self.scroll.contentSize = CGSizeMake(self.contentView.bounds.size.width, self.scroll.contentSize.height+70);
+}
+- (void)viewClick{
 }
 @end
