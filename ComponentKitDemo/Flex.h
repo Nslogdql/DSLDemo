@@ -49,7 +49,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *marginLeft;
 @property (nonatomic, strong) NSString *marginRight;
 @property (nonatomic, strong) NSString *flexGrow;
-
+@property (nonatomic, strong) NSString *justifyContent;
 @property (nonatomic, strong) NSString *padding;
 //@property (nonatomic, strong) NSMutableArray *FlexorderItem;
 // 其他属性...

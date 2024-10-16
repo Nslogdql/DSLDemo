@@ -132,6 +132,13 @@
                 layout.marginRight = YGPointValue([Flexmodel.marginRight floatValue]);
             }
         }
+        if (Flexmodel.justifyContent) {
+            if ([Flexmodel.justifyContent isEqualToString:@"spaceBetween"]) {
+                layout.justifyContent = YGJustifySpaceBetween;
+            }else{
+                layout.justifyContent = YGJustifyFlexStart;
+            }
+        }
         if (Flexmodel.marginTop) {
             layout.marginTop = YGPointValue([Flexmodel.marginTop floatValue]);
         }
@@ -151,7 +158,8 @@
 
 -(UIView *)createTextNode:(Textcomponent *)textmodel
 {
-    UILabel *flexlab = [flexItemLab initWithText:textmodel];
+    flexItemLab *flexItem = [[flexItemLab alloc] init];
+    UILabel *flexlab = [flexItem flexIteminitWithText:textmodel];
     [flexlab configureLayoutWithBlock:^(YGLayout * layout) {
         layout.isEnabled = YES;
         if (textmodel.marginLeft) {
@@ -310,7 +318,8 @@
                 }
                 if([itemModel isKindOfClass:[Textcomponent class]]){
                     Textcomponent *textmodel = (Textcomponent *)itemModel;
-                    UILabel *flexlab = [flexItemLab initWithText:textmodel];
+                    flexItemLab *flexItem = [[flexItemLab alloc] init];
+                    UILabel *flexlab =[flexItem flexIteminitWithText:itemModel];
                     [flexlab configureLayoutWithBlock:^(YGLayout * layout) {
                         layout.isEnabled = YES;
                         if (textmodel.marginLeft) {

@@ -42,6 +42,8 @@
         newFlex.marginRight = attributeDict[@"marginRight"];
         newFlex.padding = attributeDict[@"padding"];
         newFlex.flexGrow = attributeDict[@"flexGrow"];
+        newFlex.justifyContent = attributeDict[@"justifyContent"];
+        
         if(self.openTag.count == 0){
             //根节点
             self.FatherrootFlex = newFlex;
