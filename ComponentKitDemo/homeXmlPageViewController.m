@@ -149,6 +149,9 @@
                 layout.width = YGPointValue([Flexmodel.width floatValue]);
             }
         }
+        if(Flexmodel.alignItems){
+            layout.alignItems = [self alignItems:Flexmodel.alignItems];
+        }
         if(Flexmodel.height){
             layout.height = YGPointValue([Flexmodel.height floatValue]);
         }
