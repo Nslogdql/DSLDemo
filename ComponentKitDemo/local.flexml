@@ -377,44 +377,40 @@
             flexDirection="column"
             justifyContent="center"
             width="100%"
-            height="100%">
+            height="250">
             <Flex
                 key="Flex"
                 flexDirection="row"
-                alignItems="center"
-                justifyContent="spaceBetween"
-                width="100%">
+                alignItems="flexStart"
+                height="20">
                 <Text
-                    width="80%"
+                    width="85%"
                     height="20"
                     key="Text"
-                    marginLeft="20"
                     textSize="15"
                     textStyle="bold"
                     text="热门活动"></Text>
                 <Text
-                    width="10%"
                     height="20"
                     key="Text"
                     textAlignment="right"
                     textSize="11"
                     text="更多"></Text>
             </Flex>
+            
+            
             <Flex
                 key="Flex"
-                clickUrl="${hotDatas[index]}"
-                alignItems="flexEnd"
                 flexDirection="column"
                 justifyContent="center"
-                padding="10"
                 marginTop="10"
-                width="320">
+                width="100%"
+                height="61">
                 <Flex
                     key="Flex"
                     flexDirection="row"
                     alignItems="center"
-                    width="300"
-                    justifyContent="spaceBetween">
+                    width="100%">
                     <Flex
                         key="Flex"
                         alignItems="flexStart"
@@ -430,19 +426,20 @@
                     </Flex>
                     <Flex
                         key="Flex"
-                        alignItems="flexStart"
                         flexDirection="column"
-                        justifyContent="flexStart"
+                        justifyContent="FlexEnd"
                         marginLeft="10"
-                        flexGrow="1">
+                        width="70%">
                         <Text
                             height="20"
                             key="Text"
+                            textAlignment="left"
                             textSize="11"
                             marginTop="5"
                             text="每日签到获取新朋友"></Text>
                         <Text
                             height="20"
+                            textAlignment="left"
                             key="Text"
                             textSize="15"
                             textStyle="bold"
@@ -450,7 +447,7 @@
                     </Flex>
                     <Flex
                         key="Flex"
-                        alignItems="flexStart"
+                        alignItems="center"
                         flexDirection="column"
                         justifyContent="flexStart">
                         <Text
@@ -465,14 +462,170 @@
                 </Flex>
                 <Flex
                     key="Flex"
-                    width="100%"
+                    width="95%"
                     marginTop="20"
-                    marginLeft="20%"
+                    marginLeft="5%"
                     flexDirection="column"
-                    height="1"
+                    height="0.1"
                     background="#000000">
                 </Flex>
+                
             </Flex>
+            
+            
+            
+            <Flex
+                key="Flex"
+                flexDirection="column"
+                justifyContent="center"
+                marginTop="10"
+                width="100%"
+                height="61">
+                <Flex
+                    key="Flex"
+                    flexDirection="row"
+                    alignItems="center"
+                    width="100%">
+                    <Flex
+                        key="Flex"
+                        alignItems="flexStart"
+                        flexDirection="column"
+                        justifyContent="flexStart">
+                        <Image
+                            key="Image"
+                            marginLeft="20"
+                            marginTop="10"
+                            height="30"
+                            width="30"
+                            src="wERGk2MQI-GAPtjMAAAP3ZmTxIM649"></Image>
+                    </Flex>
+                    <Flex
+                        key="Flex"
+                        flexDirection="column"
+                        justifyContent="FlexEnd"
+                        marginLeft="10"
+                        width="70%">
+                        <Text
+                            height="20"
+                            key="Text"
+                            textAlignment="left"
+                            textSize="11"
+                            marginTop="5"
+                            text="每日签到获取新朋友"></Text>
+                        <Text
+                            height="20"
+                            textAlignment="left"
+                            key="Text"
+                            textSize="15"
+                            textStyle="bold"
+                            text="每日签到获取1mg积分"></Text>
+                    </Flex>
+                    <Flex
+                        key="Flex"
+                        alignItems="center"
+                        flexDirection="column"
+                        justifyContent="flexStart">
+                        <Text
+                            key="Text"
+                            width="40"
+                            marginTop="20"
+                            marginRight="20"
+                            height="20"
+                            textSize="11"
+                            text="参加"></Text>
+                    </Flex>
+                </Flex>
+                <Flex
+                    key="Flex"
+                    width="95%"
+                    marginTop="20"
+                    marginLeft="5%"
+                    flexDirection="column"
+                    height="0.1"
+                    background="#000000">
+                </Flex>
+                
+            </Flex>
+            
+            
+            
+            <Flex
+                key="Flex"
+                flexDirection="column"
+                justifyContent="center"
+                marginTop="10"
+                width="100%"
+                height="61">
+                <Flex
+                    key="Flex"
+                    flexDirection="row"
+                    alignItems="center"
+                    width="100%">
+                    <Flex
+                        key="Flex"
+                        alignItems="flexStart"
+                        flexDirection="column"
+                        justifyContent="flexStart">
+                        <Image
+                            key="Image"
+                            marginLeft="20"
+                            marginTop="10"
+                            height="30"
+                            width="30"
+                            src="wERGk2MQI-GAPtjMAAAP3ZmTxIM649"></Image>
+                    </Flex>
+                    <Flex
+                        key="Flex"
+                        flexDirection="column"
+                        justifyContent="FlexEnd"
+                        marginLeft="10"
+                        width="70%">
+                        <Text
+                            height="20"
+                            key="Text"
+                            textAlignment="left"
+                            textSize="11"
+                            marginTop="5"
+                            text="每日签到获取新朋友"></Text>
+                        <Text
+                            height="20"
+                            textAlignment="left"
+                            key="Text"
+                            textSize="15"
+                            textStyle="bold"
+                            text="每日签到获取1mg积分"></Text>
+                    </Flex>
+                    <Flex
+                        key="Flex"
+                        alignItems="center"
+                        flexDirection="column"
+                        justifyContent="flexStart">
+                        <Text
+                            key="Text"
+                            width="40"
+                            marginTop="20"
+                            marginRight="20"
+                            height="20"
+                            textSize="11"
+                            text="参加"></Text>
+                    </Flex>
+                </Flex>
+                <Flex
+                    key="Flex"
+                    width="95%"
+                    marginTop="20"
+                    marginLeft="5%"
+                    flexDirection="column"
+                    height="0.1"
+                    background="#000000">
+                </Flex>
+                
+            </Flex>
+            
+            
+            
+            
+            
         </Flex>
         
         <Flex
@@ -482,15 +635,16 @@
             justifyContent="flexStart"
             marginTop="20"
             width="100%"
-            height="300">
+            height="230">
             <Flex
                 key="Flex"
                 flexDirection="row"
                 alignItems="flexStart"
                 height="20">
                 <Text
-                    width="130"
+                    width="85%"
                     height="20"
+                    marginLeft="20"
                     key="Text"
                     textSize="15"
                     textStyle="bold"
@@ -498,7 +652,6 @@
                 <Text
                     height="20"
                     key="Text"
-                    marginRight="30"
                     clickUrl="更多"
                     textSize="11"
                     text="更多"></Text>
@@ -704,7 +857,7 @@
             alignItems="center"
             flexDirection="column"
             justifyContent="center"
-            marginTop="20"
+            marginTop="10"
             width="100%"
             height="80">
             <Text

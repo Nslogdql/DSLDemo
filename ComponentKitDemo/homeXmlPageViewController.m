@@ -137,6 +137,8 @@
         if (Flexmodel.justifyContent) {
             if ([Flexmodel.justifyContent isEqualToString:@"spaceBetween"]) {
                 layout.justifyContent = YGJustifySpaceBetween;
+            }else if([Flexmodel.justifyContent isEqualToString:@"FlexEnd"]){
+                layout.justifyContent = YGJustifyFlexEnd;
             }else{
                 layout.justifyContent = YGJustifyFlexStart;
             }
