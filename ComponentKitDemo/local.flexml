@@ -115,6 +115,8 @@
                     </Flex>
                 </Flex>
             </Flex>
+            
+            
             <Flex
                 key="Flex"
                 flexDirection="row"
@@ -181,6 +183,10 @@
             </Flex>
         </Flex>
         
+        
+        <Flex
+            key="Flex"
+            flexDirection="column">
         <Flex
             key="Flex"
             flexDirection="row">
@@ -201,8 +207,7 @@
                     marginTop="15"
                     marginLeft="20"></Image>
             <Flex
-                background="#AEEEEE"
-                >
+                background="#AEEEEE">
                     <Flex
                         key="Flex"
                         flexDirection="column"
@@ -226,6 +231,21 @@
                 </Flex>
             </Flex>
         </Flex>
+        
+        <Text
+            key="Text"
+            background="#AEEEEE"
+            textSize="10"
+            textAlignment="center"
+            text="V"
+            marginLeft="20%"
+            width="90%"
+            onclick="addheight"
+            height="20"></Text>
+        </Flex>
+        
+        
+        
         
         <Flex
             key="Flex"
@@ -621,9 +641,6 @@
                 </Flex>
                 
             </Flex>
-            
-            
-            
             
             
         </Flex>

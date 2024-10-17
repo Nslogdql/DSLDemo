@@ -82,9 +82,12 @@
         self.currentText.marginTop = attributeDict[@"marginTop"];
         self.currentText.height = attributeDict[@"height"];
         self.currentText.width = attributeDict[@"width"];
+        self.currentText.onclick = attributeDict[@"onclick"];
+        self.currentText.background = attributeDict[@"background"];
         self.currentText.textAlignment = attributeDict[@"textAlignment"];
         [self.currentFlex.texts addObject:self.currentText];
         [self.currentFlex.content addObject:self.currentText];
+        
         [self.currentFlex.FlexorderItem addObject:self.currentText];
         
         [self.openTag addObject: elementName ];

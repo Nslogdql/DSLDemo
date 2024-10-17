@@ -7,10 +7,17 @@
 
 #import "flexItemLab.h"
 #import <UIKit/UIKit.h>
+#import "UIColor+Hex.h"
 @implementation flexItemLab
--(UILabel *)flexIteminitWithText:(Textcomponent *)TextModel{
-    UILabel *lable = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, [TextModel.width floatValue], [TextModel.height floatValue])];
-    lable.backgroundColor = [UIColor clearColor];
+-(flexItemLable *)flexIteminitWithText:(Textcomponent *)TextModel{
+    flexItemLable *lable = [[flexItemLable alloc] initWithFrame:CGRectMake(0, 0, [TextModel.width floatValue], [TextModel.height floatValue])];
+    lable.textModel = TextModel;
+    if (TextModel.background.length > 0) {
+        lable.backgroundColor = [UIColor colorWithHexString_xt:TextModel.background];
+    }else{
+        lable.backgroundColor = [UIColor clearColor];
+    }
+    
     lable.textColor = [UIColor blackColor];
     if ([TextModel.textAlignment isEqualToString:@"left"]) {
         lable.textAlignment = NSTextAlignmentLeft;
@@ -26,6 +33,12 @@
     if(TextModel.text.length > 0){
         lable.text = TextModel.text;
     }
+    if (TextModel.onclick.length > 0) {
+        lable.userInteractionEnabled = YES;
+        
+        [lable addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self.actionVC action:@selector(addheight:)]];
+    }
+    
     self.Lab = lable;
     return self.Lab;
 }

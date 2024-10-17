@@ -15,6 +15,7 @@
 #import "flexItemLab.h"
 #import "flexItemIMG.h"
 #import "UIColor+Hex.h"
+#import "flexItemLable.h"
 @interface homeXmlPageViewController ()
 
 @end
@@ -71,7 +72,7 @@
     [contentView.yoga applyLayoutPreservingOrigin:YES];
     [self.scroll.yoga applyLayoutPreservingOrigin:YES];
     // 设置 UIScrollView 的 contentSize
-    self.scroll.contentSize = CGSizeMake(contentView.bounds.size.width, contentView.bounds.size.height+88); // 手动设置 contentSize
+    self.scroll.contentSize = CGSizeMake(contentView.bounds.size.width, contentView.bounds.size.height); // 手动设置 contentSize
    
 }
 
@@ -166,7 +167,8 @@
 -(UIView *)createTextNode:(Textcomponent *)textmodel
 {
     flexItemLab *flexItem = [[flexItemLab alloc] init];
-    UILabel *flexlab = [flexItem flexIteminitWithText:textmodel];
+    flexItem.actionVC = self;
+    flexItemLable *flexlab = [flexItem flexIteminitWithText:textmodel];
     [flexlab configureLayoutWithBlock:^(YGLayout * layout) {
         layout.isEnabled = YES;
         if (textmodel.marginLeft) {
@@ -376,5 +378,33 @@
     }else {
         return YGAlignFlexStart;
     }
+}
+- (void)addheight:(UITapGestureRecognizer *)gesture{
+    flexItemLable *flexItemLab = (flexItemLable *)gesture.view;
+    if ([flexItemLab.text isEqualToString:@"V"]) {
+        float orignHeight = flexItemLab.yoga.height.value;
+        flexItemLab.yoga.marginTop = YGPointValue(50);
+        
+        float superorignHeight = flexItemLab.superview.yoga.height.value;
+        flexItemLab.superview.yoga.height = YGPointValue(superorignHeight + 50);
+        
+        [self.contentView.yoga applyLayoutPreservingOrigin:YES];
+        // 设置 UIScrollView 的 contentSize
+        self.scroll.contentSize = CGSizeMake(self.contentView.bounds.size.width, self.scroll.contentSize.height + 50); // 手动设置 contentSize
+        flexItemLab.text = @"-";
+    }else{
+        float orignHeight = flexItemLab.yoga.height.value;
+        flexItemLab.yoga.height = YGPointValue(orignHeight - 50);
+        
+        float superorignHeight = flexItemLab.superview.yoga.height.value;
+        flexItemLab.yoga.marginTop = YGPointValue(0);
+//        flexItemLab.superview.yoga.height = YGPointValue(superorignHeight - 50);
+        
+        [self.contentView.yoga applyLayoutPreservingOrigin:YES];
+        // 设置 UIScrollView 的 contentSize
+        self.scroll.contentSize = CGSizeMake(self.contentView.bounds.size.width, self.scroll.contentSize.height - 50); // 手动设置 contentSize
+        flexItemLab.text = @"V";
+    }
+    
 }
 @end

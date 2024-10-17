@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *width;
 @property (nonatomic, strong) NSString *height;
 @property (nonatomic, strong) NSString *textAlignment;
+@property (nonatomic, strong) NSString *onclick;
+@property (nonatomic, strong) NSString *background;
 
 @end
 @interface Imagecomponent : DataNode
