@@ -56,17 +56,19 @@
     self.contentView = contentView;
     [contentView configureLayoutWithBlock:^(YGLayout * layout) {
         layout.isEnabled = YES;
+        layout.flexDirection = YGFlexDirectionColumn;
         //layout.flexDirection =  [self.rootFlex.flexDirection floatValue];
        // layout.width = YGPointValue(self.view.bounds.size.width);
         //layout.height = YGPointValue(self.view.bounds.size.height);
-        layout.width = YGPercentValue(100);
-        layout.height = YGPercentValue(100);
+//        layout.width = YGPercentValue(100);
+//        layout.height = YGPercentValue(100);
         //layout.alignItems = YGAlignCenter;
         layout.paddingBottom = YGPointValue([self.rootFlex.paddingBottom floatValue]);
     }];
     [scroll addSubview: contentView];
 
     [self createChildDg:self.rootFlex node:contentView];
+    [contentView.yoga applyLayoutPreservingOrigin:YES];
     [self.scroll.yoga applyLayoutPreservingOrigin:YES];
     // 设置 UIScrollView 的 contentSize
     self.scroll.contentSize = CGSizeMake(contentView.bounds.size.width, contentView.bounds.size.height+88); // 手动设置 contentSize

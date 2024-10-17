@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSMutableArray<Textcomponent *> *texts;
 @property (nonatomic, strong) NSMutableArray<Flex *> *Flex;
 @property (nonatomic, strong) NSString *key;
-@property (nonatomic, strong) NSString *     width;
+@property (nonatomic, strong) NSString *width;
 @property (nonatomic, strong) NSString *height;
 @property (nonatomic, strong) NSString *alignItems;
 @property (nonatomic, strong) NSString *background;
