@@ -33,10 +33,9 @@
     if(TextModel.text.length > 0){
         lable.text = TextModel.text;
     }
-    if (TextModel.onclick.length > 0) {
+    if (TextModel.onclick.allKeys.count > 0) {
         lable.userInteractionEnabled = YES;
-        
-        [lable addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self.actionVC action:@selector(addheight:)]];
+        [lable addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self.actionVC action:@selector(actionMananger:)]];
     }
     
     self.Lab = lable;

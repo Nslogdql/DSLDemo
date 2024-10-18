@@ -124,7 +124,9 @@
     }else{
         contentView.backgroundColor = [UIColor whiteColor];
     }
-    
+    if ([Flexmodel.key isEqualToString:@"message"]) {
+        NSLog(@"------");
+    }
     [contentView configureLayoutWithBlock:^(YGLayout * layout) {
         layout.isEnabled = YES;
         if([Flexmodel.flexDirection isEqualToString: @"column"]){
@@ -298,33 +300,127 @@
         return YGAlignFlexStart;
     }
 }
-- (void)addheight:(UITapGestureRecognizer *)gesture{
+- (void)actionMananger:(UITapGestureRecognizer *)gesture{
     flexItemLable *flexItemLab = (flexItemLable *)gesture.view;
-    if ([flexItemLab.text isEqualToString:@"V"]) {
-        float orignHeight = flexItemLab.yoga.height.value;
-        flexItemLab.yoga.marginTop = YGPointValue(50);
-        
-        float superorignHeight = flexItemLab.superview.yoga.height.value;
-        flexItemLab.superview.yoga.height = YGPointValue(superorignHeight + 50);
-        
-        [self.contentView.yoga applyLayoutPreservingOrigin:YES];
-        // 设置 UIScrollView 的 contentSize
-        self.scroll.contentSize = CGSizeMake(self.contentView.bounds.size.width, self.scroll.contentSize.height + 50); // 手动设置 contentSize
-        flexItemLab.text = @"-";
-    }else{
-        float orignHeight = flexItemLab.yoga.height.value;
-        flexItemLab.yoga.height = YGPointValue(orignHeight - 50);
-        
-        float superorignHeight = flexItemLab.superview.yoga.height.value;
-        flexItemLab.yoga.marginTop = YGPointValue(0);
-//        flexItemLab.superview.yoga.height = YGPointValue(superorignHeight - 50);
-        
-        [self.contentView.yoga applyLayoutPreservingOrigin:YES];
-        // 设置 UIScrollView 的 contentSize
-        self.scroll.contentSize = CGSizeMake(self.contentView.bounds.size.width, self.scroll.contentSize.height - 50); // 手动设置 contentSize
-        flexItemLab.text = @"V";
+    NSDictionary *actionjson = flexItemLab.textModel.onclick;
+    if ([actionjson[@"actionType"] isEqual:@"click"]) {
+        NSDictionary *clickJson = actionjson[actionjson[@"actionType"]];
+        //全部刷新
+        if ([flexItemLab.text isEqualToString:@"⬇️"]) {
+            //Flex*Model = [self findcreateChildDg:self.rootFlex key:@"message"];
+            [self findcreateChildDg:self.rootFlex key:actionjson[@"key"] complete:^(Flex *result) {
+                if (result != nil) {
+                    flexItemLab.textModel.text = @"⬆️";
+                    if ([result isMemberOfClass:[Imagecomponent class]]) {
+                        
+                    } else if ([result isMemberOfClass:[Textcomponent class]]) {
+                        
+                    } else if ([result isMemberOfClass:[Flex class]]) {
+                        Flex *newmodel =  (Flex *)result;
+                        newmodel.height=clickJson[clickJson[@"actionType"]];
+                        for (UIView *view in self.contentView.subviews) {
+                            [view removeFromSuperview];
+                        }
+                        [self createChildDg:self.rootFlex node:self.contentView];
+                        [self.contentView.yoga applyLayoutPreservingOrigin:YES];
+                        // 设置 UIScrollView 的 contentSize
+                        self.scroll.contentSize = CGSizeMake(self.contentView.bounds.size.width, self.contentView.bounds.size.height);
+                        
+                    }else if ([result isMemberOfClass:[DataNode class]]){
+                        
+                    }
+                    
+                }
+            }];
+            
+            
+           
+            
+        }else{
+            [self findcreateChildDg:self.rootFlex key:actionjson[@"key"] complete:^(Flex *result) {
+                if (result != nil) {
+                    flexItemLab.textModel.text = @"⬇️";
+                    if ([result isMemberOfClass:[Imagecomponent class]]) {
+                        
+                    } else if ([result isMemberOfClass:[Textcomponent class]]) {
+                        
+                    } else if ([result isMemberOfClass:[Flex class]]) {
+                        Flex *newmodel =  (Flex *)result;
+                        newmodel.height=@"0";
+                        for (UIView *view in self.contentView.subviews) {
+                            [view removeFromSuperview];
+                        }
+                        [self createChildDg:self.rootFlex node:self.contentView];
+                        [self.contentView.yoga applyLayoutPreservingOrigin:YES];
+                        // 设置 UIScrollView 的 contentSize
+                        self.scroll.contentSize = CGSizeMake(self.contentView.bounds.size.width, self.contentView.bounds.size.height);
+                        
+                    }else if ([result isMemberOfClass:[DataNode class]]){
+                        
+                    }
+                    
+                }
+            }];
+
+           
+        }
     }
     
+    
+    
+
+    
+    //局部刷新
+//    if ([flexItemLab.text isEqualToString:@"V"]) {
+//        float orignHeight = flexItemLab.yoga.height.value;
+//        flexItemLab.yoga.marginTop = YGPointValue(50);
+//        
+//        float superorignHeight = flexItemLab.superview.yoga.height.value;
+//        flexItemLab.superview.yoga.height = YGPointValue(superorignHeight + 50);
+//        
+//        [self.contentView.yoga applyLayoutPreservingOrigin:YES];
+//        // 设置 UIScrollView 的 contentSize
+//        self.scroll.contentSize = CGSizeMake(self.contentView.bounds.size.width, self.scroll.contentSize.height + 50); // 手动设置 contentSize
+//        flexItemLab.text = @"-";
+//    }else{
+//        float orignHeight = flexItemLab.yoga.height.value;
+//        flexItemLab.yoga.height = YGPointValue(orignHeight - 50);
+//        
+//        float superorignHeight = flexItemLab.superview.yoga.height.value;
+//        flexItemLab.yoga.marginTop = YGPointValue(0);
+////        flexItemLab.superview.yoga.height = YGPointValue(superorignHeight - 50);
+//        
+//        [self.contentView.yoga applyLayoutPreservingOrigin:YES];
+//        // 设置 UIScrollView 的 contentSize
+//        self.scroll.contentSize = CGSizeMake(self.contentView.bounds.size.width, self.scroll.contentSize.height - 50); // 手动设置 contentSize
+//        flexItemLab.text = @"V";
+//    }
+    
+}
+
+- (void)findcreateChildDg:(DataNode *)origin key:(NSString *)key complete: (void (^)(Flex *result))completion {
+    for (Flex *model in origin.FlexorderItem) {
+        NSArray *childList = model.FlexorderItem;
+        [self findcreateChildNode:model key:key complete:completion];
+        [self findcreateChildDg:model key:key complete:completion];
+        
+    }
+}
+
+- (void)findcreateChildNode:(DataNode *)model key:(NSString *)key complete: (void (^)(Flex *result))completion{
+    Flex *view;
+    if ([model isMemberOfClass:[Imagecomponent class]]) {
+    } else if ([model isMemberOfClass:[Textcomponent class]]) {
+    } else if ([model isMemberOfClass:[Flex class]]) {
+        [self findcreateFlexNode:(Flex *)model key:key complete:completion];
+    }
+}
+
+-(void)findcreateFlexNode:(Flex *)Flexmodel key:(NSString *)key complete: (void (^)(Flex *result))completion{
+    if ([Flexmodel.key isEqualToString:key]) {
+        NSLog(@"------");
+        completion(Flexmodel);
+    }
 }
 
 - (YGJustify)justify:(NSString *)justify

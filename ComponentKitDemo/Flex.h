@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface Textcomponent : DataNode
-
+@property (nonatomic, strong) NSString *key;
 @property (nonatomic, strong) NSString *textSize;
 @property (nonatomic, strong) NSString *textStyle;
 @property (nonatomic, strong) NSString *text;
@@ -36,13 +36,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *width;
 @property (nonatomic, strong) NSString *height;
 @property (nonatomic, strong) NSString *textAlignment;
-@property (nonatomic, strong) NSString *onclick;
+@property (nonatomic, strong) NSDictionary *onclick;
 @property (nonatomic, strong) NSString *background;
 
 @end
-
 @interface Imagecomponent : DataNode
-//@property(nonatomic,strong) NSString *
+@property (nonatomic, strong) NSString *key;
 @property (nonatomic, strong) NSString *src;
 @property (nonatomic, strong) NSString *height;
 @property (nonatomic, strong) NSString *width;
