@@ -232,15 +232,55 @@
             </Flex>
         </Flex>
         
+        
+        
+        <Flex
+            key="message"
+            background="#AEEEEE"
+            marginLeft="5%"
+            width="90%"
+            flexDirection="column"
+            height="0">
+            <Flex
+                background="#FFFFFF"
+                marginLeft="5%"
+                flexDirection="column"
+                width="90%"
+                height="100">
+                <Flex
+                    key="Flex"
+                    flexDirection="column"
+                    background="#FFFFFF"
+                    marginLeft="10"
+                    marginTop="20">
+                    <Text
+                        key="Text"
+                        textSize="10"
+                        textAlignment="left"
+                        text="直销银行"
+                        width="100"
+                        height="20"></Text>
+                    <Text
+                        key="Text"
+                        textSize="10"
+                        marginTop="10"
+                        text="05月19日"
+                        textAlignment="left"
+                        width="160"
+                        height="20"></Text>
+                </Flex>
+            </Flex>
+        </Flex>
+        
         <Text
             key="Text"
             background="#AEEEEE"
             textSize="10"
             textAlignment="center"
-            text="V"
+            text="⬇️"
             marginLeft="20%"
             width="90%"
-            onclick="addheight"
+            onclick="{&quot;actionType&quot;:&quot;click&quot;,&quot;key&quot;:&quot;message&quot;,&quot;click&quot;:{&quot;actionType&quot;:&quot;addheight&quot;,&quot;param&quot;:&quot;100&quot;}}"
             height="20"></Text>
         </Flex>
         

@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)Flex *rootFlex;
 @property(nonatomic,strong)UIScrollView *scroll;
 @property(nonatomic,strong)UIView *contentView;
-- (void)addheight:(UITapGestureRecognizer *)gesture;
+- (void)actionMananger:(UITapGestureRecognizer *)gesture;
 @end
 
 NS_ASSUME_NONNULL_END

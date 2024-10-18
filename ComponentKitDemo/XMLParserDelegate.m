@@ -7,7 +7,7 @@
 
 #import "XMLParserDelegate.h"
 #import "Flex.h"
-
+#import "NBData.h"
 @interface XMLParserDelegate()
 
 @property(nonatomic, strong)NSMutableArray *openTag;
@@ -57,6 +57,7 @@
         self.currentFlex = newFlex;
     } else if ([elementName isEqualToString:@"Image"]) {
         self.currentImage = [[Imagecomponent alloc] init];
+        self.currentImage.key = attributeDict[@"key"];
         self.currentImage.src = attributeDict[@"src"];
         self.currentImage.height = attributeDict[@"height"];
         self.currentImage.width = attributeDict[@"width"];
@@ -74,6 +75,7 @@
     } else if ([elementName isEqualToString:@"Text"]) {
 
         self.currentText = [[Textcomponent alloc] init];
+        self.currentText.key = attributeDict[@"key"];
         self.currentText.text = attributeDict[@"text"];
         self.currentText.textSize = attributeDict[@"textSize"];
         self.currentText.textStyle = attributeDict[@"textStyle"];
@@ -82,7 +84,12 @@
         self.currentText.marginTop = attributeDict[@"marginTop"];
         self.currentText.height = attributeDict[@"height"];
         self.currentText.width = attributeDict[@"width"];
-        self.currentText.onclick = attributeDict[@"onclick"];
+        if (attributeDict[@"onclick"].length > 0) {
+            NSString *jsonstr = attributeDict[@"onclick"];
+            NSDictionary *dic = [NBData dictionaryWithJsonString:jsonstr];
+            self.currentText.onclick = dic;
+        }
+        
         self.currentText.background = attributeDict[@"background"];
         self.currentText.textAlignment = attributeDict[@"textAlignment"];
         [self.currentFlex.texts addObject:self.currentText];
