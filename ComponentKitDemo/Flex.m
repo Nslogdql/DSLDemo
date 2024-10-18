@@ -14,18 +14,6 @@
 @implementation Textcomponent
 @end
 @implementation Imagecomponent
-//- (NSString *)alignItems{
-//    if([_alignItems isEqualToString: @"center"]){
-//        return [NSString stringWithFormat:@"%d",3];
-//    }else if([_alignItems isEqualToString: @"flexStart"]){
-//        return [NSString stringWithFormat:@"%d",2];
-//    }else if([_alignItems isEqualToString: @"flexEnd"]){
-//        return [NSString stringWithFormat:@"%d",4];
-//    }else {
-//        
-//        return [NSString stringWithFormat:@"%d",1];
-//    }
-//}
 @end
 @implementation Flex
 - (instancetype)init {

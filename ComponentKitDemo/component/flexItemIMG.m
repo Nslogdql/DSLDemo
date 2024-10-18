@@ -18,7 +18,7 @@
     ItemIMG.backgroundColor = [UIColor clearColor];
     if(ImageModel.src.length > 0){
         ItemIMG.image = [UIImage imageNamed:ImageModel.src];
-    }
+    }   
     return ItemIMG;
 }
 @end

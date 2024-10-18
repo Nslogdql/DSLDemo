@@ -7,6 +7,7 @@
 
 #import "flexItemBtn.h"
 #import "UIColor+Hex.h"
+#import "flexItemButton.h"
 @implementation flexItemBtn
 - (flexItemButton *)ItemLabinitWithText:(Buttoncomponent *)buttonModel{
     flexItemButton *btn = [[flexItemButton alloc] initWithFrame:CGRectMake(0, 0, [buttonModel.width floatValue], [buttonModel.height floatValue])];

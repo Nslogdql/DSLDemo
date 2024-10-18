@@ -101,7 +101,7 @@
         [self.openTag addObject: elementName ];
         
     }else if ([elementName isEqualToString:@"Button"]) {
-
+        
         self.currentButton = [[Buttoncomponent alloc] init];
         self.currentButton.key = attributeDict[@"key"];
         self.currentButton.text = attributeDict[@"text"];

@@ -25,8 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *textAlignment;
 @property (nonatomic, strong) NSDictionary *onclick;
 @property (nonatomic, strong) NSString *background;
-
 @end
+
 @interface Textcomponent : DataNode
 @property (nonatomic, strong) NSString *key;
 @property (nonatomic, strong) NSString *textSize;
@@ -70,6 +70,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *marginRight;
 @property (nonatomic, strong) NSString *flexGrow;
 @property (nonatomic, strong) NSString *justifyContent;
+
 @property (nonatomic, strong) NSString *padding;
 //@property (nonatomic, strong) NSMutableArray *FlexorderItem;
 // 其他属性...
