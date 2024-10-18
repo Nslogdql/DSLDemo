@@ -65,7 +65,7 @@
                     <Flex
                         key="Flex"
                         alignItems="center"
-                        flexDirection="column"
+                        flexDirection="row"
                         justifyContent="center"
                         >
                         <Image
@@ -82,13 +82,11 @@
                         alignItems="center"
                         flexDirection="row"
                         >
-                        <Flex>
                             <Text
                                 key="Text"
                                 text="百业贷"
                                 textSize="12">
                             </Text>
-                        </Flex>
                         
                         <Flex
                             key="Flex"
@@ -112,7 +110,13 @@
                                 ></Text>
                             
                         </Flex>
+                        
                     </Flex>
+                    <button
+                        key="button"
+                        text="按钮"
+                        >
+                    </button>
                 </Flex>
             </Flex>
             

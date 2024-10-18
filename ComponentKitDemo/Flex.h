@@ -10,6 +10,21 @@
 
 #import "YGLayout.h"
 NS_ASSUME_NONNULL_BEGIN
+
+@interface ButtonComponent : DataNode
+@property(nonatomic,strong) NSString *image;
+@property (nonatomic, strong) NSString *textSize;
+@property (nonatomic, strong) NSString *textStyle;
+@property (nonatomic, strong) NSString *text;
+@property (nonatomic, strong) NSString *marginTop;
+@property (nonatomic, strong) NSString *marginLeft;
+@property (nonatomic, strong) NSString *marginRight;
+@property (nonatomic, strong) NSString *width;
+@property (nonatomic, strong) NSString *height;
+@property (nonatomic, strong) NSString *textAlignment;
+
+@end
+
 @interface Textcomponent : DataNode
 
 @property (nonatomic, strong) NSString *textSize;
@@ -25,8 +40,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *background;
 
 @end
-@interface Imagecomponent : DataNode
 
+@interface Imagecomponent : DataNode
+//@property(nonatomic,strong) NSString *
 @property (nonatomic, strong) NSString *src;
 @property (nonatomic, strong) NSString *height;
 @property (nonatomic, strong) NSString *width;
@@ -52,6 +68,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *marginRight;
 @property (nonatomic, strong) NSString *flexGrow;
 @property (nonatomic, strong) NSString *justifyContent;
+
 @property (nonatomic, strong) NSString *padding;
 //@property (nonatomic, strong) NSMutableArray *FlexorderItem;
 // 其他属性...

@@ -92,6 +92,22 @@
         
         [self.openTag addObject: elementName ];
         
+    }else if ([elementName isEqualToString:@"button"]) {
+        ButtonComponent *btnComt = [[ButtonComponent alloc] init];
+        btnComt.text = attributeDict[@"text"];
+        btnComt.textSize = attributeDict[@"textSize"];
+        btnComt.textStyle = attributeDict[@"textStyle"];
+        btnComt.marginLeft = attributeDict[@"marginLeft"];
+        btnComt.marginRight = attributeDict[@"marginRight"];
+        btnComt.marginTop = attributeDict[@"marginTop"];
+        btnComt.height = attributeDict[@"height"];
+        btnComt.width = attributeDict[@"width"];
+        btnComt.textAlignment = attributeDict[@"textAlignment"];
+//        [self.currentFlex.texts addObject:self.currentText];
+//        [self.currentFlex.content addObject:self.currentText];
+        [self.currentFlex.FlexorderItem addObject:btnComt];
+        
+        [self.openTag addObject: elementName ];
     }
 //    self.currentElementValue = [[NSMutableString alloc] init];
 }

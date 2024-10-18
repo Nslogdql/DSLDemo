@@ -8,7 +8,7 @@
 #import "flexItemBtn.h"
 
 @implementation flexItemBtn
-- (UIButton *)ItemLabinitWithText:(Buttoncomponent *)buttonModel{
+- (UIButton *)ItemLabinitWithText:(ButtonComponent *)buttonModel{
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, [buttonModel.width floatValue], [buttonModel.height floatValue])];
     btn.backgroundColor = [UIColor whiteColor];
     [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];

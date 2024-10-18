@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface flexItemBtn : NSObject
 @property(nonatomic,strong)UIButton *button;
-- (UIButton *)ItemLabinitWithText:(Buttoncomponent *)buttonModel;
+- (UIButton *)ItemLabinitWithText:(ButtonComponent *)buttonModel;
 @end
 
 NS_ASSUME_NONNULL_END
