@@ -185,11 +185,13 @@
         
         
         <Flex
-            key="Flex"
-            flexDirection="column">
+            key=""
+            flexDirection="column"
+            width="100%">
         <Flex
-            key="Flex"
-            flexDirection="row">
+            flexDirection="row"
+            height="100%"
+            width="100%">
             <Flex
                 key="Flex"
                 flexDirection="row"
@@ -235,7 +237,7 @@
         
         
         <Flex
-            key="message"
+            key="12138"
             background="#AEEEEE"
             marginLeft="5%"
             width="90%"
@@ -272,7 +274,7 @@
             </Flex>
         </Flex>
         
-        <Text
+        <Button
             key="Text"
             background="#AEEEEE"
             textSize="10"
@@ -280,8 +282,8 @@
             text="⬇️"
             marginLeft="20%"
             width="90%"
-            onclick="{&quot;actionType&quot;:&quot;click&quot;,&quot;key&quot;:&quot;message&quot;,&quot;click&quot;:{&quot;actionType&quot;:&quot;addheight&quot;,&quot;param&quot;:&quot;100&quot;}}"
-            height="20"></Text>
+            onclick="{&quot;actionType&quot;:&quot;click&quot;,&quot;click&quot;:[{&quot;key&quot;:&quot;12138&quot;,&quot;actionType&quot;:&quot;addheight&quot;,&quot;addheight&quot;:&quot;100&quot;}]}"
+            height="20"></Button>
         </Flex>
         
         

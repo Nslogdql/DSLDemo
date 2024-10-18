@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface flexItemLab : NSObject
 @property(nonatomic,strong)flexItemLable *Lab;
 @property(nonatomic,strong)UIViewController *actionVC;
--(UILabel *)flexIteminitWithText:(Textcomponent *)TextModel;
+-(flexItemLable *)flexIteminitWithText:(Textcomponent *)TextModel;
 @end
 
 NS_ASSUME_NONNULL_END

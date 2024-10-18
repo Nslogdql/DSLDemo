@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5923D4CA8D214350E8E49BEE /* Pods_ComponentKitDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D750104D98F9588B76ACB9A /* Pods_ComponentKitDemoTests.framework */; };
 		6B2B82872CC0AFB900573019 /* flexItemLable.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2B82862CC0AFB900573019 /* flexItemLable.m */; };
+		6B8AD4592CC23B7800D6B292 /* flexItemBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8AD4582CC23B7800D6B292 /* flexItemBtn.m */; };
+		6B8AD45C2CC23DC900D6B292 /* flexItemButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8AD45B2CC23DC900D6B292 /* flexItemButton.m */; };
 		6B981DEA2CB630D2002EB23E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B981DE92CB630D2002EB23E /* AppDelegate.m */; };
 		6B981DF02CB630D2002EB23E /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6B981DEF2CB630D2002EB23E /* ViewController.mm */; };
 		6B981DF32CB630D2002EB23E /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 6B981DF22CB630D2002EB23E /* Base */; };
@@ -62,6 +64,10 @@
 		5D3021858C685450B5454129 /* Pods-ComponentKitDemo-ComponentKitDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComponentKitDemo-ComponentKitDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-ComponentKitDemo-ComponentKitDemoUITests/Pods-ComponentKitDemo-ComponentKitDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6B2B82852CC0AFB900573019 /* flexItemLable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = flexItemLable.h; sourceTree = "<group>"; };
 		6B2B82862CC0AFB900573019 /* flexItemLable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = flexItemLable.m; sourceTree = "<group>"; };
+		6B8AD4572CC23B7800D6B292 /* flexItemBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flexItemBtn.h; sourceTree = "<group>"; };
+		6B8AD4582CC23B7800D6B292 /* flexItemBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = flexItemBtn.m; sourceTree = "<group>"; };
+		6B8AD45A2CC23DC900D6B292 /* flexItemButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = flexItemButton.h; sourceTree = "<group>"; };
+		6B8AD45B2CC23DC900D6B292 /* flexItemButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = flexItemButton.m; sourceTree = "<group>"; };
 		6B981DE52CB630D2002EB23E /* ComponentKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComponentKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B981DE82CB630D2002EB23E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6B981DE92CB630D2002EB23E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -241,6 +247,10 @@
 				6B2B82862CC0AFB900573019 /* flexItemLable.m */,
 				6B981F472CB8CBB0002EB23E /* flexItemIMG.h */,
 				6B981F482CB8CBB0002EB23E /* flexItemIMG.m */,
+				6B8AD4572CC23B7800D6B292 /* flexItemBtn.h */,
+				6B8AD4582CC23B7800D6B292 /* flexItemBtn.m */,
+				6B8AD45A2CC23DC900D6B292 /* flexItemButton.h */,
+				6B8AD45B2CC23DC900D6B292 /* flexItemButton.m */,
 			);
 			path = component;
 			sourceTree = "<group>";
@@ -514,6 +524,7 @@
 				6B981F392CB8AABB002EB23E /* Flex.m in Sources */,
 				6B981F412CB8B676002EB23E /* homeXmlPageViewController.m in Sources */,
 				6B981F0F2CB771F4002EB23E /* homepageViewController.m in Sources */,
+				6B8AD4592CC23B7800D6B292 /* flexItemBtn.m in Sources */,
 				85E097E52CBCF71F00ABD518 /* DataNode.m in Sources */,
 				6B981DF02CB630D2002EB23E /* ViewController.mm in Sources */,
 				6B981F362CB7CEF5002EB23E /* NBData.m in Sources */,
@@ -521,6 +532,7 @@
 				6B981F2B2CB78087002EB23E /* contextviewWithTextStr.m in Sources */,
 				6B981F2E2CB7B887002EB23E /* UIColor+Hex.m in Sources */,
 				85E097E62CBCF71F00ABD518 /* Node.m in Sources */,
+				6B8AD45C2CC23DC900D6B292 /* flexItemButton.m in Sources */,
 				6B981F452CB8BD76002EB23E /* flexItemLab.m in Sources */,
 				6B981DEA2CB630D2002EB23E /* AppDelegate.m in Sources */,
 				6B2B82872CC0AFB900573019 /* flexItemLable.m in Sources */,

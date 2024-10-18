@@ -47,6 +47,7 @@
         if(self.openTag.count == 0){
             //根节点
             self.FatherrootFlex = newFlex;
+            self.FatherrootFlexCopy = [newFlex mutableCopy];
         } else {
             newFlex.ParentFlex = self.currentFlex;
         }
@@ -99,6 +100,35 @@
         
         [self.openTag addObject: elementName ];
         
+    }else if ([elementName isEqualToString:@"Button"]) {
+
+        self.currentButton = [[Buttoncomponent alloc] init];
+        self.currentButton.key = attributeDict[@"key"];
+        self.currentButton.text = attributeDict[@"text"];
+        self.currentButton.textSize = attributeDict[@"textSize"];
+        self.currentButton.textStyle = attributeDict[@"textStyle"];
+        self.currentButton.marginLeft = attributeDict[@"marginLeft"];
+        self.currentButton.marginRight = attributeDict[@"marginRight"];
+        self.currentButton.marginTop = attributeDict[@"marginTop"];
+        self.currentButton.height = attributeDict[@"height"];
+        self.currentButton.width = attributeDict[@"width"];
+        self.currentButton.selecttext = attributeDict[@"selecttext"];
+        
+        if (attributeDict[@"onclick"].length > 0) {
+            NSString *jsonstr = attributeDict[@"onclick"];
+            NSDictionary *dic = [NBData dictionaryWithJsonString:jsonstr];
+            self.currentButton.onclick = dic;
+        }
+        
+        self.currentButton.background = attributeDict[@"background"];
+        self.currentButton.textAlignment = attributeDict[@"textAlignment"];
+        [self.currentFlex.buttons addObject:self.currentButton];
+        [self.currentFlex.content addObject:self.currentButton];
+        
+        [self.currentFlex.FlexorderItem addObject:self.currentButton];
+        
+        [self.openTag addObject: elementName ];
+        
     }
 //    self.currentElementValue = [[NSMutableString alloc] init];
 }
@@ -140,6 +170,10 @@
         //self.currentText.text = [self.currentElementValue copy];
 //        [self.currentFlex.texts addObject:self.currentText];
         self.currentText = nil;
+    }else if ([elementName isEqualToString:@"Button"]) {
+        //self.currentText.text = [self.currentElementValue copy];
+//        [self.currentFlex.texts addObject:self.currentText];
+        self.currentButton = nil;
     }
 
 }

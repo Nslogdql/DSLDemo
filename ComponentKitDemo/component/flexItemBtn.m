@@ -6,11 +6,17 @@
 //
 
 #import "flexItemBtn.h"
-
+#import "UIColor+Hex.h"
 @implementation flexItemBtn
-- (UIButton *)ItemLabinitWithText:(Buttoncomponent *)buttonModel{
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, [buttonModel.width floatValue], [buttonModel.height floatValue])];
-    btn.backgroundColor = [UIColor whiteColor];
+- (flexItemButton *)ItemLabinitWithText:(Buttoncomponent *)buttonModel{
+    flexItemButton *btn = [[flexItemButton alloc] initWithFrame:CGRectMake(0, 0, [buttonModel.width floatValue], [buttonModel.height floatValue])];
+    btn.buttonModel = buttonModel;
+    if (buttonModel.background.length > 0) {
+        btn.backgroundColor = [UIColor colorWithHexString_xt:buttonModel.background];
+    }else{
+        btn.backgroundColor = [UIColor clearColor];
+    }
+    
     [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     if ([buttonModel.textAlignment isEqualToString:@"left"]) {
         btn.titleLabel.textAlignment = NSTextAlignmentLeft;
@@ -26,7 +32,11 @@
     if(buttonModel.text.length > 0){
         [btn setTitle:buttonModel.text forState:UIControlStateNormal];
     }
-    [btn addTarget:self action:@selector(clickMe:) forControlEvents:UIControlEventTouchUpInside];
+    
+    if(buttonModel.selecttext.length > 0){
+        [btn setTitle:buttonModel.selecttext forState:UIControlStateSelected];
+    }
+    [btn addTarget:self.actionVC action:@selector(actionMananger:) forControlEvents:UIControlEventTouchUpInside];
     self.button = btn;
     return btn;
 }

@@ -14,4 +14,11 @@
     }
     return _FlexorderItem;
 }
+- (id)mutableCopyWithZone:(NSZone *)zone {
+    DataNode *DataNode = [[[self class] alloc] init];
+    if (DataNode) {
+        DataNode.FlexorderItem = [self.FlexorderItem mutableCopy];
+    }
+    return DataNode;
+}
 @end

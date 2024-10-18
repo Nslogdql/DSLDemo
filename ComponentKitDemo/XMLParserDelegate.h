@@ -11,11 +11,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface XMLParserDelegate : NSObject<NSXMLParserDelegate>
 @property (nonatomic, strong) Flex *FatherrootFlex;
+@property (nonatomic, strong) Flex *FatherrootFlexCopy;
 @property (nonatomic, strong) Flex *currentFlex;
 @property (nonatomic, strong) Flex *currentFatherFlex;
 
 @property (nonatomic, strong) Imagecomponent *currentImage;
 @property (nonatomic, strong) Textcomponent *currentText;
+@property (nonatomic, strong) Buttoncomponent *currentButton;
 @property (nonatomic, strong) NSMutableString *currentElementValue;
 @end
 

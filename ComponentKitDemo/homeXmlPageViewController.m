@@ -16,6 +16,8 @@
 #import "flexItemIMG.h"
 #import "UIColor+Hex.h"
 #import "flexItemLable.h"
+#import "flexItemBtn.h"
+#import "flexItemButton.h"
 @interface homeXmlPageViewController ()
 
 @end
@@ -100,6 +102,8 @@
         view = [self createTextNode:(Textcomponent *)model];
     } else if ([model isMemberOfClass:[Flex class]]) {
         view = [self createFlexNode:(Flex *)model];
+    }else if ([model isMemberOfClass:[Buttoncomponent class]]) {
+        view = [self createButtonNode:(Buttoncomponent *)model];
     }
     [node addSubview:view];
     return view;
@@ -113,9 +117,12 @@
     }else{
         contentView.backgroundColor = [UIColor whiteColor];
     }
-    if ([Flexmodel.key isEqualToString:@"message"]) {
+    if (![Flexmodel.key isEqualToString:@"flex"]) {
         NSLog(@"------");
+        NSString *tagvalue = Flexmodel.key;
+        contentView.tag = [tagvalue floatValue];
     }
+    
     [contentView configureLayoutWithBlock:^(YGLayout * layout) {
         layout.isEnabled = YES;
         if([Flexmodel.flexDirection isEqualToString: @"column"]){
@@ -171,6 +178,35 @@
     flexItemLab *flexItem = [[flexItemLab alloc] init];
     flexItem.actionVC = self;
     flexItemLable *flexlab = [flexItem flexIteminitWithText:textmodel];
+    [flexlab configureLayoutWithBlock:^(YGLayout * layout) {
+        layout.isEnabled = YES;
+        if (textmodel.marginLeft) {
+            layout.marginLeft = YGPointValue([textmodel.marginLeft floatValue]);
+        }
+        if (textmodel.marginRight) {
+            layout.marginRight = YGPointValue([textmodel.marginRight floatValue]);
+        }
+        if (textmodel.marginTop) {
+            layout.marginTop = YGPointValue([textmodel.marginTop floatValue]);
+        }
+        if (textmodel.width) {
+            if ([textmodel.width containsString:@"%"]) {
+                layout.width = YGPercentValue([textmodel.width floatValue]);
+            }else{
+                layout.width = YGPointValue([textmodel.width floatValue]);
+            }
+        }
+        if(textmodel.height){
+            layout.height = YGPointValue([textmodel.height floatValue]);
+        }
+    }];
+    return flexlab;;
+}
+-(UIView *)createButtonNode:(Buttoncomponent *)textmodel
+{
+    flexItemBtn *flexItem = [[flexItemBtn alloc] init];
+    flexItem.actionVC = self;
+    flexItemButton *flexlab = [flexItem ItemLabinitWithText:textmodel];
     [flexlab configureLayoutWithBlock:^(YGLayout * layout) {
         layout.isEnabled = YES;
         if (textmodel.marginLeft) {
@@ -381,69 +417,79 @@
         return YGAlignFlexStart;
     }
 }
-- (void)actionMananger:(UITapGestureRecognizer *)gesture{
-    flexItemLable *flexItemLab = (flexItemLable *)gesture.view;
-    NSDictionary *actionjson = flexItemLab.textModel.onclick;
+- (void)actionMananger:(UIButton *)sender{
+    flexItemButton *flexItembtn = (flexItemButton *)(sender);
+    flexItembtn.selected = !flexItembtn.selected;
+    NSDictionary *actionjson = flexItembtn.buttonModel.onclick;
     if ([actionjson[@"actionType"] isEqual:@"click"]) {
-        NSDictionary *clickJson = actionjson[actionjson[@"actionType"]];
+        NSArray *clickJsonAray = actionjson[actionjson[@"actionType"]];
         //全部刷新
-        if ([flexItemLab.text isEqualToString:@"⬇️"]) {
+        if (flexItembtn.selected) {
             //Flex*Model = [self findcreateChildDg:self.rootFlex key:@"message"];
-            [self findcreateChildDg:self.rootFlex key:actionjson[@"key"] complete:^(Flex *result) {
-                if (result != nil) {
-                    flexItemLab.textModel.text = @"⬆️";
-                    if ([result isMemberOfClass:[Imagecomponent class]]) {
+            for (int i=0;i < clickJsonAray.count; i++) {
+                NSDictionary *clickJson= clickJsonAray[i];
+                [self findcreateChildDg:self.rootFlex key:clickJson[@"key"] complete:^(Flex *result) {
+                    if (result != nil) {
                         
-                    } else if ([result isMemberOfClass:[Textcomponent class]]) {
-                        
-                    } else if ([result isMemberOfClass:[Flex class]]) {
-                        Flex *newmodel =  (Flex *)result;
-                        newmodel.height=clickJson[clickJson[@"actionType"]];
-                        for (UIView *view in self.contentView.subviews) {
-                            [view removeFromSuperview];
+                        if ([result isMemberOfClass:[Imagecomponent class]]) {
+                            
+                        } else if ([result isMemberOfClass:[Textcomponent class]]) {
+                            
+                        } else if ([result isMemberOfClass:[Flex class]]) {
+                            Flex *newmodel =  (Flex *)result;
+                            float newheight = [newmodel.height floatValue] + [clickJson[clickJson[@"actionType"]] floatValue];
+                            newmodel.height= [NSString stringWithFormat:@"%f",newheight];
+                            NSString *tagvalue = clickJson[@"key"];
+                            UIView *new = [self.view viewWithTag:[tagvalue floatValue]];
+                            new.yoga.height = YGPointValue(newheight);
+//                            for (UIView *view in self.contentView.subviews) {
+//                                [view removeFromSuperview];
+//                            }
+//                            [self createChildDg:self.rootFlex node:self.contentView];
+                            [self.contentView.yoga applyLayoutPreservingOrigin:YES];
+                            // 设置 UIScrollView 的 contentSize
+                            self.scroll.contentSize = CGSizeMake(self.contentView.bounds.size.width, self.contentView.bounds.size.height + [clickJson[clickJson[@"actionType"]] floatValue]);
+                        }else if ([result isMemberOfClass:[DataNode class]]){
+                            
                         }
-                        [self createChildDg:self.rootFlex node:self.contentView];
-                        [self.contentView.yoga applyLayoutPreservingOrigin:YES];
-                        // 设置 UIScrollView 的 contentSize
-                        self.scroll.contentSize = CGSizeMake(self.contentView.bounds.size.width, self.contentView.bounds.size.height);
-                        
-                    }else if ([result isMemberOfClass:[DataNode class]]){
                         
                     }
-                    
-                }
-            }];
-            
-            
-           
+                }];
+            }
             
         }else{
-            [self findcreateChildDg:self.rootFlex key:actionjson[@"key"] complete:^(Flex *result) {
-                if (result != nil) {
-                    flexItemLab.textModel.text = @"⬇️";
-                    if ([result isMemberOfClass:[Imagecomponent class]]) {
+            //Flex*Model = [self findcreateChildDg:self.rootFlex key:@"message"];
+            for (int i=0;i < clickJsonAray.count; i++) {
+                NSDictionary *clickJson= clickJsonAray[i];
+                [self findcreateChildDg:self.rootFlex key:clickJson[@"key"] complete:^(Flex *result) {
+                    if (result != nil) {
                         
-                    } else if ([result isMemberOfClass:[Textcomponent class]]) {
-                        
-                    } else if ([result isMemberOfClass:[Flex class]]) {
-                        Flex *newmodel =  (Flex *)result;
-                        newmodel.height=@"0";
-                        for (UIView *view in self.contentView.subviews) {
-                            [view removeFromSuperview];
+                        if ([result isMemberOfClass:[Imagecomponent class]]) {
+                            
+                        } else if ([result isMemberOfClass:[Textcomponent class]]) {
+                            
+                        } else if ([result isMemberOfClass:[Flex class]]) {
+                            Flex *newmodel =  (Flex *)result;
+                            float newheight = [newmodel.height floatValue] - [clickJson[clickJson[@"actionType"]] floatValue];
+                            newmodel.height= [NSString stringWithFormat:@"%f",newheight];
+                            NSString *tagvalue = clickJson[@"key"];
+                            UIView *new = [self.view viewWithTag:[tagvalue floatValue]];
+                            new.yoga.height = YGPointValue(newheight);
+//                            for (UIView *view in self.contentView.subviews) {
+//                                [view removeFromSuperview];
+//                            }
+//                            [self createChildDg:self.rootFlex node:self.contentView];
+                            [self.contentView.yoga applyLayoutPreservingOrigin:YES];
+                            // 设置 UIScrollView 的 contentSize
+                            self.scroll.contentSize = CGSizeMake(self.contentView.bounds.size.width, self.contentView.bounds.size.height);
+                        }else if ([result isMemberOfClass:[DataNode class]]){
+                            
                         }
-                        [self createChildDg:self.rootFlex node:self.contentView];
-                        [self.contentView.yoga applyLayoutPreservingOrigin:YES];
-                        // 设置 UIScrollView 的 contentSize
-                        self.scroll.contentSize = CGSizeMake(self.contentView.bounds.size.width, self.contentView.bounds.size.height);
-                        
-                    }else if ([result isMemberOfClass:[DataNode class]]){
                         
                     }
-                    
-                }
-            }];
-
-           
+                }];
+            }
+            
         }
     }
     

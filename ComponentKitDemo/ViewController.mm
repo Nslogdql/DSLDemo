@@ -107,6 +107,7 @@
         NSLog(@"Successfully parsed XML.%@---%@",parserDelegate.FatherrootFlex,parserDelegate.currentElementValue);
         homeXmlPageViewController *xml = [[homeXmlPageViewController alloc] init];
         xml.rootFlex =parserDelegate.FatherrootFlex;
+        xml.rootFlexCopy = parserDelegate.FatherrootFlexCopy;
         [self.navigationController pushViewController:xml animated:YES];
     } else {
         NSLog(@"Failed to parse XML.");

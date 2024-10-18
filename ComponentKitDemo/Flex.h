@@ -10,6 +10,23 @@
 
 #import "YGLayout.h"
 NS_ASSUME_NONNULL_BEGIN
+
+@interface Buttoncomponent : DataNode
+@property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) NSString *textSize;
+@property (nonatomic, strong) NSString *textStyle;
+@property (nonatomic, strong) NSString *text;
+@property (nonatomic, strong) NSString *selecttext;
+@property (nonatomic, strong) NSString *marginTop;
+@property (nonatomic, strong) NSString *marginLeft;
+@property (nonatomic, strong) NSString *marginRight;
+@property (nonatomic, strong) NSString *width;
+@property (nonatomic, strong) NSString *height;
+@property (nonatomic, strong) NSString *textAlignment;
+@property (nonatomic, strong) NSDictionary *onclick;
+@property (nonatomic, strong) NSString *background;
+
+@end
 @interface Textcomponent : DataNode
 @property (nonatomic, strong) NSString *key;
 @property (nonatomic, strong) NSString *textSize;
@@ -36,9 +53,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *marginRight;
 @property (nonatomic, strong) NSString *alignItems;
 @end
-@interface Flex : DataNode
+@interface Flex : DataNode<NSCopying>
 @property (nonatomic, strong) NSMutableArray<Imagecomponent *> *images;
 @property (nonatomic, strong) NSMutableArray<Textcomponent *> *texts;
+@property (nonatomic, strong) NSMutableArray<Buttoncomponent *> *buttons;
 @property (nonatomic, strong) NSMutableArray<Flex *> *Flex;
 @property (nonatomic, strong) NSString *key;
 @property (nonatomic, strong) NSString *width;

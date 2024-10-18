@@ -8,6 +8,9 @@
 #import "Flex.h"
 #import <YGLayout.h>
 #import <UIView+Yoga.h>
+
+@implementation Buttoncomponent
+@end
 @implementation Textcomponent
 @end
 @implementation Imagecomponent
@@ -31,9 +34,69 @@
         _images = [NSMutableArray array];
         _texts = [NSMutableArray array];
         _Flex = [NSMutableArray array];
-//        _FlexorderItem = [NSMutableArray array];
+        _buttons = [NSMutableArray array];
+        //        _FlexorderItem = [NSMutableArray array];
     }
     return self;
+}
+
+- (id)mutableCopyWithZone:(NSZone *)zone {
+    Flex *Flex = [[[self class] alloc] init];
+    if (Flex) {
+        Flex.images = [self.images mutableCopy];
+        Flex.key = [self.key mutableCopy];
+        Flex.texts = [self.texts mutableCopy];
+        Flex.Flex = [self.Flex mutableCopy];
+        Flex.width = [self.width mutableCopy];
+        
+        Flex.height = [self.height mutableCopy];
+        Flex.alignItems = [self.alignItems mutableCopy];
+        Flex.background = [self.background mutableCopy];
+        Flex.background = [self.background mutableCopy];
+        Flex.flexDirection = [self.flexDirection mutableCopy];
+        Flex.images = [self.images mutableCopy];
+        Flex.paddingBottom = [self.paddingBottom mutableCopy];
+        Flex.marginTop = [self.marginTop mutableCopy];
+        Flex.marginLeft = [self.marginLeft mutableCopy];
+        
+        Flex.marginRight = [self.marginRight mutableCopy];
+        Flex.flexGrow = [self.flexGrow mutableCopy];
+        
+        Flex.justifyContent = [self.justifyContent mutableCopy];
+        Flex.padding = [self.padding mutableCopy];
+        Flex.ParentFlex = [self.ParentFlex mutableCopy];
+        Flex.FlexorderItem = [self.FlexorderItem mutableCopy];
+    }
+    return Flex;
+}
+- (id)copyWithZone:(NSZone *)zone {
+    Flex *Flex = [[[self class] alloc] init];
+    if (Flex) {
+        Flex.images = [self.images mutableCopy];
+        Flex.key = [self.key mutableCopy];
+        Flex.texts = [self.texts mutableCopy];
+        Flex.Flex = [self.Flex mutableCopy];
+        Flex.width = [self.width mutableCopy];
+        
+        Flex.height = [self.height mutableCopy];
+        Flex.alignItems = [self.alignItems mutableCopy];
+        Flex.background = [self.background mutableCopy];
+        Flex.background = [self.background mutableCopy];
+        Flex.flexDirection = [self.flexDirection mutableCopy];
+        Flex.images = [self.images mutableCopy];
+        Flex.paddingBottom = [self.paddingBottom mutableCopy];
+        Flex.marginTop = [self.marginTop mutableCopy];
+        Flex.marginLeft = [self.marginLeft mutableCopy];
+        
+        Flex.marginRight = [self.marginRight mutableCopy];
+        Flex.flexGrow = [self.flexGrow mutableCopy];
+        
+        Flex.justifyContent = [self.justifyContent mutableCopy];
+        Flex.padding = [self.padding mutableCopy];
+        Flex.ParentFlex = [self.ParentFlex mutableCopy];
+        Flex.FlexorderItem = [self.FlexorderItem mutableCopy];
+    }
+    return Flex;
 }
 //- (NSString *)flexDirection{
 //    if([_flexDirection isEqualToString: @"column"]){

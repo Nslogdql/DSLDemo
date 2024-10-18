@@ -11,6 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface homeXmlPageViewController : UIViewController
 @property(nonatomic,strong)Flex *rootFlex;
+@property(nonatomic,strong)Flex *rootFlexCopy;
 @property(nonatomic,strong)UIScrollView *scroll;
 @property(nonatomic,strong)UIView *contentView;
 - (void)actionMananger:(UITapGestureRecognizer *)gesture;
