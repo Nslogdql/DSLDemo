@@ -154,6 +154,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B8AD45D2CC2548B00D6B292 /* XMLView */ = {
+			isa = PBXGroup;
+			children = (
+				6B981F312CB7CE23002EB23E /* XMLReader.h */,
+				6B981F322CB7CE23002EB23E /* XMLReader.m */,
+				6B981F4A2CB8FC50002EB23E /* template.flexml */,
+				6B981F562CBA17D3002EB23E /* local.flexml */,
+				6B981F352CB7CEF5002EB23E /* NBData.h */,
+				6B981F342CB7CEF5002EB23E /* NBData.m */,
+				6B981F372CB8AABB002EB23E /* Flex.h */,
+				6B981F382CB8AABB002EB23E /* Flex.m */,
+				85E097E22CBCF71F00ABD518 /* DataNode.h */,
+				85E097E12CBCF71F00ABD518 /* DataNode.m */,
+				85E097E32CBCF71F00ABD518 /* Node.h */,
+				85E097E42CBCF71F00ABD518 /* Node.m */,
+				6B981F3A2CB8AB19002EB23E /* XMLParserDelegate.h */,
+				6B981F3B2CB8AB19002EB23E /* XMLParserDelegate.m */,
+				6B981DEE2CB630D2002EB23E /* ViewController.h */,
+				6B981DEF2CB630D2002EB23E /* ViewController.mm */,
+				6B981F0D2CB771F4002EB23E /* homepageViewController.h */,
+				6B981F0E2CB771F4002EB23E /* homepageViewController.m */,
+				6B981F3F2CB8B676002EB23E /* homeXmlPageViewController.h */,
+				6B981F402CB8B676002EB23E /* homeXmlPageViewController.m */,
+			);
+			path = XMLView;
+			sourceTree = "<group>";
+		};
 		6B981DDC2CB630D2002EB23E = {
 			isa = PBXGroup;
 			children = (
@@ -182,26 +209,7 @@
 				6B981DE82CB630D2002EB23E /* AppDelegate.h */,
 				6B981DE92CB630D2002EB23E /* AppDelegate.m */,
 				6B981E312CB65D3A002EB23E /* test.swift */,
-				6B981F312CB7CE23002EB23E /* XMLReader.h */,
-				6B981F322CB7CE23002EB23E /* XMLReader.m */,
-				6B981F4A2CB8FC50002EB23E /* template.flexml */,
-				6B981F562CBA17D3002EB23E /* local.flexml */,
-				6B981F352CB7CEF5002EB23E /* NBData.h */,
-				6B981F342CB7CEF5002EB23E /* NBData.m */,
-				6B981F372CB8AABB002EB23E /* Flex.h */,
-				6B981F382CB8AABB002EB23E /* Flex.m */,
-				85E097E22CBCF71F00ABD518 /* DataNode.h */,
-				85E097E12CBCF71F00ABD518 /* DataNode.m */,
-				85E097E32CBCF71F00ABD518 /* Node.h */,
-				85E097E42CBCF71F00ABD518 /* Node.m */,
-				6B981F3A2CB8AB19002EB23E /* XMLParserDelegate.h */,
-				6B981F3B2CB8AB19002EB23E /* XMLParserDelegate.m */,
-				6B981DEE2CB630D2002EB23E /* ViewController.h */,
-				6B981DEF2CB630D2002EB23E /* ViewController.mm */,
-				6B981F0D2CB771F4002EB23E /* homepageViewController.h */,
-				6B981F0E2CB771F4002EB23E /* homepageViewController.m */,
-				6B981F3F2CB8B676002EB23E /* homeXmlPageViewController.h */,
-				6B981F402CB8B676002EB23E /* homeXmlPageViewController.m */,
+				6B8AD45D2CC2548B00D6B292 /* XMLView */,
 				6B981F462CB8BD7E002EB23E /* component */,
 				6B981F422CB8BD25002EB23E /* old */,
 				6B981F2D2CB7B887002EB23E /* UIColor+Hex.h */,

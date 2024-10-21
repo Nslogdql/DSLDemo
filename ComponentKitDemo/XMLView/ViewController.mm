@@ -97,6 +97,7 @@
     
     // 将 NSData 转换为 NSString
     NSString *xmlString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//    NSString *xmlString = @"";
     NSData *xmldata =[xmlString dataUsingEncoding:NSUTF8StringEncoding];
     XMLParserDelegate *parserDelegate = [[XMLParserDelegate alloc] init];
     NSXMLParser *parser = [[NSXMLParser alloc] initWithData:xmldata];
