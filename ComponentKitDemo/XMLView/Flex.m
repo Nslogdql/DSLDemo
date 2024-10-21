@@ -8,7 +8,8 @@
 #import "Flex.h"
 #import <YGLayout.h>
 #import <UIView+Yoga.h>
-
+@implementation Listcomponent
+@end
 @implementation Buttoncomponent
 @end
 @implementation Textcomponent

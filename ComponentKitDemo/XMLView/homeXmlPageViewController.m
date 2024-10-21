@@ -19,7 +19,10 @@
 #import "flexItemLable.h"
 #import "flexItemBtn.h"
 #import "flexItemButton.h"
+#import "flexItemlist.h"
+#import "flexItemUICollectionView.h"
 #import "Flex.h"
+#import "CustomCollectionViewCell.h"
 @interface homeXmlPageViewController ()
 
 @end
@@ -112,13 +115,74 @@
         view = [self createTextNode:(Textcomponent *)model];
     } else if ([model isMemberOfClass:[Flex class]]) {
         view = [self createFlexNode:(Flex *)model];
-    }else if ([model isMemberOfClass:[Buttoncomponent class]]) {
-        view = [self createButtonNode:(Buttoncomponent *)model];
+    }else if ([model isMemberOfClass:[Listcomponent class]]) {
+        view = [self createListNode:(Listcomponent *)model];
     }
     [node addSubview:view];
     return view;
 }
-
+-(UIView *)createListNode:(Listcomponent *)Flexmodel
+{
+    flexItemlist *listItem = [[flexItemlist alloc] initWithText:Flexmodel];
+    listItem.actionVC = self;
+    
+    [listItem configureLayoutWithBlock:^(YGLayout * layout) {
+        layout.isEnabled = YES;
+        if([Flexmodel.flexDirection isEqualToString: @"column"]){
+            layout.flexDirection =  YGFlexDirectionColumn;
+        }else{
+            layout.flexDirection =  YGFlexDirectionRow;
+        }
+        if (Flexmodel.marginLeft) {
+            if ([Flexmodel.marginLeft containsString:@"%"]) {
+                layout.marginLeft = YGPercentValue([Flexmodel.marginLeft floatValue]);
+            }else{
+                layout.marginLeft = YGPointValue([Flexmodel.marginLeft floatValue]);
+            }
+        }
+        if (Flexmodel.marginRight) {
+            if ([Flexmodel.marginRight containsString:@"%"]) {
+                layout.marginRight = YGPercentValue([Flexmodel.marginRight floatValue]);
+            }else{
+                layout.marginRight = YGPointValue([Flexmodel.marginRight floatValue]);
+            }
+        }
+        if (Flexmodel.justifyContent) {
+            if ([Flexmodel.justifyContent isEqualToString:@"spaceBetween"]) {
+                layout.justifyContent = YGJustifySpaceBetween;
+            }else if([Flexmodel.justifyContent isEqualToString:@"FlexEnd"]){
+                layout.justifyContent = YGJustifyFlexEnd;
+            }else{
+                layout.justifyContent = YGJustifyFlexStart;
+            }
+        }
+        if (Flexmodel.marginTop) {
+            layout.marginTop = YGPointValue([Flexmodel.marginTop floatValue]);
+        }
+        if (Flexmodel.width) {
+            if ([Flexmodel.width containsString:@"%"]) {
+                layout.width = YGPercentValue([Flexmodel.width floatValue]);
+            }else{
+                layout.width = YGPointValue([Flexmodel.width floatValue]);
+            }
+        }
+        if(Flexmodel.alignItems){
+            layout.alignItems = [self alignItems:Flexmodel.alignItems];
+        }
+        if(Flexmodel.height){
+            layout.height = YGPointValue([Flexmodel.height floatValue]);
+        }
+        
+        if(Flexmodel.alignItems){
+            layout.alignItems = [self alignItems:Flexmodel.alignItems];
+        }
+        if (Flexmodel.justifyContent) {
+            layout.justifyContent = [self justify:Flexmodel.justifyContent];
+        }
+        
+    }];
+    return listItem;
+}
 -(UIView *)createFlexNode:(Flex *)Flexmodel
 {
     UIView *contentView = [[UIView alloc]init];
@@ -460,4 +524,19 @@
     }
     
 }
+
+//-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+//    return 1;
+//}
+//- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+//    return 20;
+//}
+//- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+//    CustomCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MyCell" forIndexPath:indexPath];
+//    cell.titleLabel.text = [NSString stringWithFormat:@"%ld",indexPath.row];
+//    cell.titleLabel.textColor = [UIColor blackColor];
+//    cell.titleLabel.font = [UIFont systemFontOfSize:16];
+//    cell.backgroundColor = [UIColor redColor];
+//    return cell;
+//}
 @end

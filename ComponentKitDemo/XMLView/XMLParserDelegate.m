@@ -129,6 +129,39 @@
         
         [self.openTag addObject: elementName ];
         
+    }else if ([elementName isEqualToString:@"List"]) {
+        
+        
+        self.currentList = [[Listcomponent alloc] init];
+        self.currentList.key = attributeDict[@"key"];
+        self.currentList.width = attributeDict[@"width"];
+        self.currentList.height = attributeDict[@"height"];
+        self.currentList.alignItems = attributeDict[@"alignItems"];
+        self.currentList.background = attributeDict[@"background"];
+        self.currentList.flexDirection = attributeDict[@"flexDirection"];
+        self.currentList.paddingBottom = attributeDict[@"paddingBottom"];
+        self.currentList.marginTop = attributeDict[@"marginTop"];
+        self.currentList.marginLeft = attributeDict[@"marginLeft"];
+        self.currentList.marginRight = attributeDict[@"marginRight"];
+        self.currentList.padding = attributeDict[@"padding"];
+        self.currentList.flexGrow = attributeDict[@"flexGrow"];
+        self.currentList.justifyContent = attributeDict[@"justifyContent"];
+        
+        
+        if (attributeDict[@"onclick"].length > 0) {
+            NSString *jsonstr = attributeDict[@"onclick"];
+            NSDictionary *dic = [NBData dictionaryWithJsonString:jsonstr];
+            self.self.currentList.onclick = dic;
+        }
+        
+        self.currentList.background = attributeDict[@"background"];
+        [self.currentFlex.buttons addObject:self.currentList];
+        [self.currentFlex.content addObject:self.currentList];
+        
+        [self.currentFlex.FlexorderItem addObject:self.currentList];
+        
+        [self.openTag addObject: elementName ];
+        
     }
 //    self.currentElementValue = [[NSMutableString alloc] init];
 }
@@ -174,6 +207,10 @@
         //self.currentText.text = [self.currentElementValue copy];
 //        [self.currentFlex.texts addObject:self.currentText];
         self.currentButton = nil;
+    }else if ([elementName isEqualToString:@"List"]) {
+        //self.currentText.text = [self.currentElementValue copy];
+//        [self.currentFlex.texts addObject:self.currentText];
+        self.currentList = nil;
     }
 
 }
