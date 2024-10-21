@@ -146,16 +146,25 @@
         self.currentList.padding = attributeDict[@"padding"];
         self.currentList.flexGrow = attributeDict[@"flexGrow"];
         self.currentList.justifyContent = attributeDict[@"justifyContent"];
+        if (attributeDict[@"source"].length > 0) {
+            NSString *jsonstr = attributeDict[@"source"];
+            // 将字符串转换为 NSData
+            NSData *jsonData = [jsonstr dataUsingEncoding:NSUTF8StringEncoding];
+            NSError *error;
+            // 使用 NSJSONSerialization 解析 JSON 数据
+            NSArray *array = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
+            self.currentList.source = [NSMutableArray arrayWithArray:array];
+        }
+        
         
         
         if (attributeDict[@"onclick"].length > 0) {
             NSString *jsonstr = attributeDict[@"onclick"];
             NSDictionary *dic = [NBData dictionaryWithJsonString:jsonstr];
-            self.self.currentList.onclick = dic;
+            self.currentList.onclick = [NSMutableDictionary dictionaryWithDictionary:dic];
         }
         
-        self.currentList.background = attributeDict[@"background"];
-        [self.currentFlex.buttons addObject:self.currentList];
+        [self.currentFlex.lists addObject:self.currentList];
         [self.currentFlex.content addObject:self.currentList];
         
         [self.currentFlex.FlexorderItem addObject:self.currentList];

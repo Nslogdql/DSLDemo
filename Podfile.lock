@@ -1,20 +1,26 @@
 PODS:
+  - SDWebImage (5.19.7):
+    - SDWebImage/Core (= 5.19.7)
+  - SDWebImage/Core (5.19.7)
   - Yoga (2.0.1)
   - YogaKit (2.0.1):
     - Yoga (~> 2.0.1)
 
 DEPENDENCIES:
+  - SDWebImage
   - YogaKit (~> 2.0.0)
 
 SPEC REPOS:
   trunk:
+    - SDWebImage
     - Yoga
     - YogaKit
 
 SPEC CHECKSUMS:
+  SDWebImage: 8a6b7b160b4d710e2a22b6900e25301075c34cb3
   Yoga: 7ac7f65e2d7120bf97e75fd66436ed4c7bf8e37e
   YogaKit: 4751ba673fab49df29e2235e23c4ea7d6d5a339c
 
-PODFILE CHECKSUM: f0a2d98a35a949658e5248cda8cd9c0a60706d61
+PODFILE CHECKSUM: 4819539f84ea833271907dbdba4cf77447a78b78
 
 COCOAPODS: 1.15.2

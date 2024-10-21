@@ -9,6 +9,14 @@
 #import <YGLayout.h>
 #import <UIView+Yoga.h>
 @implementation Listcomponent
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _onclick = [NSMutableDictionary dictionary];
+        _source = [NSMutableArray array];
+    }
+    return self;
+}
 @end
 @implementation Buttoncomponent
 @end
@@ -24,6 +32,7 @@
         _texts = [NSMutableArray array];
         _Flex = [NSMutableArray array];
         _buttons = [NSMutableArray array];
+        _lists = [NSMutableArray array];
         //        _FlexorderItem = [NSMutableArray array];
     }
     return self;

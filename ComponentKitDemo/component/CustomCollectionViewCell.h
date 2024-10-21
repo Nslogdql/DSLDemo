@@ -11,6 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CustomCollectionViewCell : UICollectionViewCell
 @property (strong, nonatomic) UILabel *titleLabel;
+@property (strong, nonatomic) UIImageView *contengIMG;
 @end
 
 NS_ASSUME_NONNULL_END

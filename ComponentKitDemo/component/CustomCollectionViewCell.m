@@ -17,8 +17,14 @@
         self.titleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         [self.contentView addSubview:self.titleLabel];
         
+        self.contengIMG = [[UIImageView alloc] initWithFrame:self.contentView.bounds];
+        self.contengIMG .contentMode = UIViewContentModeScaleToFill;
+        self.contengIMG .backgroundColor = [UIColor clearColor];
+        
+        [self.contentView addSubview:self.contengIMG ];
+        
         // 设置背景色
-        self.contentView.backgroundColor = [UIColor blueColor];
+        self.contentView.backgroundColor = [UIColor clearColor];
     }
     return self;
 }

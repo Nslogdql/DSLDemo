@@ -24,7 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *flexGrow;
 @property (nonatomic, strong) NSString *justifyContent;
 @property (nonatomic, strong) NSString *padding;
-@property (nonatomic, strong) NSDictionary *onclick;
+@property (nonatomic, strong) NSMutableDictionary *onclick;
+@property (nonatomic, strong) NSMutableArray *source;
 @end
 
 @interface Buttoncomponent : DataNode
@@ -73,6 +74,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSMutableArray<Imagecomponent *> *images;
 @property (nonatomic, strong) NSMutableArray<Textcomponent *> *texts;
 @property (nonatomic, strong) NSMutableArray<Buttoncomponent *> *buttons;
+@property (nonatomic, strong) NSMutableArray<Listcomponent *> *lists;
 @property (nonatomic, strong) NSMutableArray<Flex *> *Flex;
 @property (nonatomic, strong) NSString *key;
 @property (nonatomic, strong) NSString *width;

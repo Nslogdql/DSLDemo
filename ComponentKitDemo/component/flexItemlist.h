@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface flexItemlist : UIView<UICollectionViewDelegate, UICollectionViewDataSource>
 @property(nonatomic,strong)flexItemUICollectionView *collectionView;
 @property(nonatomic,strong)UIViewController *actionVC;
+@property(nonatomic,strong)Listcomponent *listModel;
+@property(nonatomic,strong)NSMutableArray *listModelSource;
+@property(nonatomic,strong)UIPageControl *pageControl;
 - (instancetype)initWithText:(Listcomponent *)ListModel;
 @end
 

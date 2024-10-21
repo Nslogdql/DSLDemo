@@ -117,6 +117,8 @@
         view = [self createFlexNode:(Flex *)model];
     }else if ([model isMemberOfClass:[Listcomponent class]]) {
         view = [self createListNode:(Listcomponent *)model];
+    }else if ([model isMemberOfClass:[Buttoncomponent class]]) {
+        view = [self createButtonNode:(Buttoncomponent *)model];
     }
     [node addSubview:view];
     return view;
@@ -376,7 +378,7 @@
             //Flex*Model = [self findcreateChildDg:self.rootFlex key:@"message"];
             for (int i=0;i < clickJsonAray.count; i++) {
                 NSDictionary *clickJson= clickJsonAray[i];
-                [self findcreateChildDg:self.rootFlex key:clickJson[@"key"] complete:^(Flex *result) {
+                [self findcreateChildDg:self.rootFlex key:clickJson[@"key"] complete:^(DataNode *result) {
                     if (result != nil) {
                         
                         if ([result isMemberOfClass:[Imagecomponent class]]) {
@@ -409,7 +411,7 @@
             //Flex*Model = [self findcreateChildDg:self.rootFlex key:@"message"];
             for (int i=0;i < clickJsonAray.count; i++) {
                 NSDictionary *clickJson= clickJsonAray[i];
-                [self findcreateChildDg:self.rootFlex key:clickJson[@"key"] complete:^(Flex *result) {
+                [self findcreateChildDg:self.rootFlex key:clickJson[@"key"] complete:^(DataNode *result) {
                     if (result != nil) {
                         
                         if ([result isMemberOfClass:[Imagecomponent class]]) {
@@ -439,6 +441,22 @@
             }
             
         }
+    }else if([actionjson[@"actionType"] isEqual:@"updatebanner"]){
+        NSLog(@"更新banner");
+        NSString *listkey = actionjson[@"key"];
+        __weak typeof(self) weakself = self;
+        [self findcreateChildDg:self.rootFlex key:listkey complete:^(DataNode *result) {
+            //lis节点
+            if (result) {
+                if ([result isMemberOfClass:[Listcomponent class]]) {
+                    Listcomponent *banner = (Listcomponent *)result;
+                    banner.source = actionjson[@"updatebanner"];
+                    flexItemlist *bannerview = (flexItemlist *)[weakself.view viewWithTag:[listkey integerValue]];
+                    bannerview.listModelSource = actionjson[@"updatebanner"];
+                }
+            }
+            
+        }];
     }
     
     
@@ -473,25 +491,31 @@
     
 }
 
-- (void)findcreateChildDg:(DataNode *)origin key:(NSString *)key complete: (void (^)(Flex *result))completion {
+- (void)findcreateChildDg:(DataNode *)origin key:(NSString *)key complete: (void (^)(DataNode *result))completion {
     for (Flex *model in origin.FlexorderItem) {
-        NSArray *childList = model.FlexorderItem;
         [self findcreateChildNode:model key:key complete:completion];
         [self findcreateChildDg:model key:key complete:completion];
         
     }
 }
 
-- (void)findcreateChildNode:(DataNode *)model key:(NSString *)key complete: (void (^)(Flex *result))completion{
-    Flex *view;
+- (void)findcreateChildNode:(DataNode *)model key:(NSString *)key complete: (void (^)(DataNode *result))completion{
     if ([model isMemberOfClass:[Imagecomponent class]]) {
     } else if ([model isMemberOfClass:[Textcomponent class]]) {
     } else if ([model isMemberOfClass:[Flex class]]) {
         [self findcreateFlexNode:(Flex *)model key:key complete:completion];
+    }else if ([model isMemberOfClass:[Listcomponent class]]) {
+        [self findcreateListcomponentNode:(Listcomponent *)model key:key complete:completion];
     }
 }
 
--(void)findcreateFlexNode:(Flex *)Flexmodel key:(NSString *)key complete: (void (^)(Flex *result))completion{
+-(void)findcreateFlexNode:(Flex *)Flexmodel key:(NSString *)key complete: (void (^)(DataNode *result))completion{
+    if ([Flexmodel.key isEqualToString:key]) {
+        NSLog(@"------");
+        completion(Flexmodel);
+    }
+}
+-(void)findcreateListcomponentNode:(Listcomponent *)Flexmodel key:(NSString *)key complete: (void (^)(DataNode *result))completion{
     if ([Flexmodel.key isEqualToString:key]) {
         NSLog(@"------");
         completion(Flexmodel);
