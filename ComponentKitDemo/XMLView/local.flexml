@@ -15,7 +15,7 @@
             background="#AEEEEE"
             textSize="10"
             textAlignment="center"
-            text="点击更新banner"
+            text="点击更新banner以及贷款后面的字"
             marginLeft="20%"
             width="90%"
             onclick="{&quot;actionType&quot;:&quot;updatebanner&quot;,&quot;key&quot;:&quot;2020000401&quot;,&quot;updatebanner&quot;:[&quot;http://test.hccb.cc:7070/Attach/M00/00/EB/wERGk2MsKdaAGZgbAAUrKS0sBOk084.png&quot;,&quot;https://iibsp.hzbank.com.cn/filesharepublic/CorporBank/0026/NoDatePath/%E7%BB%BF%E8%89%B2%E6%96%B0%E7%89%88%E6%94%B9.png&quot;,&quot;http://test.hccb.cc:7070/Attach/M00/00/EB/wERGk2MsKXOARMUKAAUqW_2jxRI013.png&quot;]}"
@@ -54,7 +54,7 @@
                     text="贷款"
                     height="30"></Text>
                 <Text
-                    key="Text"
+                    key="2022040202"
                     marginLeft="5"
                     textSize="10"
                     marginTop="2"

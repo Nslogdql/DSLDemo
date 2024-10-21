@@ -95,7 +95,7 @@
     [self addSubview:self.pageControl];
         
     // 添加定时器以自动滚动
-    [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(autoScroll) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(autoScroll) userInfo:nil repeats:YES];
     
     
     

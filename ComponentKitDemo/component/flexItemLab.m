@@ -9,39 +9,72 @@
 #import <UIKit/UIKit.h>
 #import "UIColor+Hex.h"
 @implementation flexItemLab
--(flexItemLable *)flexIteminitWithText:(Textcomponent *)TextModel{
-    flexItemLable *lable = [[flexItemLable alloc] initWithFrame:CGRectMake(0, 0, [TextModel.width floatValue], [TextModel.height floatValue])];
-    lable.textModel = TextModel;
+-(instancetype)initWith:(Textcomponent *)TextModel{
+    if (self = [super init]) {
+    }
+    self.TextModel = TextModel;
+    [self flexIteminitWithText:TextModel];
+    return self;
+}
+-(void)flexIteminitWithText:(Textcomponent *)TextModel{
+    
+//    flexItemLable *lable = [[flexItemLable alloc] initWithFrame:CGRectMake(0, 0, [TextModel.width floatValue], [TextModel.height floatValue])];
+//    
+//    lable.textModel = TextModel;
     if (TextModel.background.length > 0) {
-        lable.backgroundColor = [UIColor colorWithHexString_xt:TextModel.background];
+        self.backgroundColor = [UIColor colorWithHexString_xt:TextModel.background];
     }else{
-        lable.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = [UIColor clearColor];
     }
     
-    lable.textColor = [UIColor blackColor];
     if ([TextModel.textAlignment isEqualToString:@"left"]) {
-        lable.textAlignment = NSTextAlignmentLeft;
+        self.textAlignment = NSTextAlignmentLeft;
     }else if ([TextModel.textAlignment isEqualToString:@"center"]){
-        lable.textAlignment = NSTextAlignmentCenter;
+        self.textAlignment = NSTextAlignmentCenter;
     }else if ([TextModel.textAlignment isEqualToString:@"right"]){
-        lable.textAlignment = NSTextAlignmentRight;
+        self.textAlignment = NSTextAlignmentRight;
     }else{
-        lable.textAlignment = NSTextAlignmentLeft;
+        self.textAlignment = NSTextAlignmentLeft;
     }
     
-    lable.font = [UIFont systemFontOfSize:[TextModel.textSize floatValue]];
+    self.font = [UIFont systemFontOfSize:[TextModel.textSize floatValue]];
     if(TextModel.text.length > 0){
-        lable.text = TextModel.text;
+        self.text = TextModel.text;
     }
-    if (TextModel.onclick.allKeys.count > 0) {
-        lable.userInteractionEnabled = YES;
-        [lable addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self.actionVC action:@selector(actionMananger:)]];
-    }
+    [self.TextModel addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:nil];
     
-    self.Lab = lable;
-    return self.Lab;
+    if (TextModel.onclick.allKeys.count > 0) {
+        self.userInteractionEnabled = YES;
+        [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self.actionVC action:@selector(actionMananger:)]];
+    }
+    if ([TextModel.key integerValue] >0) {
+        self.tag = [TextModel.key integerValue];
+    }
+}
+// KVO 观察者方法
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"text"]) {
+        if ([change[NSKeyValueChangeNewKey] length] > 0) {
+            NSString *newName = change[NSKeyValueChangeNewKey];
+            NSLog(@"Name changed to: %@", newName);
+            [self nameDidChange:newName];
+        }
+        
+    }
+}
+
+// 处理名称变化的方法
+- (void)nameDidChange:(NSString *)newName {
+    // 在这里处理名称变化逻辑
+    NSLog(@"Updated name: %@", newName);
+    self.text = newName;
+}
+
+- (void)dealloc {
+    // 移除 KVO 观察者
+    //[self.TextModel removeObserver:self forKeyPath:@"text"];
 }
 - (void)clickMe{
-    self.Lab.backgroundColor = [UIColor blackColor];
+    self.backgroundColor = [UIColor blackColor];
 }
 @end

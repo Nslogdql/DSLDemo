@@ -11,10 +11,11 @@
 #import "flexItemLable.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface flexItemLab : NSObject
-@property(nonatomic,strong)flexItemLable *Lab;
+@interface flexItemLab : UILabel
+//@property(nonatomic,strong)flexItemLable *Lab;
 @property(nonatomic,strong)UIViewController *actionVC;
--(flexItemLable *)flexIteminitWithText:(Textcomponent *)TextModel;
+@property(nonatomic,strong)Textcomponent *TextModel;
+-(instancetype)initWith:(Textcomponent *)TextModel;
 @end
 
 NS_ASSUME_NONNULL_END

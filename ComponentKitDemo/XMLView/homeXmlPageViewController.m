@@ -259,9 +259,10 @@
 
 -(UIView *)createTextNode:(Textcomponent *)textmodel
 {
-    flexItemLab *flexItem = [[flexItemLab alloc] init];
-    flexItem.actionVC = self;
-    flexItemLable *flexlab = [flexItem flexIteminitWithText:textmodel];
+//    flexItemLab *flexItem = [[flexItemLab alloc] init];
+//    flexItem.actionVC = self;
+    flexItemLab *flexlab = [[flexItemLab alloc] initWith:textmodel];
+    
     [flexlab configureLayoutWithBlock:^(YGLayout * layout) {
         layout.isEnabled = YES;
         if (textmodel.marginLeft) {
@@ -457,6 +458,19 @@
             }
             
         }];
+        
+        [self findcreateChildDg:self.rootFlex key:@"2022040202" complete:^(DataNode *result) {
+            //lis节点
+            if (result) {
+                if ([result isMemberOfClass:[Textcomponent class]]) {
+                    Textcomponent *lab = (Textcomponent *)result;
+                    lab.text = @"我要贷款!";
+                    //flexItemLable *newlab = (flexItemLable *)[self.view viewWithTag:2022040202];
+                    //newlab.text = @"我要贷款!"
+                }
+            }
+            
+        }];
     }
     
     
@@ -502,13 +516,19 @@
 - (void)findcreateChildNode:(DataNode *)model key:(NSString *)key complete: (void (^)(DataNode *result))completion{
     if ([model isMemberOfClass:[Imagecomponent class]]) {
     } else if ([model isMemberOfClass:[Textcomponent class]]) {
+        [self findcreateTextNode:(Textcomponent *)model key:key complete:completion];
     } else if ([model isMemberOfClass:[Flex class]]) {
         [self findcreateFlexNode:(Flex *)model key:key complete:completion];
     }else if ([model isMemberOfClass:[Listcomponent class]]) {
         [self findcreateListcomponentNode:(Listcomponent *)model key:key complete:completion];
     }
 }
-
+-(void)findcreateTextNode:(Textcomponent *)Flexmodel key:(NSString *)key complete: (void (^)(DataNode *result))completion{
+    if ([Flexmodel.key isEqualToString:key]) {
+        NSLog(@"------");
+        completion(Flexmodel);
+    }
+}
 -(void)findcreateFlexNode:(Flex *)Flexmodel key:(NSString *)key complete: (void (^)(DataNode *result))completion{
     if ([Flexmodel.key isEqualToString:key]) {
         NSLog(@"------");
