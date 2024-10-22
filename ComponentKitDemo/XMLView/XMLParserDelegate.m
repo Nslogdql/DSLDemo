@@ -113,6 +113,8 @@
         self.currentButton.height = attributeDict[@"height"];
         self.currentButton.width = attributeDict[@"width"];
         self.currentButton.selecttext = attributeDict[@"selecttext"];
+        self.currentButton.cornerRadius = attributeDict[@"cornerRadius"];
+        self.currentButton.titleColor = attributeDict[@"titleColor"];
         
         if (attributeDict[@"onclick"].length > 0) {
             NSString *jsonstr = attributeDict[@"onclick"];

@@ -69,11 +69,12 @@
                 alignItems="center"
                 marginLeft="20"
                 marginRight="20"
-                >
+                height="60">
                 <Flex
                     key="Flex"
                     alignItems="center"
                     flexDirection="row"
+                    height="60"
                     >
                     <Flex
                         key="Flex"
@@ -92,7 +93,9 @@
                     
                     <Flex
                         key="Flex"
-                        flexDirection="column">
+                        flexDirection="column"
+                        height="45"
+                        marginTop="15">
                             <Text
                                 key="Text"
                                 text="百业贷"
@@ -125,22 +128,31 @@
                                 ></Text>
                             
                         </Flex>
-                        
                     </Flex>
                     <Flex
                         key="Flex"
                         alignItems="center"
                         flexDirection="row"
+                        flexGrow="1"
+                        height="60">
+                    <Flex
+                        key="Flex"
+                        alignItems="center"
+                        flexDirection="row"
                         justifyContent="center">
-                        <button
+                        <Button
                             key="button"
-                            text="按钮"
-                            background="#AEEEEE"
+                            text="参加"
+                            background="#EF7E3A"
                             textSize="10"
                             textAlignment="center"
-                            width="35"
-                            height="30">
-                        </button>
+                            width="45"
+                            titleColor="#FFFFFF"
+                            cornerRadius="12.5"
+                            marginLeft="10"
+                            height="25">
+                        </Button>
+                    </Flex>
                     </Flex>
                     
                 </Flex>
@@ -154,6 +166,7 @@
                 alignItems="center"
                 marginLeft="20"
                 marginRight="20"
+                height="60"
                 >
                 <Flex
                     key="Flex"
@@ -165,6 +178,8 @@
                         alignItems="center"
                         flexDirection="column"
                         justifyContent="center"
+                        height="45"
+                        marginTop="10"
                         >
                         <Image
                             key="Image"
@@ -173,14 +188,16 @@
                             height="35"
                             marginLeft="22"
                             marginRight="22"
-                            marginTop="-30"
+                            marginTop="0"
                             ></Image>
                     </Flex>
                     <Flex
                         key="Flex"
                         flexDirection="column"
+                        height="60"
                         >
-                        <Flex>
+                        <Flex
+                            marginTop="15">
                             <Text
                                 key="Text"
                                 text="企业贷"
@@ -212,9 +229,35 @@
                                 text="万元"
                                 textSize="12"
                                 ></Text>
-                            
                         </Flex>
                     </Flex>
+                    
+                    <Flex
+                        key="Flex"
+                        alignItems="center"
+                        flexDirection="row"
+                        flexGrow="1"
+                        height="60">
+                    <Flex
+                        key="Flex"
+                        alignItems="center"
+                        flexDirection="row"
+                        justifyContent="center">
+                        <Button
+                            key="button"
+                            text="参加"
+                            background="#EF7E3A"
+                            textSize="10"
+                            textAlignment="center"
+                            width="45"
+                            titleColor="#FFFFFF"
+                            cornerRadius="12.5"
+                            marginLeft="10"
+                            height="25">
+                        </Button>
+                    </Flex>
+                    </Flex>
+
                 </Flex>
             </Flex>
         </Flex>
@@ -488,12 +531,13 @@
                     textSize="15"
                     textStyle="bold"
                     text="热门活动"></Text>
-                <Text
+                <Button
                     height="20"
                     key="Text"
                     textAlignment="right"
                     textSize="11"
-                    text="更多"></Text>
+                    onclick="{&quot;actionType&quot;:&quot;jump&quot;,&quot;jump&quot;:[{&quot;key&quot;:&quot;12138&quot;,&quot;actionType&quot;:&quot;jump&quot;,&quot;jump&quot;:&quot;100&quot;}]}"
+                    text="更多"></Button>
             </Flex>
             
             
@@ -744,12 +788,13 @@
                     textSize="15"
                     textStyle="bold"
                     text="宝石山工具箱"></Text>
-                <Text
+                <Button
                     height="20"
                     key="Text"
                     clickUrl="更多"
+                    onclick="{&quot;actionType&quot;:&quot;jump&quot;,&quot;jump&quot;:[{&quot;key&quot;:&quot;12138&quot;,&quot;actionType&quot;:&quot;jump&quot;,&quot;jump&quot;:&quot;100&quot;}]}"
                     textSize="11"
-                    text="更多"></Text>
+                    text="更多"></Button>
             </Flex>
             <Flex
                 key="Flex"
@@ -946,6 +991,46 @@
         </Flex>
         
         
+        <Flex
+            key="Flex"
+            flexDirection="row"
+            marginTop="10"
+            marginLeft="5%"
+            background="#AEEEEE"
+            width="90%"
+            height="35">
+            <Flex
+                key="Flex"
+                flexDirection="row"
+                background="#AEEEEE"
+                justifyContent="center"
+                width="90%"
+                height="35">
+                <Flex
+                    key="Flex"
+                    flexDirection="row"
+                    background="#AEEEEE"
+                    marginTop="10"
+                    height="20"
+                    width="20">
+                    <Image
+                        key="Image"
+                        height="20"
+                        width="20"
+                        scaleType="centerInside"
+                        src="wERGk2MQI-GAPtjMAAAP3ZmTxIM649"></Image>
+                </Flex>
+            <Text
+                height="20"
+                key="Text"
+                marginTop="10"
+                marginLeft="5"
+                textSize="11"
+                textAlignment="center"
+                text="客户投诉指南"></Text>
+            </Flex>
+        </Flex>
+        
         
         <Flex
             key="Flex"
@@ -971,6 +1056,10 @@
                 marginTop="5"
                 text="2015年开始运营.共服务用户5000万次"></Text>
         </Flex>
+        
+        
+        
+        
         
         
         

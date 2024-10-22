@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)UIScrollView *scroll;
 @property(nonatomic,strong)UIView *contentView;
 - (void)actionMananger:(UITapGestureRecognizer *)gesture;
+- (void)LabactionMananger:(UITapGestureRecognizer *)sender;
 @end
 
 NS_ASSUME_NONNULL_END

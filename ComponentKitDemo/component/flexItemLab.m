@@ -45,7 +45,7 @@
     
     if (TextModel.onclick.allKeys.count > 0) {
         self.userInteractionEnabled = YES;
-        [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self.actionVC action:@selector(actionMananger:)]];
+        [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self.actionVC action:@selector(LabactionMananger:)]];
     }
     if ([TextModel.key integerValue] >0) {
         self.tag = [TextModel.key integerValue];

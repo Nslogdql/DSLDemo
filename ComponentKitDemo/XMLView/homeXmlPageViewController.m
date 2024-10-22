@@ -23,6 +23,7 @@
 #import "flexItemUICollectionView.h"
 #import "Flex.h"
 #import "CustomCollectionViewCell.h"
+#import "SecondCustomViewController.h"
 @interface homeXmlPageViewController ()
 
 @end
@@ -323,7 +324,13 @@
     UIImageView *flexIMG = [flexItemIMG initWith:Imagemodel];
     [flexIMG configureLayoutWithBlock:^(YGLayout * layout) {
         layout.isEnabled = YES;
-        layout.marginTop = YGPointValue(20);
+        if (Imagemodel.marginTop) {
+            if ([Imagemodel.marginLeft containsString:@"%"]) {
+                layout.marginTop = YGPercentValue([Imagemodel.marginTop floatValue]);
+            }else{
+                layout.marginTop = YGPointValue([Imagemodel.marginTop floatValue]);
+            }
+        }
         if (Imagemodel.marginLeft) {
             if ([Imagemodel.marginLeft containsString:@"%"]) {
                 layout.marginLeft = YGPercentValue([Imagemodel.marginLeft floatValue]);
@@ -366,6 +373,17 @@
         return YGAlignFlexEnd;
     }else {
         return YGAlignFlexStart;
+    }
+}
+- (void)LabactionMananger:(UITapGestureRecognizer *)sender{
+    flexItemLab *lab = (flexItemLab*)sender.view;
+    Textcomponent *TextModel = lab.TextModel;
+    NSDictionary *actionjson = TextModel.onclick;
+    if ([actionjson[@"actionType"] isEqual:@"jump"]) {
+        NSLog(@"跳转页面");
+        
+        SecondCustomViewController *xml = [[SecondCustomViewController alloc] init];
+        [self.navigationController pushViewController:xml animated:YES];
     }
 }
 - (void)actionMananger:(UIButton *)sender{
@@ -471,6 +489,12 @@
             }
             
         }];
+    }else if([actionjson[@"actionType"] isEqual:@"jump"]){
+        NSLog(@"跳转页面");
+        
+        SecondCustomViewController *xml = [[SecondCustomViewController alloc] init];
+        [self.navigationController pushViewController:xml animated:YES];
+        
     }
     
     

@@ -17,8 +17,12 @@
     }else{
         btn.backgroundColor = [UIColor clearColor];
     }
+    if (buttonModel.titleColor.length > 0) {
+        [btn setTitleColor:[UIColor colorWithHexString_xt:buttonModel.titleColor] forState:UIControlStateNormal];
+    }else{
+        [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    }
     
-    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     if ([buttonModel.textAlignment isEqualToString:@"left"]) {
         btn.titleLabel.textAlignment = NSTextAlignmentLeft;
     }else if ([buttonModel.textAlignment isEqualToString:@"center"]){
@@ -32,6 +36,9 @@
     btn.titleLabel.font = [UIFont systemFontOfSize:[buttonModel.textSize floatValue]];
     if(buttonModel.text.length > 0){
         [btn setTitle:buttonModel.text forState:UIControlStateNormal];
+    }
+    if(buttonModel.cornerRadius.length > 0){
+        btn.layer.cornerRadius = [buttonModel.cornerRadius floatValue];
     }
     
     if(buttonModel.selecttext.length > 0){

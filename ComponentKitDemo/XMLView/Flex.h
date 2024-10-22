@@ -42,6 +42,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *textAlignment;
 @property (nonatomic, strong) NSDictionary *onclick;
 @property (nonatomic, strong) NSString *background;
+@property (nonatomic, strong) NSString *cornerRadius;
+@property (nonatomic, strong) NSString *titleColor;
 @end
 
 @interface Textcomponent : DataNode
