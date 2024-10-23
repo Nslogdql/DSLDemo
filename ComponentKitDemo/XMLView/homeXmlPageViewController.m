@@ -24,6 +24,7 @@
 #import "Flex.h"
 #import "CustomCollectionViewCell.h"
 #import "SecondCustomViewController.h"
+#import "FlexListView.h"
 @interface homeXmlPageViewController ()
 
 @end
@@ -190,7 +191,7 @@
 }
 -(UIView *)createListNode:(Listcomponent *)Flexmodel
 {
-    flexItemlist *listItem = [[flexItemlist alloc] initWithText:Flexmodel];
+    FlexListView *listItem = [[FlexListView alloc] initWithText:Flexmodel];
     listItem.actionVC = self;
     
     [listItem configureLayoutWithBlock:^(YGLayout * layout) {
