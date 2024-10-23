@@ -173,7 +173,50 @@
         
         [self.openTag addObject: elementName ];
         
+    }else if ([elementName isEqualToString:@"Banner"]) {
+        
+        
+        self.currentBanner = [[Bannercomponent alloc] init];
+        self.currentBanner.key = attributeDict[@"key"];
+        self.currentBanner.width = attributeDict[@"width"];
+        self.currentBanner.height = attributeDict[@"height"];
+        self.currentBanner.alignItems = attributeDict[@"alignItems"];
+        self.currentBanner.background = attributeDict[@"background"];
+        self.currentBanner.flexDirection = attributeDict[@"flexDirection"];
+        self.currentBanner.paddingBottom = attributeDict[@"paddingBottom"];
+        self.currentBanner.marginTop = attributeDict[@"marginTop"];
+        self.currentBanner.marginLeft = attributeDict[@"marginLeft"];
+        self.currentBanner.marginRight = attributeDict[@"marginRight"];
+        self.currentBanner.padding = attributeDict[@"padding"];
+        self.currentBanner.flexGrow = attributeDict[@"flexGrow"];
+        self.currentBanner.justifyContent = attributeDict[@"justifyContent"];
+        if (attributeDict[@"source"].length > 0) {
+            NSString *jsonstr = attributeDict[@"source"];
+            // 将字符串转换为 NSData
+            NSData *jsonData = [jsonstr dataUsingEncoding:NSUTF8StringEncoding];
+            NSError *error;
+            // 使用 NSJSONSerialization 解析 JSON 数据
+            NSArray *array = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
+            self.currentBanner.source = [NSMutableArray arrayWithArray:array];
+        }
+        
+        
+        
+        if (attributeDict[@"onclick"].length > 0) {
+            NSString *jsonstr = attributeDict[@"onclick"];
+            NSDictionary *dic = [NBData dictionaryWithJsonString:jsonstr];
+            self.currentBanner.onclick = [NSMutableDictionary dictionaryWithDictionary:dic];
+        }
+        
+        [self.currentFlex.banners addObject:self.currentBanner];
+        [self.currentFlex.content addObject:self.currentBanner];
+        
+        [self.currentFlex.FlexorderItem addObject:self.currentBanner];
+        
+        [self.openTag addObject: elementName ];
+        
     }
+    
 //    self.currentElementValue = [[NSMutableString alloc] init];
 }
 
@@ -222,8 +265,13 @@
         //self.currentText.text = [self.currentElementValue copy];
 //        [self.currentFlex.texts addObject:self.currentText];
         self.currentList = nil;
+    }else if ([elementName isEqualToString:@"Banner"]) {
+        //self.currentText.text = [self.currentElementValue copy];
+//        [self.currentFlex.texts addObject:self.currentText];
+        self.currentBanner = nil;
     }
 
+    
 }
 
 @end

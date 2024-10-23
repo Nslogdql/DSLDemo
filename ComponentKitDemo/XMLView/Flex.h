@@ -10,6 +10,23 @@
 
 #import "YGLayout.h"
 NS_ASSUME_NONNULL_BEGIN
+@interface Bannercomponent : DataNode
+@property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) NSString *width;
+@property (nonatomic, strong) NSString *height;
+@property (nonatomic, strong) NSString *alignItems;
+@property (nonatomic, strong) NSString *background;
+@property (nonatomic, strong) NSString *flexDirection;
+@property (nonatomic, strong) NSString *paddingBottom;
+@property (nonatomic, strong) NSString *marginTop;
+@property (nonatomic, strong) NSString *marginLeft;
+@property (nonatomic, strong) NSString *marginRight;
+@property (nonatomic, strong) NSString *flexGrow;
+@property (nonatomic, strong) NSString *justifyContent;
+@property (nonatomic, strong) NSString *padding;
+@property (nonatomic, strong) NSMutableDictionary *onclick;
+@property (nonatomic, strong) NSMutableArray *source;
+@end
 @interface Listcomponent : DataNode
 @property (nonatomic, strong) NSString *key;
 @property (nonatomic, strong) NSString *width;
@@ -77,6 +94,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSMutableArray<Textcomponent *> *texts;
 @property (nonatomic, strong) NSMutableArray<Buttoncomponent *> *buttons;
 @property (nonatomic, strong) NSMutableArray<Listcomponent *> *lists;
+@property (nonatomic, strong) NSMutableArray<Bannercomponent *> *banners;
 @property (nonatomic, strong) NSMutableArray<Flex *> *Flex;
 @property (nonatomic, strong) NSString *key;
 @property (nonatomic, strong) NSString *width;

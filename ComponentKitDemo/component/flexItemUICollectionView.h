@@ -10,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface flexItemUICollectionView : UICollectionView
-@property(nonatomic,strong)Listcomponent *listModel;
+@property(nonatomic,strong)Bannercomponent *listModel;
 @end
 
 NS_ASSUME_NONNULL_END

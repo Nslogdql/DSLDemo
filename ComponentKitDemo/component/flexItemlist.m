@@ -18,7 +18,7 @@
     }
     return self;
 }
-- (instancetype)initWithText:(Listcomponent *)ListModel{
+- (instancetype)initWithText:(Bannercomponent *)ListModel{
     if (self= [super init]) {
         [self ItemLabinitWithText:ListModel];
         _listModelSource = [NSMutableArray array];
@@ -30,7 +30,7 @@
     self.pageControl.numberOfPages = self.listModelSource.count;
     [self.collectionView reloadData];
 }
-- (void)ItemLabinitWithText:(Listcomponent *)ListModel{
+- (void)ItemLabinitWithText:(Bannercomponent *)ListModel{
     self.listModel = ListModel;
     self.tag = [ListModel.key integerValue];
     self.listModelSource = [NSMutableArray arrayWithArray:ListModel.source];

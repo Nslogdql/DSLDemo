@@ -8,6 +8,17 @@
 #import "Flex.h"
 #import <YGLayout.h>
 #import <UIView+Yoga.h>
+
+@implementation Bannercomponent
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _onclick = [NSMutableDictionary dictionary];
+        _source = [NSMutableArray array];
+    }
+    return self;
+}
+@end
 @implementation Listcomponent
 - (instancetype)init {
     self = [super init];
@@ -33,6 +44,7 @@
         _Flex = [NSMutableArray array];
         _buttons = [NSMutableArray array];
         _lists = [NSMutableArray array];
+        _banners = [NSMutableArray array];
         //        _FlexorderItem = [NSMutableArray array];
     }
     return self;

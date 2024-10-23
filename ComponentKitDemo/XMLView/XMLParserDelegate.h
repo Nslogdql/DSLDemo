@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) Textcomponent *currentText;
 @property (nonatomic, strong) Buttoncomponent *currentButton;
 @property (nonatomic, strong) Listcomponent *currentList;
+@property (nonatomic, strong) Bannercomponent *currentBanner;
 @property (nonatomic, strong) NSMutableString *currentElementValue;
 @end
 

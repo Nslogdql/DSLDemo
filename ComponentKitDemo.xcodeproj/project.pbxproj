@@ -12,6 +12,9 @@
 		6B0ED2D42CC5DE940074F8D8 /* flexItemUICollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0ED2D32CC5DE940074F8D8 /* flexItemUICollectionView.m */; };
 		6B0ED2D72CC5F5690074F8D8 /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0ED2D62CC5F5690074F8D8 /* CustomCollectionViewCell.m */; };
 		6B0ED31B2CC72F040074F8D8 /* SecondCustomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0ED31A2CC72F040074F8D8 /* SecondCustomViewController.m */; };
+		6B0ED32B2CC783C90074F8D8 /* local.json in Resources */ = {isa = PBXBuildFile; fileRef = 6B0ED32A2CC783C90074F8D8 /* local.json */; };
+		6B0ED32E2CC784320074F8D8 /* FlexJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0ED32D2CC784320074F8D8 /* FlexJson.m */; };
+		6B0ED3382CC792AA0074F8D8 /* local2.flexml in Resources */ = {isa = PBXBuildFile; fileRef = 6B0ED3372CC792AA0074F8D8 /* local2.flexml */; };
 		6B2B82872CC0AFB900573019 /* flexItemLable.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2B82862CC0AFB900573019 /* flexItemLable.m */; };
 		6B8AD4592CC23B7800D6B292 /* flexItemBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8AD4582CC23B7800D6B292 /* flexItemBtn.m */; };
 		6B8AD45C2CC23DC900D6B292 /* flexItemButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8AD45B2CC23DC900D6B292 /* flexItemButton.m */; };
@@ -76,6 +79,10 @@
 		6B0ED2D62CC5F5690074F8D8 /* CustomCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewCell.m; sourceTree = "<group>"; };
 		6B0ED3192CC72F040074F8D8 /* SecondCustomViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondCustomViewController.h; sourceTree = "<group>"; };
 		6B0ED31A2CC72F040074F8D8 /* SecondCustomViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondCustomViewController.m; sourceTree = "<group>"; };
+		6B0ED32A2CC783C90074F8D8 /* local.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = local.json; sourceTree = "<group>"; };
+		6B0ED32C2CC784320074F8D8 /* FlexJson.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlexJson.h; sourceTree = "<group>"; };
+		6B0ED32D2CC784320074F8D8 /* FlexJson.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlexJson.m; sourceTree = "<group>"; };
+		6B0ED3372CC792AA0074F8D8 /* local2.flexml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = local2.flexml; sourceTree = "<group>"; };
 		6B2B82852CC0AFB900573019 /* flexItemLable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = flexItemLable.h; sourceTree = "<group>"; };
 		6B2B82862CC0AFB900573019 /* flexItemLable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = flexItemLable.m; sourceTree = "<group>"; };
 		6B8AD4572CC23B7800D6B292 /* flexItemBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flexItemBtn.h; sourceTree = "<group>"; };
@@ -173,6 +180,10 @@
 				6B981F322CB7CE23002EB23E /* XMLReader.m */,
 				6B981F4A2CB8FC50002EB23E /* template.flexml */,
 				6B981F562CBA17D3002EB23E /* local.flexml */,
+				6B0ED3372CC792AA0074F8D8 /* local2.flexml */,
+				6B0ED32A2CC783C90074F8D8 /* local.json */,
+				6B0ED32C2CC784320074F8D8 /* FlexJson.h */,
+				6B0ED32D2CC784320074F8D8 /* FlexJson.m */,
 				6B981F352CB7CEF5002EB23E /* NBData.h */,
 				6B981F342CB7CEF5002EB23E /* NBData.m */,
 				6B981F372CB8AABB002EB23E /* Flex.h */,
@@ -426,7 +437,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B981F572CBA17D3002EB23E /* local.flexml in Resources */,
+				6B0ED32B2CC783C90074F8D8 /* local.json in Resources */,
 				6B981DF52CB630D3002EB23E /* Assets.xcassets in Resources */,
+				6B0ED3382CC792AA0074F8D8 /* local2.flexml in Resources */,
 				6B981F4B2CB8FC51002EB23E /* template.flexml in Resources */,
 				6B981DF82CB630D3002EB23E /* Base in Resources */,
 				6B981DF32CB630D2002EB23E /* Base in Resources */,
@@ -578,6 +591,7 @@
 				6B981F452CB8BD76002EB23E /* flexItemLab.m in Sources */,
 				85E099302CC0DC7800ABD518 /* flexItemBtn.m in Sources */,
 				6B981DEA2CB630D2002EB23E /* AppDelegate.m in Sources */,
+				6B0ED32E2CC784320074F8D8 /* FlexJson.m in Sources */,
 				6B2B82872CC0AFB900573019 /* flexItemLable.m in Sources */,
 				6B981F332CB7CE23002EB23E /* XMLReader.m in Sources */,
 				6B0ED31B2CC72F040074F8D8 /* SecondCustomViewController.m in Sources */,

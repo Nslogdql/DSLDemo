@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Flex.h"
+#import "FlexJson.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface homeXmlPageViewController : UIViewController
@@ -14,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)Flex *rootFlexCopy;
 @property(nonatomic,strong)UIScrollView *scroll;
 @property(nonatomic,strong)UIView *contentView;
+
+@property (nonatomic, strong) FlexJson *homeJson;
 - (void)actionMananger:(UITapGestureRecognizer *)gesture;
 - (void)LabactionMananger:(UITapGestureRecognizer *)sender;
 @end

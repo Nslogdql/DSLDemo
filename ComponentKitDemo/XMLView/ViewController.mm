@@ -13,9 +13,10 @@
 #import "XMLReader.h"
 #import "NBData.h"
 #import "XMLParserDelegate.h"
+#import "FlexJson.h"
 @interface ViewController ()
 @property (nonatomic, strong) YGLayout *yoga;
-
+@property (nonatomic, strong) FlexJson *homeJson;
 @end
 
 @implementation ViewController
@@ -81,9 +82,9 @@
     [self.navigationController pushViewController:xml animated:YES];
 }
 - (void)tohome{
+    [self loadLocalJson];
     
-    
-    NSString* path =[[NSBundle mainBundle] pathForResource:@"local.flexml" ofType:@""];
+    NSString* path =[[NSBundle mainBundle] pathForResource:@"local2.flexml" ofType:@""];
     NSData *data = [NSData dataWithContentsOfFile:path];
     NSError *error;
    NSDictionary *dic = [XMLReader dictionaryForXMLData:data error:&error];
@@ -103,12 +104,26 @@
     NSXMLParser *parser = [[NSXMLParser alloc] initWithData:xmldata];
     parser.delegate = parserDelegate;
     
+    // 正则表达式提取 XML 版本
+    NSError *versionerror = nil;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"version=\"([0-9.]+)\"" options:0 error:&versionerror];
+    NSTextCheckingResult *match = [regex firstMatchInString:xmlString options:0 range:NSMakeRange(0, [xmlString length])];
+
+    NSString *version = nil;
+    if (match) {
+        version = [xmlString substringWithRange:[match rangeAtIndex:1]];
+        NSLog(@"XML Version: %@", version);
+    } else {
+        NSLog(@"No version found in XML declaration.");
+    }
+    
     if ([parser parse]) {
         // 解析成功，可以访问 parserDelegate.rootFlex
         NSLog(@"Successfully parsed XML.%@---%@",parserDelegate.FatherrootFlex,parserDelegate.currentElementValue);
         homeXmlPageViewController *xml = [[homeXmlPageViewController alloc] init];
         xml.rootFlex =parserDelegate.FatherrootFlex;
         xml.rootFlexCopy = parserDelegate.FatherrootFlexCopy;
+        xml.homeJson = self.homeJson;
         [self.navigationController pushViewController:xml animated:YES];
     } else {
         NSLog(@"Failed to parse XML.");
@@ -116,5 +131,28 @@
         
     
     
+}
+- (void)loadLocalJson{
+    // 读取 JSON 文件
+       NSString *filePath = [[NSBundle mainBundle] pathForResource:@"local" ofType:@"json"];
+       NSData *data = [NSData dataWithContentsOfFile:filePath];
+       
+       if (data) {
+           NSError *error;
+           NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+           
+           if (!error) {
+               // 生成模型实例
+               FlexJson *flex = [[FlexJson alloc] init];
+               flex.banner = jsonDict[@"banner"];
+               flex.hangIocn = jsonDict[@"hangIocn"];
+               flex.middleIcon = jsonDict[@"middleIcon"];
+               self.homeJson = flex;
+           } else {
+               NSLog(@"Error parsing JSON: %@", error.localizedDescription);
+           }
+       } else {
+           NSLog(@"Error reading JSON file.");
+       }
 }
 @end
