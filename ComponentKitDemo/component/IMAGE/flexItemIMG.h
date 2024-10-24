@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface flexItemIMG : NSObject
-+ (UIImageView *)initWith:(Imagecomponent *)ImageModel with:(FlexJson *)json;
++ (UIImageView *)initWith:(Imagecomponent *)ImageModel;
 @end
 
 NS_ASSUME_NONNULL_END

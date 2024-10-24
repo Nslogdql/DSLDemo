@@ -10,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FlexListViewCollectionView : UICollectionView
-@property(nonatomic,strong)Listcomponent *listModel;
+@property(nonatomic,strong)Flex *listModel;
 @end
 
 NS_ASSUME_NONNULL_END

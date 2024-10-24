@@ -49,6 +49,8 @@
     }
     if ([TextModel.key integerValue] >0) {
         self.tag = [TextModel.key integerValue];
+    }else{
+        NSLog(@"----");
     }
 }
 // KVO 观察者方法

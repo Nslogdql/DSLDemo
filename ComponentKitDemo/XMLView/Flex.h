@@ -9,7 +9,7 @@
 #import "DataNode.h"
 
 #import "YGLayout.h"
-NS_ASSUME_NONNULL_BEGIN
+@class Flex;
 @interface Bannercomponent : DataNode
 @property (nonatomic, strong) NSString *key;
 @property (nonatomic, strong) NSString *width;
@@ -43,6 +43,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *padding;
 @property (nonatomic, strong) NSMutableDictionary *onclick;
 @property (nonatomic, strong) NSMutableArray *source;
+
+@property (nonatomic, strong) Flex *Flex;
 @end
 
 @interface Buttoncomponent : DataNode
@@ -97,6 +99,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSMutableArray<Bannercomponent *> *banners;
 @property (nonatomic, strong) NSMutableArray<Flex *> *Flex;
 @property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) NSString *style;
 @property (nonatomic, strong) NSString *width;
 @property (nonatomic, strong) NSString *height;
 @property (nonatomic, strong) NSString *alignItems;
@@ -114,6 +117,8 @@ NS_ASSUME_NONNULL_BEGIN
 // 其他属性...
 //父节点
 @property (nonatomic, strong) Flex *ParentFlex;
+
+@property (nonatomic, strong) NSMutableDictionary *onclick;
+@property (nonatomic, strong) NSMutableArray *source;
 @end
 
-NS_ASSUME_NONNULL_END

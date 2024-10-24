@@ -97,6 +97,18 @@
 {
     for (Flex *model in origin.FlexorderItem) {
         NSArray *childList = model.FlexorderItem;
+        if ([model isMemberOfClass:[Flex class]]) {
+           Flex *newmodel = (Flex *)model;
+           if ([newmodel.style isEqual:@"List"]) {
+               NSLog(@"List");
+               UIView *view = [self createListNode:newmodel];
+               [node addSubview:view];
+               break;;
+           }else{
+               
+           }
+           
+       }
         if (childList == NULL  || childList.count == 0) {
             [self createChildNode:model node:node];
             
@@ -116,9 +128,13 @@
     } else if ([model isMemberOfClass:[Textcomponent class]]) {
         view = [self createTextNode:(Textcomponent *)model];
     } else if ([model isMemberOfClass:[Flex class]]) {
-        view = [self createFlexNode:(Flex *)model];
-    }else if ([model isMemberOfClass:[Listcomponent class]]) {
-        view = [self createListNode:(Listcomponent *)model];
+        Flex *newmodel = (Flex *)model;
+        if ([newmodel.style isEqual:@"List"]) {
+            view = [self createListNode:newmodel];
+        }else{
+            view = [self createFlexNode:newmodel];
+        }
+        
     }else if ([model isMemberOfClass:[Buttoncomponent class]]) {
         view = [self createButtonNode:(Buttoncomponent *)model];
     }else if ([model isMemberOfClass:[Bannercomponent class]]) {
@@ -189,7 +205,7 @@
     }];
     return listItem;
 }
--(UIView *)createListNode:(Listcomponent *)Flexmodel
+-(UIView *)createListNode:(Flex *)Flexmodel
 {
     FlexListView *listItem = [[FlexListView alloc] initWithText:Flexmodel];
     listItem.actionVC = self;
@@ -385,7 +401,7 @@
 
 -(UIView *)createImageNode:(Imagecomponent *)Imagemodel
 {
-    UIImageView *flexIMG = [flexItemIMG initWith:Imagemodel with:self.homeJson];
+    UIImageView *flexIMG = [flexItemIMG initWith:Imagemodel];
     [flexIMG configureLayoutWithBlock:^(YGLayout * layout) {
         layout.isEnabled = YES;
         if (Imagemodel.marginTop) {
@@ -531,8 +547,8 @@
         [self findcreateChildDg:self.rootFlex key:listkey complete:^(DataNode *result) {
             //lis节点
             if (result) {
-                if ([result isMemberOfClass:[Listcomponent class]]) {
-                    Listcomponent *banner = (Listcomponent *)result;
+                if ([result isMemberOfClass:[Flex class]]) {
+                    Flex *banner = (Flex *)result;
                     banner.source = actionjson[@"updatebanner"];
                     flexItemlist *bannerview = (flexItemlist *)[weakself.view viewWithTag:[listkey integerValue]];
                     bannerview.listModelSource = actionjson[@"updatebanner"];

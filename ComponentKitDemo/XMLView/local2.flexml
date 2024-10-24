@@ -6,6 +6,12 @@
     justifyContent="center"
     width="100%"
     >
+    <for
+        var="index"
+        from="0"
+        to="${urls.size()-1}">
+        
+    </for>
     <Flex
         key="Flex"
         id="flex1.1"
@@ -544,7 +550,6 @@
                 key="Flex"
                 flexDirection="column"
                 justifyContent="center"
-                marginTop="10"
                 width="100%"
                 height="183">
                 <List
@@ -554,7 +559,65 @@
                     justifyContent="center"
                     width="100%"
                     height="183"
-                    source="[&quot;http://test.hccb.cc:7070/Attach/M00/00/EB/wERGk2MsKdaAGZgbAAUrKS0sBOk084.png&quot;,&quot;https://iibsp.hzbank.com.cn/filesharepublic/CorporBank/0026/NoDatePath/%E7%BB%BF%E8%89%B2%E6%96%B0%E7%89%88%E6%94%B9.png&quot;,&quot;http://test.hccb.cc:7070/Attach/M00/00/EB/wERGk2MsKXOARMUKAAUqW_2jxRI013.png&quot;]">
+                    source="[{&quot;image&quot;:&quot;wERGk2MQI-GAPtjMAAAP3ZmTxIM649&quot;,&quot;contenttitle&quot;:&quot;每日签到获取新朋友&quot;,&quot;content&quot;:&quot;每日签到获取1mg积分&quot;,&quot;click&quot;:&quot;参加&quot;},{&quot;image&quot;:&quot;wERGk2MQI-GAPtjMAAAP3ZmTxIM649&quot;,&quot;contenttitle&quot;:&quot;人脉财主&quot;,&quot;content&quot;:&quot;每邀请一位新朋友获得30积分&quot;,&quot;click&quot;:&quot;参加&quot;},{&quot;image&quot;:&quot;wERGk2MQI-GAPtjMAAAP3ZmTxIM649&quot;,&quot;contenttitle&quot;:&quot;每日签到获取新朋友&quot;,&quot;content&quot;:&quot;购买获得任意理财产品30积分&quot;,&quot;click&quot;:&quot;参加&quot;}]">
+                    
+                        <Flex
+                            key="Flex"
+                            flexDirection="row"
+                            alignItems="center"
+                            width="100%"
+                            height="61">
+                            <Flex
+                                key="Flex"
+                                alignItems="flexStart"
+                                flexDirection="column"
+                                justifyContent="flexStart">
+                                <Image
+                                    key="Image"
+                                    marginLeft="20"
+                                    marginTop="10"
+                                    height="30"
+                                    width="30"
+                                    src="wERGk2MQI-GAPtjMAAAP3ZmTxIM649"></Image>
+                            </Flex>
+                            <Flex
+                                key="Flex"
+                                flexDirection="column"
+                                justifyContent="FlexEnd"
+                                marginLeft="10"
+                                width="70%">
+                                <Text
+                                    key="contenttitle"
+                                    height="20"
+                                    width="100%"
+                                    textAlignment="left"
+                                    textSize="11"
+                                    marginTop="5"
+                                    text="每日签到获取新朋友"></Text>
+                                <Text
+                                    key="content"
+                                    height="20"
+                                    width="100%"
+                                    textAlignment="left"
+                                    textSize="15"
+                                    textStyle="bold"
+                                    text="每日签到获取1mg积分"></Text>
+                            </Flex>
+                            <Flex
+                                key="Flex"
+                                alignItems="center"
+                                flexDirection="column"
+                                justifyContent="flexStart">
+                                <Text
+                                    key="canjia"
+                                    width="40"
+                                    marginTop="20"
+                                    marginRight="20"
+                                    height="20"
+                                    textSize="11"
+                                    text="参加"></Text>
+                            </Flex>
+                        </Flex>
                     
                     
                 </List>
@@ -853,8 +916,6 @@
                 marginTop="5"
                 text="2015年开始运营.共服务用户5000万次"></Text>
         </Flex>
-        
-        
         
         
         

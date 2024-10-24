@@ -26,6 +26,9 @@
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary<NSString *,NSString *> *)attributeDict {
     //走UI
+    if ([elementName isEqualToString:@"for"]) {
+        NSLog(@"---");
+    }
     
     if ([elementName isEqualToString:@"Flex"]) {
         
@@ -43,6 +46,23 @@
         newFlex.padding = attributeDict[@"padding"];
         newFlex.flexGrow = attributeDict[@"flexGrow"];
         newFlex.justifyContent = attributeDict[@"justifyContent"];
+        if (attributeDict[@"source"].length > 0) {
+            NSString *jsonstr = attributeDict[@"source"];
+            // 将字符串转换为 NSData
+            NSData *jsonData = [jsonstr dataUsingEncoding:NSUTF8StringEncoding];
+            NSError *error;
+            // 使用 NSJSONSerialization 解析 JSON 数据
+            NSArray *array = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
+            newFlex.source = [NSMutableArray arrayWithArray:array];
+        }
+        
+        
+        
+        if (attributeDict[@"onclick"].length > 0) {
+            NSString *jsonstr = attributeDict[@"onclick"];
+            NSDictionary *dic = [NBData dictionaryWithJsonString:jsonstr];
+            newFlex.onclick = [NSMutableDictionary dictionaryWithDictionary:dic];
+        }
         
         if(self.openTag.count == 0){
             //根节点
@@ -133,21 +153,21 @@
         
     }else if ([elementName isEqualToString:@"List"]) {
         
-        
-        self.currentList = [[Listcomponent alloc] init];
-        self.currentList.key = attributeDict[@"key"];
-        self.currentList.width = attributeDict[@"width"];
-        self.currentList.height = attributeDict[@"height"];
-        self.currentList.alignItems = attributeDict[@"alignItems"];
-        self.currentList.background = attributeDict[@"background"];
-        self.currentList.flexDirection = attributeDict[@"flexDirection"];
-        self.currentList.paddingBottom = attributeDict[@"paddingBottom"];
-        self.currentList.marginTop = attributeDict[@"marginTop"];
-        self.currentList.marginLeft = attributeDict[@"marginLeft"];
-        self.currentList.marginRight = attributeDict[@"marginRight"];
-        self.currentList.padding = attributeDict[@"padding"];
-        self.currentList.flexGrow = attributeDict[@"flexGrow"];
-        self.currentList.justifyContent = attributeDict[@"justifyContent"];
+        Flex *newFlex = [[Flex alloc] init];
+        newFlex.key = attributeDict[@"key"];
+        newFlex.style = @"List";
+        newFlex.width = attributeDict[@"width"];
+        newFlex.height = attributeDict[@"height"];
+        newFlex.alignItems = attributeDict[@"alignItems"];
+        newFlex.background = attributeDict[@"background"];
+        newFlex.flexDirection = attributeDict[@"flexDirection"];
+        newFlex.paddingBottom = attributeDict[@"paddingBottom"];
+        newFlex.marginTop = attributeDict[@"marginTop"];
+        newFlex.marginLeft = attributeDict[@"marginLeft"];
+        newFlex.marginRight = attributeDict[@"marginRight"];
+        newFlex.padding = attributeDict[@"padding"];
+        newFlex.flexGrow = attributeDict[@"flexGrow"];
+        newFlex.justifyContent = attributeDict[@"justifyContent"];
         if (attributeDict[@"source"].length > 0) {
             NSString *jsonstr = attributeDict[@"source"];
             // 将字符串转换为 NSData
@@ -155,7 +175,7 @@
             NSError *error;
             // 使用 NSJSONSerialization 解析 JSON 数据
             NSArray *array = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
-            self.currentList.source = [NSMutableArray arrayWithArray:array];
+            newFlex.source = [NSMutableArray arrayWithArray:array];
         }
         
         
@@ -163,15 +183,60 @@
         if (attributeDict[@"onclick"].length > 0) {
             NSString *jsonstr = attributeDict[@"onclick"];
             NSDictionary *dic = [NBData dictionaryWithJsonString:jsonstr];
-            self.currentList.onclick = [NSMutableDictionary dictionaryWithDictionary:dic];
+            newFlex.onclick = [NSMutableDictionary dictionaryWithDictionary:dic];
         }
         
-        [self.currentFlex.lists addObject:self.currentList];
-        [self.currentFlex.content addObject:self.currentList];
         
-        [self.currentFlex.FlexorderItem addObject:self.currentList];
+        if(self.openTag.count == 0){
+            //根节点
+            self.FatherrootFlex = newFlex;
+            self.FatherrootFlexCopy = [newFlex mutableCopy];
+        } else {
+            newFlex.ParentFlex = self.currentFlex;
+        }
+        [self.openTag addObject:elementName];
+        [self.currentFlex.FlexorderItem addObject:newFlex];
         
-        [self.openTag addObject: elementName ];
+        self.currentFlex = newFlex;
+        
+//        self.currentList = [[Listcomponent alloc] init];
+//        self.currentList.key = attributeDict[@"key"];
+//        self.currentList.width = attributeDict[@"width"];
+//        self.currentList.height = attributeDict[@"height"];
+//        self.currentList.alignItems = attributeDict[@"alignItems"];
+//        self.currentList.background = attributeDict[@"background"];
+//        self.currentList.flexDirection = attributeDict[@"flexDirection"];
+//        self.currentList.paddingBottom = attributeDict[@"paddingBottom"];
+//        self.currentList.marginTop = attributeDict[@"marginTop"];
+//        self.currentList.marginLeft = attributeDict[@"marginLeft"];
+//        self.currentList.marginRight = attributeDict[@"marginRight"];
+//        self.currentList.padding = attributeDict[@"padding"];
+//        self.currentList.flexGrow = attributeDict[@"flexGrow"];
+//        self.currentList.justifyContent = attributeDict[@"justifyContent"];
+//        if (attributeDict[@"source"].length > 0) {
+//            NSString *jsonstr = attributeDict[@"source"];
+//            // 将字符串转换为 NSData
+//            NSData *jsonData = [jsonstr dataUsingEncoding:NSUTF8StringEncoding];
+//            NSError *error;
+//            // 使用 NSJSONSerialization 解析 JSON 数据
+//            NSArray *array = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
+//            self.currentList.source = [NSMutableArray arrayWithArray:array];
+//        }
+//        
+//        
+//        
+//        if (attributeDict[@"onclick"].length > 0) {
+//            NSString *jsonstr = attributeDict[@"onclick"];
+//            NSDictionary *dic = [NBData dictionaryWithJsonString:jsonstr];
+//            self.currentList.onclick = [NSMutableDictionary dictionaryWithDictionary:dic];
+//        }
+//        
+//        [self.currentFlex.lists addObject:self.currentList];
+//        [self.currentFlex.content addObject:self.currentList];
+//        
+//        [self.currentFlex.FlexorderItem addObject:self.currentList];
+//        
+//        [self.openTag addObject: elementName ];
         
     }else if ([elementName isEqualToString:@"Banner"]) {
         
@@ -246,6 +311,12 @@
             Flex *newLastNode = lNode.ParentFlex;
             self.currentFlex = newLastNode;
         }
+        
+        if ([elementName isEqualToString:@"List"]) {
+            Flex *lNode = self.currentFlex;
+            Flex *newLastNode = lNode.ParentFlex;
+            self.currentFlex = newLastNode;
+        }
     }
     [self.openTag removeLastObject];
     
@@ -264,7 +335,7 @@
     }else if ([elementName isEqualToString:@"List"]) {
         //self.currentText.text = [self.currentElementValue copy];
 //        [self.currentFlex.texts addObject:self.currentText];
-        self.currentList = nil;
+//        self.currentList = nil;
     }else if ([elementName isEqualToString:@"Banner"]) {
         //self.currentText.text = [self.currentElementValue copy];
 //        [self.currentFlex.texts addObject:self.currentText];
