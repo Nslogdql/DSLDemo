@@ -945,7 +945,6 @@
                 text="登陆后可查看资产详情"></Text>
             <Button
                 key="Text"
-                
                 textSize="10"
                 textAlignment="center"
                 text="未登录"

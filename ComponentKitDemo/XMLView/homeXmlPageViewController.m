@@ -93,22 +93,20 @@
     // 设置 UIScrollView 的 contentSize
 
     self.scroll.contentSize = CGSizeMake(contentView.bounds.size.width, contentView.bounds.size.height); // 手动设置 contentSize
-    [self makeif:self.ifMutablarray];
+    [self makefirstif:self.ifMutablarray];
 }
-- (void)makeif:(NSMutableArray *)ifarray{
+- (void)makefirstif:(NSMutableArray *)ifarray{
     NSMutableDictionary *login = [NSMutableDictionary dictionaryWithDictionary:[[NSUserDefaults standardUserDefaults] objectForKey:@"login"]];
     for (flexItemView *listItem in self.ifMutablarray) {
         if ([ExpressionEvaluator evaluateExpression:listItem.flexModel.condition withArray:login]) {
             listItem.yoga.height = YGPointValue([listItem.flexModel.height floatValue]);
             [self makeifsubview:NO with:listItem];
             [self.contentView.yoga applyLayoutPreservingOrigin:YES];
-            self.scroll.contentSize = CGSizeMake(self.scroll.contentSize.width, self.scroll.contentSize.height + [listItem.flexModel.height floatValue]);
             
         }else{
             listItem.yoga.height = YGPointValue(0);
             [self makeifsubview:YES with:listItem];
             [self.contentView.yoga applyLayoutPreservingOrigin:YES];
-            self.scroll.contentSize = CGSizeMake(self.scroll.contentSize.width, self.scroll.contentSize.height- [listItem.flexModel.height floatValue]);
             
         }
     }
@@ -576,6 +574,32 @@
     }
 }
 - (void)actionMananger:(UIButton *)sender{
+    //局部刷新
+//    if ([flexItemLab.text isEqualToString:@"V"]) {
+//        float orignHeight = flexItemLab.yoga.height.value;
+//        flexItemLab.yoga.marginTop = YGPointValue(50);
+//
+//        float superorignHeight = flexItemLab.superview.yoga.height.value;
+//        flexItemLab.superview.yoga.height = YGPointValue(superorignHeight + 50);
+//
+//        [self.contentView.yoga applyLayoutPreservingOrigin:YES];
+//        // 设置 UIScrollView 的 contentSize
+//        self.scroll.contentSize = CGSizeMake(self.contentView.bounds.size.width, self.scroll.contentSize.height + 50); // 手动设置 contentSize
+//        flexItemLab.text = @"-";
+//    }else{
+//        float orignHeight = flexItemLab.yoga.height.value;
+//        flexItemLab.yoga.height = YGPointValue(orignHeight - 50);
+//
+//        float superorignHeight = flexItemLab.superview.yoga.height.value;
+//        flexItemLab.yoga.marginTop = YGPointValue(0);
+////        flexItemLab.superview.yoga.height = YGPointValue(superorignHeight - 50);
+//
+//        [self.contentView.yoga applyLayoutPreservingOrigin:YES];
+//        // 设置 UIScrollView 的 contentSize
+//        self.scroll.contentSize = CGSizeMake(self.contentView.bounds.size.width, self.scroll.contentSize.height - 50); // 手动设置 contentSize
+//        flexItemLab.text = @"V";
+//    }
+    
     flexItemButton *flexItembtn = (flexItemButton *)(sender);
     flexItembtn.selected = !flexItembtn.selected;
     NSDictionary *actionjson = flexItembtn.buttonModel.onclick;
@@ -714,38 +738,25 @@
         [self makeif:self.ifMutablarray];
     }
     
-    
-   
-
-    
-    //局部刷新
-//    if ([flexItemLab.text isEqualToString:@"V"]) {
-//        float orignHeight = flexItemLab.yoga.height.value;
-//        flexItemLab.yoga.marginTop = YGPointValue(50);
-//        
-//        float superorignHeight = flexItemLab.superview.yoga.height.value;
-//        flexItemLab.superview.yoga.height = YGPointValue(superorignHeight + 50);
-//        
-//        [self.contentView.yoga applyLayoutPreservingOrigin:YES];
-//        // 设置 UIScrollView 的 contentSize
-//        self.scroll.contentSize = CGSizeMake(self.contentView.bounds.size.width, self.scroll.contentSize.height + 50); // 手动设置 contentSize
-//        flexItemLab.text = @"-";
-//    }else{
-//        float orignHeight = flexItemLab.yoga.height.value;
-//        flexItemLab.yoga.height = YGPointValue(orignHeight - 50);
-//        
-//        float superorignHeight = flexItemLab.superview.yoga.height.value;
-//        flexItemLab.yoga.marginTop = YGPointValue(0);
-////        flexItemLab.superview.yoga.height = YGPointValue(superorignHeight - 50);
-//        
-//        [self.contentView.yoga applyLayoutPreservingOrigin:YES];
-//        // 设置 UIScrollView 的 contentSize
-//        self.scroll.contentSize = CGSizeMake(self.contentView.bounds.size.width, self.scroll.contentSize.height - 50); // 手动设置 contentSize
-//        flexItemLab.text = @"V";
-//    }
-    
 }
-
+- (void)makeif:(NSMutableArray *)ifarray{
+    NSMutableDictionary *login = [NSMutableDictionary dictionaryWithDictionary:[[NSUserDefaults standardUserDefaults] objectForKey:@"login"]];
+    for (flexItemView *listItem in self.ifMutablarray) {
+        if ([ExpressionEvaluator evaluateExpression:listItem.flexModel.condition withArray:login]) {
+            listItem.yoga.height = YGPointValue([listItem.flexModel.height floatValue]);
+            [self makeifsubview:NO with:listItem];
+            [self.contentView.yoga applyLayoutPreservingOrigin:YES];
+            self.scroll.contentSize = CGSizeMake(self.scroll.contentSize.width, self.scroll.contentSize.height + [listItem.flexModel.height floatValue]);
+            
+        }else{
+            listItem.yoga.height = YGPointValue(0);
+            [self makeifsubview:YES with:listItem];
+            [self.contentView.yoga applyLayoutPreservingOrigin:YES];
+            self.scroll.contentSize = CGSizeMake(self.scroll.contentSize.width, self.scroll.contentSize.height- [listItem.flexModel.height floatValue]);
+            
+        }
+    }
+}
 - (void)findcreateChildDg:(DataNode *)origin key:(NSString *)key complete: (void (^)(DataNode *result))completion {
     for (Flex *model in origin.FlexorderItem) {
         [self findcreateChildNode:model key:key complete:completion];
