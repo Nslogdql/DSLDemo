@@ -11,6 +11,8 @@ target 'ComponentKitDemo' do
 pod 'YogaKit', '~> 2.0.0'
 pod 'SDWebImage'
 pod 'Masonry'
+
+pod 'GRMustache'
   #pod 'Yoga', '~> 2.0.0'
   target 'ComponentKitDemoTests' do
     inherit! :search_paths

@@ -120,5 +120,7 @@
 
 @property (nonatomic, strong) NSMutableDictionary *onclick;
 @property (nonatomic, strong) NSMutableArray *source;
+
+@property (nonatomic, strong) NSString *condition;
 @end
 

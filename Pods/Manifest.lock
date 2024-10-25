@@ -1,4 +1,8 @@
 PODS:
+  - GRMustache (7.3.2):
+    - JRSwizzle (~> 1.0)
+  - JRSwizzle (1.0.1)
+  - Masonry (1.1.0)
   - SDWebImage (5.19.7):
     - SDWebImage/Core (= 5.19.7)
   - SDWebImage/Core (5.19.7)
@@ -7,20 +11,28 @@ PODS:
     - Yoga (~> 2.0.1)
 
 DEPENDENCIES:
+  - GRMustache
+  - Masonry
   - SDWebImage
   - YogaKit (~> 2.0.0)
 
 SPEC REPOS:
   trunk:
+    - GRMustache
+    - JRSwizzle
+    - Masonry
     - SDWebImage
     - Yoga
     - YogaKit
 
 SPEC CHECKSUMS:
+  GRMustache: ebe6104fd30a6d22c1f36af131e19e2dbf7cd292
+  JRSwizzle: 21bdcb9e83d39b6f46c7df5b548b0f5995a8fab6
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SDWebImage: 8a6b7b160b4d710e2a22b6900e25301075c34cb3
   Yoga: 7ac7f65e2d7120bf97e75fd66436ed4c7bf8e37e
   YogaKit: 4751ba673fab49df29e2235e23c4ea7d6d5a339c
 
-PODFILE CHECKSUM: 4819539f84ea833271907dbdba4cf77447a78b78
+PODFILE CHECKSUM: 929fc860ce1461184d57449e0fe209976efde3c1
 
 COCOAPODS: 1.15.2

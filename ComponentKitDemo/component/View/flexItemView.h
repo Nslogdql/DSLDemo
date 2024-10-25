@@ -10,6 +10,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface flexItemView : UIView
+@property(nonatomic,strong)Flex *flexModel;
+@property(nonatomic,strong)UIViewController *actionVC;
 - (instancetype)initWith:(Flex *)FlexModel;
 @end
 

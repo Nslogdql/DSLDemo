@@ -917,9 +917,43 @@
                 text="2015年开始运营.共服务用户5000万次"></Text>
         </Flex>
         
+        <if condition="{{login}} > 0" marginLeft="5%"
+            width="90%" height="80" key="2020000409" alignItems="center"
+            flexDirection="column">
+            
+            <Button
+                key="Text"
+                background="#AEEEEE"
+                textSize="10"
+                textAlignment="center"
+                text="取消登陆"
+                width="100%"
+                onclick="{&quot;actionType&quot;:&quot;unlogin&quot;,&quot;key&quot;:&quot;2020000409&quot;,&quot;unlogin&quot;:&quot;unlogin&quot;}"
+                height="80"></Button>
+        </if>
         
-        
-        
+        <if condition="{{login}} == 0" marginLeft="5%"
+            width="90%" height="130" key="2020000410" alignItems="center"
+            flexDirection="column" background="#AEEEEE">
+            <Text
+                width="100%"
+                height="25"
+                key="Text"
+                textAlignment="center"
+                textSize="11"
+                marginTop="15"
+                text="登陆后可查看资产详情"></Text>
+            <Button
+                key="Text"
+                
+                textSize="10"
+                textAlignment="center"
+                text="未登录"
+                width="100%"
+                marginTop="10"
+                onclick="{&quot;actionType&quot;:&quot;login&quot;,&quot;key&quot;:&quot;2020000410&quot;,&quot;login&quot;:&quot;login&quot;}"
+                height="60"></Button>
+        </if>
         
     </Flex>
 </Flex>

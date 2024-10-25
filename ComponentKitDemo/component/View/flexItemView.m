@@ -24,6 +24,8 @@
 - (instancetype)initWith:(Flex *)FlexModel{
     if(self=[super init]){
     }
+    self.flexModel = FlexModel;
+    
     return self;
 }
 @end

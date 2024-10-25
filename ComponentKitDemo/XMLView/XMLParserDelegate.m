@@ -280,9 +280,57 @@
         
         [self.openTag addObject: elementName ];
         
+    }else if ([elementName isEqualToString:@"if"]) {
+        
+        Flex *newFlex = [[Flex alloc] init];
+        newFlex.key = attributeDict[@"key"];
+        newFlex.style = @"if";
+        newFlex.condition = attributeDict[@"condition"];
+        newFlex.width = attributeDict[@"width"];
+        newFlex.height = attributeDict[@"height"];
+        newFlex.alignItems = attributeDict[@"alignItems"];
+        newFlex.background = attributeDict[@"background"];
+        newFlex.flexDirection = attributeDict[@"flexDirection"];
+        newFlex.paddingBottom = attributeDict[@"paddingBottom"];
+        newFlex.marginTop = attributeDict[@"marginTop"];
+        newFlex.marginLeft = attributeDict[@"marginLeft"];
+        newFlex.marginRight = attributeDict[@"marginRight"];
+        newFlex.padding = attributeDict[@"padding"];
+        newFlex.flexGrow = attributeDict[@"flexGrow"];
+        newFlex.justifyContent = attributeDict[@"justifyContent"];
+        if (attributeDict[@"source"].length > 0) {
+            NSString *jsonstr = attributeDict[@"source"];
+            // 将字符串转换为 NSData
+            NSData *jsonData = [jsonstr dataUsingEncoding:NSUTF8StringEncoding];
+            NSError *error;
+            // 使用 NSJSONSerialization 解析 JSON 数据
+            NSArray *array = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
+            newFlex.source = [NSMutableArray arrayWithArray:array];
+        }
+        
+        
+        
+        if (attributeDict[@"onclick"].length > 0) {
+            NSString *jsonstr = attributeDict[@"onclick"];
+            NSDictionary *dic = [NBData dictionaryWithJsonString:jsonstr];
+            newFlex.onclick = [NSMutableDictionary dictionaryWithDictionary:dic];
+        }
+        
+        
+        if(self.openTag.count == 0){
+            //根节点
+            self.FatherrootFlex = newFlex;
+            self.FatherrootFlexCopy = [newFlex mutableCopy];
+        } else {
+            newFlex.ParentFlex = self.currentFlex;
+        }
+        [self.openTag addObject:elementName];
+        [self.currentFlex.FlexorderItem addObject:newFlex];
+        
+        self.currentFlex = newFlex;
+        
     }
     
-//    self.currentElementValue = [[NSMutableString alloc] init];
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
@@ -317,6 +365,11 @@
             Flex *newLastNode = lNode.ParentFlex;
             self.currentFlex = newLastNode;
         }
+        if ([elementName isEqualToString:@"if"]) {
+            Flex *lNode = self.currentFlex;
+            Flex *newLastNode = lNode.ParentFlex;
+            self.currentFlex = newLastNode;
+        }
     }
     [self.openTag removeLastObject];
     
@@ -340,6 +393,7 @@
         //self.currentText.text = [self.currentElementValue copy];
 //        [self.currentFlex.texts addObject:self.currentText];
         self.currentBanner = nil;
+    }else if ([elementName isEqualToString:@"if"]) {
     }
 
     

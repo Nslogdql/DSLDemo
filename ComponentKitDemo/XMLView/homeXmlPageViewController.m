@@ -25,8 +25,10 @@
 #import "CustomCollectionViewCell.h"
 #import "SecondCustomViewController.h"
 #import "FlexListView.h"
+#import "ExpressionEvaluator.h"
+#import "flexItemView.h"
 @interface homeXmlPageViewController ()
-
+@property(nonatomic,strong)NSMutableArray *ifMutablarray;
 @end
 
 @implementation homeXmlPageViewController
@@ -35,6 +37,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"首页";
+    self.ifMutablarray = [NSMutableArray array];
     
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -90,9 +93,35 @@
     // 设置 UIScrollView 的 contentSize
 
     self.scroll.contentSize = CGSizeMake(contentView.bounds.size.width, contentView.bounds.size.height); // 手动设置 contentSize
-   
+    [self makeif:self.ifMutablarray];
 }
-
+- (void)makeif:(NSMutableArray *)ifarray{
+    NSMutableDictionary *login = [NSMutableDictionary dictionaryWithDictionary:[[NSUserDefaults standardUserDefaults] objectForKey:@"login"]];
+    for (flexItemView *listItem in self.ifMutablarray) {
+        if ([ExpressionEvaluator evaluateExpression:listItem.flexModel.condition withArray:login]) {
+            listItem.yoga.height = YGPointValue([listItem.flexModel.height floatValue]);
+            [self makeifsubview:NO with:listItem];
+            [self.contentView.yoga applyLayoutPreservingOrigin:YES];
+            self.scroll.contentSize = CGSizeMake(self.scroll.contentSize.width, self.scroll.contentSize.height + [listItem.flexModel.height floatValue]);
+            
+        }else{
+            listItem.yoga.height = YGPointValue(0);
+            [self makeifsubview:YES with:listItem];
+            [self.contentView.yoga applyLayoutPreservingOrigin:YES];
+            self.scroll.contentSize = CGSizeMake(self.scroll.contentSize.width, self.scroll.contentSize.height- [listItem.flexModel.height floatValue]);
+            
+        }
+    }
+}
+- (void)makeifsubview:(BOOL)flag with:(UIView *)listItem{
+    for (UIView *view in listItem.subviews) {
+        view.hidden = flag;
+        if (view.subviews.count > 0) {
+            [self makeifsubview:flag with:view];
+        }
+    }
+    
+}
 - (void)createChildDg:(DataNode *)origin node:(UIView *)node
 {
     for (Flex *model in origin.FlexorderItem) {
@@ -103,9 +132,7 @@
                NSLog(@"List");
                UIView *view = [self createListNode:newmodel];
                [node addSubview:view];
-               break;;
-           }else{
-               
+               break;
            }
            
        }
@@ -115,6 +142,16 @@
         } else {
             UIView *view = [self createFlexNode:model ];
             [node addSubview:view];
+            if ([model isMemberOfClass:[Flex class]]) {
+                Flex *newmodel = (Flex *)model;
+                if ([newmodel.style isEqual:@"if"]) {
+                    NSLog(@"if");
+                    //if ([newmodel.condition isEqualToString:@"0"]) {
+                        [self.ifMutablarray addObject:view];
+                   // }
+                }
+            }
+            
             [self createChildDg:model node:view];
         }
     }
@@ -131,6 +168,8 @@
         Flex *newmodel = (Flex *)model;
         if ([newmodel.style isEqual:@"List"]) {
             view = [self createListNode:newmodel];
+        }else if ([newmodel.style isEqual:@"if"]) {
+            view = [self createIfNode:newmodel];
         }else{
             view = [self createFlexNode:newmodel];
         }
@@ -142,6 +181,74 @@
     }
     [node addSubview:view];
     return view;
+}
+-(UIView *)createIfNode:(Flex *)Flexmodel
+{
+    if ([Flexmodel.condition isEqualToString:@"0"]) {
+        NSLog(@"---");
+    }
+    flexItemView *listItem = [[flexItemView alloc] initWith:Flexmodel];
+    listItem.actionVC = self;
+    
+    [listItem configureLayoutWithBlock:^(YGLayout * layout) {
+        layout.isEnabled = YES;
+        if([Flexmodel.flexDirection isEqualToString: @"column"]){
+            layout.flexDirection =  YGFlexDirectionColumn;
+        }else{
+            layout.flexDirection =  YGFlexDirectionRow;
+        }
+        if (Flexmodel.marginLeft) {
+            if ([Flexmodel.marginLeft containsString:@"%"]) {
+                layout.marginLeft = YGPercentValue([Flexmodel.marginLeft floatValue]);
+            }else{
+                layout.marginLeft = YGPointValue([Flexmodel.marginLeft floatValue]);
+            }
+        }
+        if (Flexmodel.marginRight) {
+            if ([Flexmodel.marginRight containsString:@"%"]) {
+                layout.marginRight = YGPercentValue([Flexmodel.marginRight floatValue]);
+            }else{
+                layout.marginRight = YGPointValue([Flexmodel.marginRight floatValue]);
+            }
+        }
+        if (Flexmodel.justifyContent) {
+            if ([Flexmodel.justifyContent isEqualToString:@"spaceBetween"]) {
+                layout.justifyContent = YGJustifySpaceBetween;
+            }else if([Flexmodel.justifyContent isEqualToString:@"FlexEnd"]){
+                layout.justifyContent = YGJustifyFlexEnd;
+            }else{
+                layout.justifyContent = YGJustifyFlexStart;
+            }
+        }
+        if (Flexmodel.marginTop) {
+            layout.marginTop = YGPointValue([Flexmodel.marginTop floatValue]);
+        }
+        if (Flexmodel.width) {
+            if ([Flexmodel.width containsString:@"%"]) {
+                layout.width = YGPercentValue([Flexmodel.width floatValue]);
+            }else{
+                layout.width = YGPointValue([Flexmodel.width floatValue]);
+            }
+        }
+        if(Flexmodel.alignItems){
+            layout.alignItems = [self alignItems:Flexmodel.alignItems];
+        }
+        if(Flexmodel.height){
+            layout.height = YGPointValue([Flexmodel.height floatValue]);
+        }
+        
+        if(Flexmodel.alignItems){
+            layout.alignItems = [self alignItems:Flexmodel.alignItems];
+        }
+        if (Flexmodel.justifyContent) {
+            layout.justifyContent = [self justify:Flexmodel.justifyContent];
+        }
+        
+    }];
+//    NSMutableArray *login = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"login"]];
+//    [login addObject:@"12222"];
+//    bool result = [ExpressionEvaluator evaluateExpression:Flexmodel.condition withArray:login];
+    return listItem;
 }
 -(UIView *)createBannerNode:(Bannercomponent *)Flexmodel
 {
@@ -269,7 +376,9 @@
 }
 -(UIView *)createFlexNode:(Flex *)Flexmodel
 {
-    UIView *contentView = [[UIView alloc]init];
+    //UIView *contentView = [[UIView alloc]init];
+    flexItemView *contentView = [[flexItemView alloc] initWith:Flexmodel];
+    contentView.actionVC = self;
     if (Flexmodel.background) {
         contentView.backgroundColor = [UIColor colorWithHexString_xt:Flexmodel.background];
     }else{
@@ -569,16 +678,44 @@
             }
             
         }];
+        
+        [self findcreateChildDg:self.rootFlex key:@"" complete:^(DataNode *result) {
+            //lis节点
+            if (result) {
+                if ([result isMemberOfClass:[Textcomponent class]]) {
+                    Textcomponent *lab = (Textcomponent *)result;
+                    lab.text = @"我要贷款!";
+                    //flexItemLable *newlab = (flexItemLable *)[self.view viewWithTag:2022040202];
+                    //newlab.text = @"我要贷款!"
+                }
+            }
+            
+        }];
     }else if([actionjson[@"actionType"] isEqual:@"jump"]){
         NSLog(@"跳转页面");
         
         SecondCustomViewController *xml = [[SecondCustomViewController alloc] init];
         [self.navigationController pushViewController:xml animated:YES];
         
+    }else if([actionjson[@"actionType"] isEqual:@"login"]){
+        NSLog(@"登陆");
+        
+        NSMutableDictionary *login = [NSMutableDictionary dictionaryWithDictionary:[[NSUserDefaults standardUserDefaults] objectForKey:@"login"]];
+        [login setValue:@"1222" forKey:@"1222"];
+        [[NSUserDefaults standardUserDefaults] setObject:login forKey:@"login"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [self makeif:self.ifMutablarray];
+        
+    }else if([actionjson[@"actionType"] isEqual:@"unlogin"]){
+        NSLog(@"取消登陆");
+        NSMutableDictionary *login = [NSMutableDictionary dictionary];
+        [[NSUserDefaults standardUserDefaults] setObject:login forKey:@"login"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [self makeif:self.ifMutablarray];
     }
     
     
-    
+   
 
     
     //局部刷新
