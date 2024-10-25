@@ -107,7 +107,7 @@
             listItem.yoga.height = YGPointValue(0);
             [self makeifsubview:YES with:listItem];
             [self.contentView.yoga applyLayoutPreservingOrigin:YES];
-            
+            self.scroll.contentSize = CGSizeMake(self.scroll.contentSize.width, self.scroll.contentSize.height- [listItem.flexModel.height floatValue]);
         }
     }
 }
