@@ -51,4 +51,18 @@
             //}
             return [result toBool];
 }
++ (NSString *)parseExpression:(NSString *)expressionString with:(NSMutableDictionary *)params{
+    // 定义模板字符串
+        NSString *templateString = expressionString;
+        // 创建一个上下文数据字典
+    NSMutableDictionary *renderObject = [NSMutableDictionary dictionary];
+    [renderObject setValue:params[@"name"] forKey:@"name"];
+        // 使用 GRMustache 渲染模板
+        NSError *error = nil;
+        NSString *renderedString = [GRMustacheTemplate renderObject:renderObject fromString:templateString error:&error];
+    if (error) {
+        return expressionString;
+    }
+    return renderedString;
+}
 @end

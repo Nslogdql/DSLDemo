@@ -918,12 +918,26 @@
         </Flex>
         
         <if condition="{{login}} > 0" marginLeft="5%"
-            width="90%" height="80" key="2020000409" alignItems="center"
-            flexDirection="column">
-            
+            width="90%" height="180" key="2020000409" alignItems="center"
+            flexDirection="column" background="#AEEEEE">
+            <Text
+                width="100%"
+                height="25"
+                key="Text"
+                textAlignment="center"
+                textSize="11"
+                marginTop="15"
+                text="登陆后可查看资产详情,下面是一个本地存储对象"></Text>
+            <Text
+                width="100%"
+                height="25"
+                key="Text"
+                textAlignment="center"
+                textSize="11"
+                marginTop="15"
+                text="用户名"></Text>
             <Button
                 key="Text"
-                background="#AEEEEE"
                 textSize="10"
                 textAlignment="center"
                 text="取消登陆"
@@ -942,7 +956,7 @@
                 textAlignment="center"
                 textSize="11"
                 marginTop="15"
-                text="登陆后可查看资产详情"></Text>
+                text="登陆后可查看资产详情,下面是一个本地存储对象"></Text>
             <Button
                 key="Text"
                 textSize="10"

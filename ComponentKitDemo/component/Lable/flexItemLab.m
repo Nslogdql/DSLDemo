@@ -8,6 +8,7 @@
 #import "flexItemLab.h"
 #import <UIKit/UIKit.h>
 #import "UIColor+Hex.h"
+#import "ExpressionEvaluator.h"
 @implementation flexItemLab
 -(instancetype)initWith:(Textcomponent *)TextModel{
     if (self = [super init]) {
@@ -39,7 +40,14 @@
     
     self.font = [UIFont systemFontOfSize:[TextModel.textSize floatValue]];
     if(TextModel.text.length > 0){
-        self.text = TextModel.text;
+        if ([self ontainsGRMustacheTemplate:TextModel.text]) {
+            NSMutableDictionary *login = [NSMutableDictionary dictionaryWithDictionary:[[NSUserDefaults standardUserDefaults] objectForKey:@"login"]];
+            NSString *parsestr = [ExpressionEvaluator parseExpression:TextModel.text with:login];
+            self.text = parsestr;
+        }else{
+            self.text = TextModel.text;
+        }
+        
     }
     [self.TextModel addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:nil];
     
@@ -52,6 +60,15 @@
     }else{
         NSLog(@"----");
     }
+}
+-(BOOL)ontainsGRMustacheTemplate:(NSString *)Mustachestring{
+    // 正则表达式用于匹配 {{ ... }}
+    NSString *pattern = @"\\{\\{[^}]+\\}\\}";
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:nil];
+    
+    // 检查是否有匹配
+    NSUInteger numberOfMatches = [regex numberOfMatchesInString:Mustachestring options:0 range:NSMakeRange(0, [Mustachestring length])];
+    return numberOfMatches > 0;
 }
 // KVO 观察者方法
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {

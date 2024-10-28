@@ -726,6 +726,7 @@
         
         NSMutableDictionary *login = [NSMutableDictionary dictionaryWithDictionary:[[NSUserDefaults standardUserDefaults] objectForKey:@"login"]];
         [login setValue:@"1222" forKey:@"1222"];
+        [login setValue:@"存储名字" forKey:@"name"];
         [[NSUserDefaults standardUserDefaults] setObject:login forKey:@"login"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         [self makeif:self.ifMutablarray];

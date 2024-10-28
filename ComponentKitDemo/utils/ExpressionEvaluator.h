@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ExpressionEvaluator : NSObject
 + (BOOL)evaluateExpression:(NSString *)expressionString withArray:(NSMutableDictionary *)params;
+
++ (NSString *)parseExpression:(NSString *)expressionString with:(NSMutableDictionary *)params;
 @end
 
 NS_ASSUME_NONNULL_END
