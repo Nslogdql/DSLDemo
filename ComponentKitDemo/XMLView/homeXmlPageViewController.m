@@ -27,6 +27,7 @@
 #import "FlexListView.h"
 #import "ExpressionEvaluator.h"
 #import "flexItemView.h"
+#import "XMLParserDelegate.h"
 @interface homeXmlPageViewController ()
 @property(nonatomic,strong)NSMutableArray *ifMutablarray;
 @end
@@ -49,12 +50,17 @@
         //layout.alignItems = YGAlignCenter;
     }];
     
-    UIScrollView *scroll = [[UIScrollView alloc] init];
-    self.scroll = scroll;
+    
+    if (!self.scroll) {
+        UIScrollView *scroll = [[UIScrollView alloc] init];
+        scroll.scrollEnabled = YES;
+        self.scroll = scroll;
+    }
+    
     //[scroll sizeToFit];
-    scroll.scrollEnabled = YES;
+    
     //scroll.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.width*5);
-    [scroll configureLayoutWithBlock:^(YGLayout * layout) {
+    [self.scroll configureLayoutWithBlock:^(YGLayout * layout) {
         layout.isEnabled = YES;
         layout.flexDirection =  YGFlexDirectionColumn;
         layout.marginTop = YGPointValue(0);
@@ -62,38 +68,34 @@
         layout.height = YGPointValue(self.view.bounds.size.height);
         //layout.alignItems = YGAlignCenter;
     }];
-    [self.view addSubview: scroll];
+    [self.view addSubview: self.scroll];
     
-    UIView *contentView = [[UIView alloc]init];
-    contentView.backgroundColor = [UIColor whiteColor];
-    self.contentView = contentView;
-    [contentView configureLayoutWithBlock:^(YGLayout * layout) {
+    if (!self.contentView) {
+        UIView *contentView = [[UIView alloc]init];
+        contentView.backgroundColor = [UIColor whiteColor];
+        self.contentView = contentView;
+    }
+    
+    [self.contentView configureLayoutWithBlock:^(YGLayout * layout) {
         layout.isEnabled = YES;
         layout.flexDirection = YGFlexDirectionColumn;
 //        layout.alignItems = YGAlignCenter;
     }];
-    [scroll addSubview: contentView];
-    
-//    UIImageView *imageView = [[UIImageView alloc]init];
-//    imageView.backgroundColor = [UIColor purpleColor];
-//    imageView.image = [UIImage imageNamed:@"logo_baiyedai"];
-//    [contentView addSubview:imageView];
-//    [imageView configureLayoutWithBlock:^(YGLayout * _Nonnull layout) {
-//        layout.isEnabled = YES;
-//        
-//        layout.width = YGPointValue(35);
-//        layout.height = YGPointValue(35);;
-//    }];
+    [self.scroll addSubview: self.contentView];
+
     
 
-    [self createChildDg:self.rootFlex node:contentView];
+    [self createChildDg:self.rootFlex node:self.contentView];
 
-    [contentView.yoga applyLayoutPreservingOrigin:YES];
-    [self.scroll.yoga applyLayoutPreservingOrigin:YES];
+    [self.contentView.yoga applyLayoutPreservingOrigin:YES];
+    
     // 设置 UIScrollView 的 contentSize
-
-    self.scroll.contentSize = CGSizeMake(contentView.bounds.size.width, contentView.bounds.size.height); // 手动设置 contentSize
+    if (!self.firstDraw) {
+        [self.scroll.yoga applyLayoutPreservingOrigin:YES];
+    }
+    self.scroll.contentSize = CGSizeMake(self.contentView.bounds.size.width, self.contentView.bounds.size.height); // 手动设置 contentSize
     [self makefirstif:self.ifMutablarray];
+    self.firstDraw = YES;
 }
 - (void)makefirstif:(NSMutableArray *)ifarray{
     NSMutableDictionary *login = [NSMutableDictionary dictionaryWithDictionary:[[NSUserDefaults standardUserDefaults] objectForKey:@"login"]];
@@ -130,27 +132,39 @@
                NSLog(@"List");
                UIView *view = [self createListNode:newmodel];
                [node addSubview:view];
-               break;
+               continue;
            }
            
        }
         if (childList == NULL  || childList.count == 0) {
             [self createChildNode:model node:node];
-            
-        } else {
-            UIView *view = [self createFlexNode:model ];
-            [node addSubview:view];
             if ([model isMemberOfClass:[Flex class]]) {
                 Flex *newmodel = (Flex *)model;
                 if ([newmodel.style isEqual:@"if"]) {
                     NSLog(@"if");
                     //if ([newmodel.condition isEqualToString:@"0"]) {
-                        [self.ifMutablarray addObject:view];
+                        [self.ifMutablarray addObject:node];
                    // }
                 }
             }
+        } else {
             
-            [self createChildDg:model node:view];
+            if ([model isMemberOfClass:[Flex class]]&&[model.style isEqual:@"if"]) {
+                Flex *newmodel = (Flex *)model;
+                if ([newmodel.style isEqual:@"if"]) {
+                    NSLog(@"if");
+                    UIView *view = [self createIfNode:model ];
+                    [node addSubview:view];
+                    [self createChildDg:model node:view];
+                    //if ([newmodel.condition isEqualToString:@"0"]) {
+                        [self.ifMutablarray addObject:view];
+                   // }
+                }
+            }else{
+                UIView *view = [self createFlexNode:model ];
+                [node addSubview:view];
+                [self createChildDg:model node:view];
+            }
         }
     }
 }
@@ -187,7 +201,11 @@
     }
     flexItemView *listItem = [[flexItemView alloc] initWith:Flexmodel];
     listItem.actionVC = self;
-    
+    if (Flexmodel.background) {
+        listItem.backgroundColor = [UIColor colorWithHexString_xt:Flexmodel.background];
+    }else{
+        listItem.backgroundColor = [UIColor whiteColor];
+    }
     [listItem configureLayoutWithBlock:^(YGLayout * layout) {
         layout.isEnabled = YES;
         if([Flexmodel.flexDirection isEqualToString: @"column"]){
@@ -680,8 +698,8 @@
         [self findcreateChildDg:self.rootFlex key:listkey complete:^(DataNode *result) {
             //lis节点
             if (result) {
-                if ([result isMemberOfClass:[Flex class]]) {
-                    Flex *banner = (Flex *)result;
+                if ([result isMemberOfClass:[Bannercomponent class]]) {
+                    Bannercomponent *banner = (Bannercomponent *)result;
                     banner.source = actionjson[@"updatebanner"];
                     flexItemlist *bannerview = (flexItemlist *)[weakself.view viewWithTag:[listkey integerValue]];
                     bannerview.listModelSource = actionjson[@"updatebanner"];
@@ -717,7 +735,7 @@
         }];
     }else if([actionjson[@"actionType"] isEqual:@"jump"]){
         NSLog(@"跳转页面");
-        
+        [self reDraw];
         SecondCustomViewController *xml = [[SecondCustomViewController alloc] init];
         [self.navigationController pushViewController:xml animated:YES];
         
@@ -745,12 +763,26 @@
     for (flexItemView *listItem in self.ifMutablarray) {
         if ([ExpressionEvaluator evaluateExpression:listItem.flexModel.condition withArray:login]) {
             listItem.yoga.height = YGPointValue([listItem.flexModel.height floatValue]);
+            if (listItem.flexModel.width) {
+                if ([listItem.flexModel.width containsString:@"%"]) {
+                    listItem.yoga.width = YGPercentValue([listItem.flexModel.width floatValue]);
+                }else{
+                    listItem.yoga.width = YGPointValue([listItem.flexModel.width floatValue]);
+                }
+            }
             [self makeifsubview:NO with:listItem];
             [self.contentView.yoga applyLayoutPreservingOrigin:YES];
             self.scroll.contentSize = CGSizeMake(self.scroll.contentSize.width, self.scroll.contentSize.height + [listItem.flexModel.height floatValue]);
             
         }else{
             listItem.yoga.height = YGPointValue(0);
+            if (listItem.flexModel.width) {
+                if ([listItem.flexModel.width containsString:@"%"]) {
+                    listItem.yoga.width = YGPercentValue([listItem.flexModel.width floatValue]);
+                }else{
+                    listItem.yoga.width = YGPointValue([listItem.flexModel.width floatValue]);
+                }
+            }
             [self makeifsubview:YES with:listItem];
             [self.contentView.yoga applyLayoutPreservingOrigin:YES];
             self.scroll.contentSize = CGSizeMake(self.scroll.contentSize.width, self.scroll.contentSize.height- [listItem.flexModel.height floatValue]);
@@ -774,6 +806,13 @@
         [self findcreateFlexNode:(Flex *)model key:key complete:completion];
     }else if ([model isMemberOfClass:[Listcomponent class]]) {
         [self findcreateListcomponentNode:(Listcomponent *)model key:key complete:completion];
+    }else if ([model isMemberOfClass:[Bannercomponent class]]) {
+        [self findcreateBannerNode:(Bannercomponent *)model key:key complete:completion];
+    }
+}
+-(void)findcreateBannerNode:(Bannercomponent *)Flexmodel key:(NSString *)key complete: (void (^)(DataNode *result))completion{
+    if ([Flexmodel.key isEqualToString:key]) {
+        completion(Flexmodel);
     }
 }
 -(void)findcreateTextNode:(Textcomponent *)Flexmodel key:(NSString *)key complete: (void (^)(DataNode *result))completion{
@@ -833,4 +872,88 @@
 //    cell.backgroundColor = [UIColor redColor];
 //    return cell;
 //}
+//- (void)reDraw{
+//    [self viewDidLoad];
+//}
+- (void)reDraw{
+    for (UIView *view in self.contentView.subviews) {
+        [view removeFromSuperview];
+    }
+    self.ifMutablarray = [NSMutableArray array];
+    [self.contentView.yoga applyLayoutPreservingOrigin:YES];
+    NSString* path =[[NSBundle mainBundle] pathForResource:@"local2.flexml" ofType:@""];
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    NSError *error;
+    
+    // 将 NSData 转换为 NSString
+    NSString *xmlString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//    NSString *xmlString = @"";
+    NSData *xmldata =[xmlString dataUsingEncoding:NSUTF8StringEncoding];
+    XMLParserDelegate *parserDelegate = [[XMLParserDelegate alloc] init];
+    NSXMLParser *parser = [[NSXMLParser alloc] initWithData:xmldata];
+    parser.delegate = parserDelegate;
+    
+    // 正则表达式提取 XML 版本
+    NSError *versionerror = nil;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"version=\"([0-9.]+)\"" options:0 error:&versionerror];
+    NSTextCheckingResult *match = [regex firstMatchInString:xmlString options:0 range:NSMakeRange(0, [xmlString length])];
+
+    NSString *version = nil;
+    if (match) {
+        version = [xmlString substringWithRange:[match rangeAtIndex:1]];
+        NSLog(@"XML Version: %@", version);
+    } else {
+        NSLog(@"No version found in XML declaration.");
+    }
+    
+    if ([parser parse]) {
+        // 解析成功，可以访问 parserDelegate.rootFlex
+        NSLog(@"Successfully parsed XML.%@---%@",parserDelegate.FatherrootFlex,parserDelegate.currentElementValue);
+        self.rootFlex = parserDelegate.FatherrootFlex;
+    } else {
+        NSLog(@"Failed to parse XML.");
+    }
+    
+    
+    NSMutableDictionary *login = [NSMutableDictionary dictionary];
+    [[NSUserDefaults standardUserDefaults] setObject:login forKey:@"login"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [self viewDidLoad];
+//    UIScrollView *scroll = [[UIScrollView alloc] initWithFrame:self.view.frame];
+//    self.scroll = scroll;
+//    //[scroll sizeToFit];
+//    scroll.scrollEnabled = YES;
+//    //scroll.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.width*5);
+//    [scroll configureLayoutWithBlock:^(YGLayout * layout) {
+//        layout.isEnabled = YES;
+//        layout.flexDirection =  YGFlexDirectionColumn;
+//        layout.marginTop = YGPointValue(0);
+//        layout.width = YGPointValue(self.view.bounds.size.width);
+//        layout.height = YGPointValue(self.view.bounds.size.height);
+//        //layout.alignItems = YGAlignCenter;
+//    }];
+//    [self.view addSubview: scroll];
+//    
+//    UIView *contentView = [[UIView alloc]init];
+//    contentView.backgroundColor = [UIColor whiteColor];
+//    self.contentView = contentView;
+//    [contentView configureLayoutWithBlock:^(YGLayout * layout) {
+//        layout.isEnabled = YES;
+//        layout.flexDirection = YGFlexDirectionColumn;
+////        layout.alignItems = YGAlignCenter;
+//    }];
+//    [scroll addSubview: contentView];
+//
+//    
+//
+//    [self createChildDg:self.rootFlex node:contentView];
+//
+//    
+//    //[self.scroll.yoga applyLayoutPreservingOrigin:YES];
+//    [self.contentView.yoga applyLayoutPreservingOrigin:YES];
+//    // 设置 UIScrollView 的 contentSize
+//
+//    self.scroll.contentSize = CGSizeMake(contentView.bounds.size.width, contentView.bounds.size.height); // 手动设置 contentSize
+//    [self makefirstif:self.ifMutablarray];
+}
 @end
