@@ -65,4 +65,21 @@
     }
     return renderedString;
 }
++(NSMutableArray *)extractVariableNames:(NSString *)templateString{
+    NSError *error = nil;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\{\\{(.*?)\\}\\}"
+                                                                       options:0
+                                                                         error:&error];
+
+    NSMutableArray *variableNames = [NSMutableArray array];
+    NSArray *matches = [regex matchesInString:templateString options:0 range:NSMakeRange(0, templateString.length)];
+
+    for (NSTextCheckingResult *match in matches) {
+        NSRange matchRange = [match rangeAtIndex:1];
+        NSString *variableName = [templateString substringWithRange:matchRange];
+        [variableNames addObject:variableName];
+    }
+
+    return variableNames;
+}
 @end
