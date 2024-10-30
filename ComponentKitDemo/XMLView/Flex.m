@@ -13,8 +13,8 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _onclick = [NSMutableDictionary dictionary];
-        _source = [NSMutableArray array];
+//        _onclick = [NSMutableDictionary dictionary];
+//        _source = [NSMutableArray array];
     }
     return self;
 }
@@ -23,8 +23,8 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _onclick = [NSMutableDictionary dictionary];
-        _source = [NSMutableArray array];
+//        _onclick = [NSMutableDictionary dictionary];
+//        _source = [NSMutableArray array];
         _Flex = [[Flex alloc] init];
     }
     return self;
@@ -46,8 +46,8 @@
         _buttons = [NSMutableArray array];
         _lists = [NSMutableArray array];
         _banners = [NSMutableArray array];
-        _source = [NSMutableArray array];
-        _onclick = [NSMutableDictionary dictionary];
+//        _source = [NSMutableArray array];
+//        _onclick = [NSMutableDictionary dictionary];
         //        _FlexorderItem = [NSMutableArray array];
     }
     return self;

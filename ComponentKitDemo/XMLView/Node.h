@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Node : NSObject
 
+@property (nonatomic, strong) NSString *key;
 @property(nonatomic,strong) Node *parent;
 @property(nonatomic,strong) NSMutableArray *sons;
 @property(nonatomic,strong) NSMutableArray *content;

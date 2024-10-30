@@ -8,6 +8,15 @@
 #import "DataNode.h"
 
 @implementation DataNode
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _source = [NSMutableArray array];
+        _onclick = [NSMutableDictionary dictionary];
+        //        _FlexorderItem = [NSMutableArray array];
+    }
+    return self;
+}
 - (NSMutableArray *)FlexorderItem {
     if (!_FlexorderItem) {
         _FlexorderItem = [NSMutableArray array];
