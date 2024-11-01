@@ -63,7 +63,7 @@
 }
 -(BOOL)ontainsGRMustacheTemplate:(NSString *)Mustachestring{
     // 正则表达式用于匹配 {{ ... }}
-    NSString *pattern = @"\\{\\{[^}]+\\}\\}";
+    NSString *pattern = @"\\$\\s*\\{\\{\\s*(.*?)\\s*\\}\\}";
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:nil];
     
     // 检查是否有匹配

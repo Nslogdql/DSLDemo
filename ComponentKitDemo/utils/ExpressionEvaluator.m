@@ -82,4 +82,32 @@
 
     return variableNames;
 }
+
++(NSString *)evaluateScript:(NSString *)expressionString withjson:(NSDictionary *)jsonDic{
+    JSContext *context = [[JSContext alloc] init];
+
+   // 将 JSON 数据设置为 JavaScript 对象
+   [context setObject:jsonDic forKeyedSubscript:@"data"];
+
+   // 定义 JavaScript 表达式
+   NSString *expression = [NSString stringWithFormat:@"data.%@",expressionString];
+
+   // 执行 JavaScript 表达式
+   JSValue *result = [context evaluateScript:expression];
+
+   // 获取结果并输出
+   NSLog(@"解析结果: %@", [result toString]); // 输出: 解析结果:
+ 
+   return [result toString];
+}
+
++(BOOL)ontainsGRMustacheTemplate:(NSString *)Mustachestring{
+    // 正则表达式用于匹配 {{ ... }}
+    NSString *pattern = @"\\$\\s*\\{\\{\\s*(.*?)\\s*\\}\\}";
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:nil];
+    
+    // 检查是否有匹配
+    NSUInteger numberOfMatches = [regex numberOfMatchesInString:Mustachestring options:0 range:NSMakeRange(0, [Mustachestring length])];
+    return numberOfMatches > 0;
+}
 @end

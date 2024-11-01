@@ -956,4 +956,44 @@
 //    self.scroll.contentSize = CGSizeMake(contentView.bounds.size.width, contentView.bounds.size.height); // 手动设置 contentSize
 //    [self makefirstif:self.ifMutablarray];
 }
+- (void)paraseJsonSource:(NSDictionary *)json{
+    NSArray *jsonkey = json.allKeys;
+    for (int i =0; i < jsonkey.count;i++) {
+        NSString *jsonkeystr = jsonkey[i];
+        NSDictionary *dic = json[jsonkeystr];
+        if ([dic[@"style"] isEqualToString:@"Banner"]) {
+            
+        }else if ([dic[@"style"] isEqualToString:@"text"]){
+            
+            NSString *listkey = dic[@"key"];
+            __weak typeof(self) weakself = self;
+            [self findcreateChildDg:self.rootFlex key:listkey complete:^(DataNode *result) {
+                //lis节点
+                if (result) {
+                    if ([result isMemberOfClass:[Textcomponent class]]) {
+                        Textcomponent *textmodel = (Textcomponent *)result;
+                        textmodel.text = dic[@"updatebanner"];
+                        flexItemlist *bannerview = (flexItemlist *)[weakself.view viewWithTag:[listkey integerValue]];
+                        bannerview.listModelSource = dic[@"updatebanner"];
+                    }
+                }
+                
+            }];
+            
+            
+            
+        }else if ([dic[@"style"] isEqualToString:@"image"]){
+            
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+}
 @end

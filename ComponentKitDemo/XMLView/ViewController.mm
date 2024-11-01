@@ -14,9 +14,10 @@
 #import "NBData.h"
 #import "XMLParserDelegate.h"
 #import "FlexJson.h"
+#import "homePageSwiftViewController.h"
 @interface ViewController ()
 @property (nonatomic, strong) YGLayout *yoga;
-@property (nonatomic, strong) FlexJson *homeJson;
+@property (nonatomic, strong) NSDictionary *homeJson;
 @end
 
 @implementation ViewController
@@ -80,6 +81,9 @@
 - (void)tohome2{
     homepageViewController *xml = [[homepageViewController alloc] init];
     [self.navigationController pushViewController:xml animated:YES];
+   // homePageSwiftViewController *xml = [[homePageSwiftViewController alloc] init];
+    //[self.navigationController pushViewController:xml animated:YES];
+    
 }
 - (void)tohome{
     [self loadLocalJson];
@@ -143,11 +147,11 @@
            
            if (!error) {
                // 生成模型实例
-               FlexJson *flex = [[FlexJson alloc] init];
-               flex.banner = jsonDict[@"banner"];
-               flex.hangIocn = jsonDict[@"hangIocn"];
-               flex.middleIcon = jsonDict[@"middleIcon"];
-               self.homeJson = flex;
+               //FlexJson *flex = [[FlexJson alloc] init];
+               //flex.banner = jsonDict[@"banner"];
+               //flex.hangIocn = jsonDict[@"hangIocn"];
+               //flex.middleIcon = jsonDict[@"middleIcon"];
+               self.homeJson = jsonDict;
            } else {
                NSLog(@"Error parsing JSON: %@", error.localizedDescription);
            }

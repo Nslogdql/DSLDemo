@@ -78,6 +78,7 @@
         self.currentFlex = newFlex;
     } else if ([elementName isEqualToString:@"Image"]) {
         self.currentImage = [[Imagecomponent alloc] init];
+        self.currentImage.style = @"Image";
         self.currentImage.key = attributeDict[@"key"];
         self.currentImage.src = attributeDict[@"src"];
         self.currentImage.height = attributeDict[@"height"];
@@ -98,6 +99,7 @@
         self.currentText = [[Textcomponent alloc] init];
         self.currentText.key = attributeDict[@"key"];
         self.currentText.text = attributeDict[@"text"];
+        self.currentText.style = @"text";
         self.currentText.textSize = attributeDict[@"textSize"];
         self.currentText.textStyle = attributeDict[@"textStyle"];
         self.currentText.marginLeft = attributeDict[@"marginLeft"];
@@ -123,6 +125,7 @@
     }else if ([elementName isEqualToString:@"Button"]) {
         
         self.currentButton = [[Buttoncomponent alloc] init];
+        self.currentButton.style = @"Button";
         self.currentButton.key = attributeDict[@"key"];
         self.currentButton.text = attributeDict[@"text"];
         self.currentButton.textSize = attributeDict[@"textSize"];
@@ -242,6 +245,7 @@
         
         
         self.currentBanner = [[Bannercomponent alloc] init];
+        self.currentBanner.style = @"Banner";
         self.currentBanner.key = attributeDict[@"key"];
         self.currentBanner.width = attributeDict[@"width"];
         self.currentBanner.height = attributeDict[@"height"];

@@ -341,17 +341,17 @@
                     marginLeft="10"
                     marginTop="20">
                     <Text
-                        key="Text"
+                        key="202200110908"
                         textSize="10"
                         textAlignment="left"
-                        text="直销银行"
+                        text="{{text}}"
                         width="100"
                         height="20"></Text>
                     <Text
-                        key="Text"
+                        key="202200110909"
                         textSize="10"
                         marginTop="10"
-                        text="05月19日"
+                        text="{{text}}"
                         textAlignment="left"
                         width="160"
                         height="20"></Text>
@@ -510,7 +510,7 @@
         </Flex>
         
         <Image
-            key="Image"
+            key="202200110907"
             height="60"
             marginTop="20"
             marginLeft="20"

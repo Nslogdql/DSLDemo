@@ -1,12 +1,26 @@
 {
-    "banner": [
-        "http://test.hccb.cc:7070/Attach/M00/00/EB/wERGk2MsKdaAGZgbAAUrKS0sBOk084.png",
-        "https://iibsp.hzbank.com.cn/filesharepublic/CorporBank/0026/NoDatePath/%E7%BB%BF%E8%89%B2%E6%96%B0%E7%89%88%E6%94%B9.png",
-        "http://test.hccb.cc:7070/Attach/M00/00/EB/wERGk2MsKXOARMUKAAUqW_2jxRI013.png"
-    ],
-    "hangIocn": {
-        "name": "直销银行",
-        "date": "05月19日"
+    "2020000401": {
+        "key": "2020000401",
+        "style"："Banner",
+        "source": [
+            "http://test.hccb.cc:7070/Attach/M00/00/EB/wERGk2MsKdaAGZgbAAUrKS0sBOk084.png",
+            "https://iibsp.hzbank.com.cn/filesharepublic/CorporBank/0026/NoDatePath/%E7%BB%BF%E8%89%B2%E6%96%B0%E7%89%88%E6%94%B9.png",
+            "http://test.hccb.cc:7070/Attach/M00/00/EB/wERGk2MsKXOARMUKAAUqW_2jxRI013.png"
+        ]
     },
-    "middleIcon": "local-daoshi"
+    "202200110908": {
+        "style"："text",
+        "key": "202200110908",
+        "text": "直销银行"
+    },
+    "202200110909": {
+        "style"："text",
+        "key": "202200110909",
+        "text": "05月19日"
+    },
+    "202200110907": {
+        "style"："image",
+        "key": "202200110907",
+        "source": "local-daoshi"
+    }
 }

@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)UIScrollView *scroll;
 @property(nonatomic,strong)UIView *contentView;
 
-@property (nonatomic, strong) FlexJson *homeJson;
+@property (nonatomic, strong) NSDictionary *homeJson;
 - (void)actionMananger:(UITapGestureRecognizer *)gesture;
 - (void)LabactionMananger:(UITapGestureRecognizer *)sender;
 @end
